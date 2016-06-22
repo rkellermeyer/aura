@@ -1,0 +1,57 @@
+.menu
+  background-color: #292c2f
+  padding: 1.5rem 3rem
+  height: auto
+  .inline-list
+    text-align: center
+    li
+      float: none
+      display: inline-block
+      margin-left: 1rem
+    a
+      color: #fff
+      padding-bottom: 0.5rem
+      &:hover
+        color: #9bae5a
+        transition: all .3s ease-in-out
+    .active a
+      background-color: #292c2f
+      color: #9bae5a
+  .account
+    position: absolute
+    top: 3%
+    right: 3%
+    a, i
+      color: #fff
+  .account-action
+    float: right
+    margin: 0 0 0 0
+    li
+      margin-left: .2rem
+    a
+      padding: 0.75rem 1rem
+      &.signup
+        font-weight: bold
+
+@media only screen and (min-width: 40.063em)
+  .menu
+    height: 5rem
+    .inline-list
+      float: left
+      margin: 0 0 0 1.5rem
+    a:hover
+      border-bottom: 2px solid #9bae5a
+
+.name
+  text-align: center
+  font-size: 1.5rem
+  line-height: 1
+  margin: 0 0 1rem 0
+  color: #fff
+  i
+    color: #9bae5a
+    margin-right: 0.5rem
+
+@media only screen and (min-width: 40.063em)
+  .name
+    float: left
