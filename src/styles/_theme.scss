@@ -1,0 +1,17 @@
+
+body {
+
+  > header {
+    background-color: $topbar-background;
+  }
+
+  > main {
+
+    > router-view {
+    }
+
+    > footer {
+    }
+  }
+}
+

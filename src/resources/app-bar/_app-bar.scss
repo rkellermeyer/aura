@@ -1,16 +1,16 @@
 app-bar {
   display: flex;
-  height: 50px;
-  width: 100%;
+  min-height: inherit;
+  line-height: inherit;
+  margin: 0 $global-margin;
 }
 
 .menu {
-  background-color: #292c2f;
-  padding: 1.5rem 3rem;
   height: auto;
 
   .inline-list {
     text-align: center;
+    margin-bottom: 0;
 
     li {
       float: none;
@@ -64,8 +64,6 @@ app-bar {
 
 @media only screen and (min-width: 40.063em) {
   .menu {
-    height: 5rem;
-
     .inline-list {
       float: left;
       margin: 0 0 0 1.5rem;
@@ -81,7 +79,7 @@ app-bar {
   text-align: center;
   font-size: 1.5rem;
   line-height: 1;
-  margin: 0 0 1rem 0;
+  margin: 0 0 0 0;
   color: #fff;
 
   i {

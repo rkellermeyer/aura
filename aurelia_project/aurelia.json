@@ -115,6 +115,7 @@
           "aurelia-task-queue",
           "aurelia-templating",
           "aurelia-templating-binding",
+          "jquery",
           {
             "name": "text",
             "path": "../scripts/text"
@@ -134,6 +135,30 @@
             "path": "../node_modules/aurelia-testing/dist/amd",
             "main": "aurelia-testing",
             "env": "dev"
+          },
+          {
+            "name": "foundation-sites",
+            "path": "../node_modules/foundation-sites/dist",
+            "main": "foundation",
+            "env": "dev"
+          },
+          {
+            "name": "motion-ui",
+            "path": "../node_modules/motion-ui/dist",
+            "main": "motion-ui",
+            "env": "dev"
+          },
+          {
+            "name": "motion-ui",
+            "path": "../node_modules/motion-ui/dist",
+            "main": "motion-ui.min",
+            "env": "prod"
+          },
+          {
+            "name": "foundation-sites",
+            "path": "../node_modules/foundation-sites/dist",
+            "main": "foundation.min",
+            "env": "prod"
           }
         ]
       }

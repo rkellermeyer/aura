@@ -1,0 +1,21 @@
+[flex-dir=column],
+[flex-dir=column-wrap],
+[flex-dir=row],
+[flex-dir=row-wrap] {
+  display: flex;
+}
+
+[flex-dir=column],
+[flex-dir=column-wrap] {
+  flex-direction: column;
+}
+
+[flex-dir=row],
+[flex-dir=row-wrap] {
+  flex-direction: row;
+}
+
+[flex-dir="column-wrap"],
+[flex-dir="row-wrap"] {
+  flex-wrap: wrap;
+}

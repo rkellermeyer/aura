@@ -1,30 +1,32 @@
 //import {computedFrom} from 'aurelia-framework';
 
 export class Welcome {
-  heading = 'Welcome to the Aurelia Navigation App!';
-  firstName = 'John';
-  lastName = 'Doe';
-  previousValue = this.fullName;
-
-  //Getters can't be directly observed, so they must be dirty checked.
-  //However, if you tell Aurelia the dependencies, it no longer needs to dirty check the property.
-  //To optimize by declaring the properties that this getter is computed from, uncomment the line below
-  //as well as the corresponding import above.
-  //@computedFrom('firstName', 'lastName')
-  get fullName() {
-    return `${this.firstName} ${this.lastName}`;
-  }
-
-  submit() {
-    this.previousValue = this.fullName;
-    alert(`Welcome, ${this.fullName}!`);
-  }
-
-  canDeactivate() {
-    if (this.fullName !== this.previousValue) {
-      return confirm('Are you sure you want to leave?');
+  cards = [
+    {
+      title: 'dreamer',
+      image: 'resources/images/dreamer.png',
+      background: 'resources/images/bg-dreamer.jpg',
+      text: 'Are you an idea maker, looking for a team to help jump start your project?',
+    },
+    {
+      title: 'mentor',
+      image: 'resources/images/mentor.png',
+      background: 'resources/images/bg-mentor.jpg',
+      text: 'Are you an experienced leader who can give direction to a creative team?',
+    },
+    {
+      title: 'investor',
+      image: 'resources/images/investor.png',
+      background: 'resources/images/bg-investor.jpg',
+      text: 'Are you a venture capitalist or hobby investor looking to fund the next great idea?',
+    },
+    {
+      title: 'service provider',
+      image: 'resources/images/developer.png',
+      background: 'resources/images/bg-developer.jpg',
+      text: 'Are you looking to help create the next big idea or add value to a project with your specialized skills?',
     }
-  }
+  ];
 }
 
 export class UpperValueConverter {

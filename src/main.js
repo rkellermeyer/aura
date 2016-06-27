@@ -1,3 +1,5 @@
+import 'jquery';
+import 'foundation-sites';
 import environment from './environment';
 
 //Configure Bluebird Promises.

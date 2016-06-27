@@ -1,39 +1,39 @@
-/* Dreamer */
+welcome-card {
+  display: flex;
+  flex: 1 0 auto;
+  max-width: 50%;
+  min-height: 280px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 
-.bg-dreamer {
   background-image: url("resources/images/bg-dreamer.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 
-  img {
-    margin: 0 9.5rem;
+  picture {
+    img {
+      transform: translate3d(0, 50%, 0);
+      transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
+      will-change: transform;
+    }
   }
-}
 
-/* Investor */
+  header {
+    padding: $global-padding;
+    text-align: center;
+    color: $light-gray;
 
-.bg-investor {
-  background-image: url("resources/images/bg-investor.jpg");
-
-  img {
-    margin: 0 9.5rem;
+    opacity: 0;
+    transition: opacity 0.2s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
   }
-}
 
-/* Mentor */
-
-.bg-mentor {
-  background-image: url("resources/images/bg-mentor.jpg");
-
-  img {
-    margin: 0 9.5rem;
-  }
-}
-
-/* Service Provider */
-
-.bg-provider {
-  background-image: url("resources/images/bg-developer.jpg");
-
-  img {
-    margin: 0 9.5rem;
+  &:hover {
+    picture img {
+      transform: translate3d(0, 0, 0);
+    }
+    header {
+      opacity: 1;
+    }
   }
 }

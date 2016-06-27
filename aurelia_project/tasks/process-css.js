@@ -17,7 +17,8 @@ let options = {
   includePaths: require('node-neat').includePaths.concat(
     npm('sassdash/scss'),
     npm('include-media/dist/_include-media.scss'),
-    cwd('resources/foundation')
+    npm('foundation-sites/scss'),
+    npm('motion-ui/src')
   )
 };
 
