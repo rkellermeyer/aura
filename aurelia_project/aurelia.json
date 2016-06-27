@@ -27,7 +27,8 @@
     "id": "sass",
     "displayName": "Sass",
     "fileExtension": ".scss",
-    "source": "src/**/*.scss"
+    "sassSource": "src/**/*.scss",
+    "cssSource": "src/**/*.css"
   },
   "editor": {
     "id": "sublime",
@@ -99,6 +100,7 @@
           "aurelia-framework",
           "aurelia-history",
           "aurelia-history-browser",
+          "aurelia-http-client",
           "aurelia-loader",
           "aurelia-loader-default",
           "aurelia-logging",

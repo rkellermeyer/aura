@@ -1,3 +1,6 @@
 export function configure(config) {
-  //config.globalResources([]);
+  config.globalResources([
+    './app-bar/app-bar',
+    './app-footer/app-footer'
+  ]);
 }
