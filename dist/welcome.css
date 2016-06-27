@@ -1,0 +1,25 @@
+/* Dreamer */
+.bg-dreamer {
+  background-image: url("../images/bg-dreamer.jpg"); }
+  .bg-dreamer img {
+    margin: 0 9.5rem; }
+
+/* Investor */
+.bg-investor {
+  background-image: url("../images/bg-investor.jpg"); }
+  .bg-investor img {
+    margin: 0 9.5rem; }
+
+/* Mentor */
+.bg-mentor {
+  background-image: url("../images/bg-mentor.jpg"); }
+  .bg-mentor img {
+    margin: 0 9.5rem; }
+
+/* Service Provider */
+.bg-provider {
+  background-image: url("../images/bg-developer.jpg"); }
+  .bg-provider img {
+    margin: 0 9.5rem; }
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoid2VsY29tZS5jc3MiLCJzb3VyY2VzIjpbIndlbGNvbWUuc2FzcyJdLCJzb3VyY2VzQ29udGVudCI6WyIvKiBEcmVhbWVyICovXG5cbi5iZy1kcmVhbWVyIHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKCcuLi9pbWFnZXMvYmctZHJlYW1lci5qcGcnKTtcbiAgaW1nIHtcbiAgICBtYXJnaW46IDAgOS41cmVtOyB9IH1cblxuLyogSW52ZXN0b3IgKi9cblxuLmJnLWludmVzdG9yIHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKCcuLi9pbWFnZXMvYmctaW52ZXN0b3IuanBnJyk7XG4gIGltZyB7XG4gICAgbWFyZ2luOiAwIDkuNXJlbTsgfSB9XG5cbi8qIE1lbnRvciAqL1xuXG4uYmctbWVudG9yIHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKCcuLi9pbWFnZXMvYmctbWVudG9yLmpwZycpO1xuICBpbWcge1xuICAgIG1hcmdpbjogMCA5LjVyZW07IH0gfVxuXG4vKiBTZXJ2aWNlIFByb3ZpZGVyICovXG5cbi5iZy1wcm92aWRlciB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybCgnLi4vaW1hZ2VzL2JnLWRldmVsb3Blci5qcGcnKTtcbiAgaW1nIHtcbiAgICBtYXJnaW46IDAgOS41cmVtOyB9IH1cbiJdLCJtYXBwaW5ncyI6IkFBQUEsYUFBYTtBQUViLEFBQUEsV0FBVyxDQUFDO0VBQ1YsZ0JBQWdCLEVBQUUsK0JBQUcsR0FFRztFQUgxQixBQUVFLFdBRlMsQ0FFVCxHQUFHLENBQUM7SUFDRixNQUFNLEVBQUUsUUFBUyxHQUFHOztBQUV4QixjQUFjO0FBRWQsQUFBQSxZQUFZLENBQUM7RUFDWCxnQkFBZ0IsRUFBRSxnQ0FBRyxHQUVHO0VBSDFCLEFBRUUsWUFGVSxDQUVWLEdBQUcsQ0FBQztJQUNGLE1BQU0sRUFBRSxRQUFTLEdBQUc7O0FBRXhCLFlBQVk7QUFFWixBQUFBLFVBQVUsQ0FBQztFQUNULGdCQUFnQixFQUFFLDhCQUFHLEdBRUc7RUFIMUIsQUFFRSxVQUZRLENBRVIsR0FBRyxDQUFDO0lBQ0YsTUFBTSxFQUFFLFFBQVMsR0FBRzs7QUFFeEIsc0JBQXNCO0FBRXRCLEFBQUEsWUFBWSxDQUFDO0VBQ1gsZ0JBQWdCLEVBQUUsaUNBQUcsR0FFRztFQUgxQixBQUVFLFlBRlUsQ0FFVixHQUFHLENBQUM7SUFDRixNQUFNLEVBQUUsUUFBUyxHQUFHIiwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiL3NvdXJjZS8ifQ== */

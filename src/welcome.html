@@ -1,20 +1,59 @@
 <template>
-  <section class="au-animate">
-    <h2>${heading}</h2>
-    <form role="form" submit.delegate="submit()">
-      <div class="form-group">
-        <label for="fn">First Name</label>
-        <input type="text" value.bind="firstName" class="form-control" id="fn" placeholder="first name">
+  <div class="row expanded collapse">
+    <div class="large-6 columns welcome-box">
+      <div class="box bg-dreamer">
+        <img src="images/dreamer.png" alt="">
+        <!--<div class="box-icon">-->
+        <!--<span class="fi-wrench"></span>-->
+        <!--</div>-->
+        <div class="info">
+          <h2 class="text-center">dreamer</h2>
+          <p>Are you an idea maker, looking for a team to help jump start your project?</p>
+          <!--<a href="#" class="button">Link</a>-->
+        </div>
       </div>
-      <div class="form-group">
-        <label for="ln">Last Name</label>
-        <input type="text" value.bind="lastName" class="form-control" id="ln" placeholder="last name">
+    </div>
+    <div class="large-6 columns">
+      <div class="box bg-mentor">
+        <img src="images/mentor.png" alt="">
+        <!--<div class="box-icon">-->
+        <!--<span class="fi-wrench"></span>-->
+        <!--</div>-->
+        <div class="info">
+          <h2 class="text-center">mentor</h2>
+          <p>Are you an experienced leader who can give direction to a creative team?</p>
+          <!--<a href="#" class="button">Link</a>-->
+        </div>
       </div>
-      <div class="form-group">
-        <label>Full Name</label>
-        <p class="help-block">${fullName | upper}</p>
+    </div>
+  </div>
+
+  <div class="row expanded collapse">
+    <div class="large-6 columns welcome-box">
+      <div class="box bg-investor">
+        <img src="images/investor.png" alt="">
+        <!--<div class="box-icon">-->
+        <!--<span class="fi-dollar"></span>-->
+        <!--</div>-->
+        <div class="info">
+          <h2 class="text-center">investor</h2>
+          <p>Are you a venture capitalist or hobby investor looking to fund the next great idea?</p>
+          <!--<a href="#" class="button">Link</a>-->
+        </div>
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
-  </section>
+    </div>
+    <div class="large-6 columns">
+      <div class="box bg-provider">
+        <img src="images/developer.png" alt="">
+        <!--<div class="box-icon">-->
+        <!--<span class="fi-torso-business"></span>-->
+        <!--</div>-->
+        <div class="info">
+          <h2 class="text-center">service provider</h2>
+          <p>Are you looking to help create the next big idea or add value to a project with your specialized skills?</p>
+          <!--<a href="#" class="button">Link</a>-->
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
