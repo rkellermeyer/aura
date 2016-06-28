@@ -13,7 +13,7 @@
   "dependencies": {
     "aurelia-animator-css": "^1.0.0-rc.1.0.0",
     "aurelia-bootstrapper": "^1.0.0-rc.1.0.0",
-    "aurelia-http-client": "^1.0.0-rc.1.0.0",
+    "aurelia-fetch-client": "^1.0.0-rc.1.0.0",
     "bluebird": "^3.4.1",
     "fetch": "^1.1.0",
     "foundation-sites": "^6.2.3",
