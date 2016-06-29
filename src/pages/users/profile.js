@@ -10,7 +10,7 @@ export class UserProfile {
     http.configure(config => {
       config
           .useStandardConfiguration()
-          .withBaseUrl('http://api.api.dev/');
+          .withBaseUrl('http://api.idyuh.com/');
     });
 
     this.http = http;
@@ -20,5 +20,13 @@ export class UserProfile {
     return this.http.fetch('user_profiles/' + params.id)
         .then(response => response.json())
         .then(user => this.user = user);
+  }
+
+  describeName() {
+    let user = this.user;
+    if (!this._describeName) {
+      this._describeName = `${user.prefix} ${user.first_name} ${user.middle_initial} ${user.last_name} ${user.suffix}`;
+    }
+    return this._describeName
   }
 }
