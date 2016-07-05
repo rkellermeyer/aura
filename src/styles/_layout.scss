@@ -24,8 +24,8 @@ body {
     z-index: 1;
 
     > router-view {
-      flex: 1 0 auto;
       display: flex;
+      min-height: calc(100vh - #{$topbar-height});
     }
 
     > footer {
