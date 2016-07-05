@@ -1,25 +1,20 @@
 import {inject} from 'aurelia-framework';
+import {Users} from 'services/user';
 import {HttpClient} from 'aurelia-fetch-client';
 
-@inject(HttpClient)
+@inject(Users)
 export class UserProfile {
   heading = 'User Profile';
   users = [];
 
-  constructor(http) {
-    http.configure(config => {
-      config
-          .useStandardConfiguration()
-          .withBaseUrl('http://api.idyuh.com/');
-    });
-
-    this.http = http;
+  constructor(service) {
+    this.service = service;
   }
 
   activate(params) {
-    return this.http.fetch('user_profiles/' + params.id)
-        .then(response => response.json())
-        .then(user => this.user = user);
+    return this.service.find(params.id)
+      .then(response => response.json())
+      .then(user => this.user = user);
   }
 
   describeName() {

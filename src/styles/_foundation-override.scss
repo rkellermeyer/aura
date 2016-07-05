@@ -1,0 +1,11 @@
+@mixin foundation-override {
+  button {
+    @if node $button-outlines {
+      &,
+      &:hover,
+      &:active {
+        outline: none;
+      }
+    }
+  }
+}

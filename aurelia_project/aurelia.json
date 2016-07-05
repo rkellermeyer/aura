@@ -21,7 +21,7 @@
     "id": "none",
     "displayName": "None",
     "fileExtension": ".html",
-    "source": "src/**/*.html"
+    "source": "src/**/*.{html,svg}"
   },
   "cssProcessor": {
     "id": "sass",
@@ -64,14 +64,7 @@
       "configTarget": "vendor-bundle.js",
       "includeBundleMetadataInConfig": "auto",
       "plugins": [
-        {
-          "name": "text",
-          "extensions": [
-            ".html",
-            ".css"
-          ],
-          "stub": true
-        }
+        { "name": "text", "extensions": [".html", ".css", ".svg"], "stub": false }
       ]
     },
     "options": {
@@ -83,7 +76,7 @@
         "name": "app-bundle.js",
         "source": [
           "[**/*.js]",
-          "**/*.{css,html}"
+          "**/*.{css,html,svg}"
         ]
       },
       {
@@ -115,7 +108,7 @@
           "aurelia-task-queue",
           "aurelia-templating",
           "aurelia-templating-binding",
-          "jquery",
+          "whatwg-fetch",
           {
             "name": "text",
             "path": "../scripts/text"
@@ -135,30 +128,6 @@
             "path": "../node_modules/aurelia-testing/dist/amd",
             "main": "aurelia-testing",
             "env": "dev"
-          },
-          {
-            "name": "foundation-sites",
-            "path": "../node_modules/foundation-sites/dist",
-            "main": "foundation",
-            "env": "dev"
-          },
-          {
-            "name": "motion-ui",
-            "path": "../node_modules/motion-ui/dist",
-            "main": "motion-ui",
-            "env": "dev"
-          },
-          {
-            "name": "motion-ui",
-            "path": "../node_modules/motion-ui/dist",
-            "main": "motion-ui.min",
-            "env": "prod"
-          },
-          {
-            "name": "foundation-sites",
-            "path": "../node_modules/foundation-sites/dist",
-            "main": "foundation.min",
-            "env": "prod"
           }
         ]
       }

@@ -1,3 +1,4 @@
+
 export class App {
   configureRouter(config, router) {
     config.title = 'Aura';
@@ -15,6 +16,13 @@ export class App {
         moduleId: 'pages/users/index',
         nav: true,
         title: 'Users'
+      },
+      {
+        route: 'show-down',
+        name: 'show-down',
+        moduleId: 'pages/show-down/index',
+        nav: true,
+        title: 'Show Down'
       },
       {
         route: 'user-profile/:id',

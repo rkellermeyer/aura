@@ -1,0 +1,28 @@
+<template>
+  <page-view id="show-down">
+    <project-card-list class="float" swipe-left.bind="deniedProject" swipe-right.bind="acceptedProject">
+      <project-card repeat.for="project of projects" model.bind="project">
+        <card-front>
+          <header>
+            <icon type.bind="project.icon"></icon>
+            ${project.title}
+          </header>
+          <article>
+            <p>${project.teaser}</p>
+          </article>
+          <footer class="expanded button-group small">
+            <button light tint="alert" click.trigger="deniedProject(project)">
+              <icon type="close"></icon>
+            </button>
+            <button light tint="success" click.trigger="acceptedProject(project)">
+              <icon type="checkmark"></icon>
+            </button>
+          </footer>
+        </card-front>
+        <card-back>
+
+        </card-back>
+      </project-card>
+    </project-card-list>
+  </page-view>
+</template>

@@ -1,0 +1,5 @@
+<template css="min-height: ${clientHeight}px">
+  <backdrop z="1" show.bind="_element.children.length > 4"></backdrop>
+  <backdrop z="2" show.bind="_element.children.length > 3"></backdrop>
+  <slot></slot>
+</template>

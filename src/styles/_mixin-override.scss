@@ -1,0 +1,170 @@
+@mixin button-style (
+  $background: $button-background,
+  $background-hover: $button-background-hover,
+  $color: $button-color,
+  $color-hover: $button-color-hover
+) {
+  @if $color == auto {
+    $color: foreground($background, $button-color-alt, $button-color);
+  }
+
+  @if $background-hover == auto {
+    $background-hover: scale-color($background, $lightness: -20%);
+  }
+
+  background-color: $background;
+  color: $color;
+
+  &:hover, &:focus {
+    background-color: $background-hover;
+    color: $color-hover;
+  }
+}
+
+
+@mixin foundation-button($selector: $button-selector) {
+  #{$selector} {
+    @include button;
+
+    // Sizes
+    @each $size, $value in map-remove($button-sizes, default) {
+      &.#{$size} {
+        font-size: $value;
+      }
+    }
+
+    // Line Heights
+    @each $line, $value in map-remove($button-line-heights, default) {
+      &.#{$line} {
+        line-height: $value;
+      }
+    }
+
+    &.expanded { @include button-expand; }
+
+    // Colors
+    @each $name, $color in $foundation-palette {
+      @if $button-fill != hollow {
+        &.#{$name} {
+          @include button-style($color, auto, auto, $color);
+        }
+      }
+      @else {
+        &.#{$name} {
+          @include button-hollow-style($color);
+        }
+
+        &.#{$name}.dropdown::after {
+          border-top-color: $color;
+        }
+      }
+    }
+
+    // Hollow style
+    @if $button-fill != hollow {
+      &.hollow {
+        @include button-hollow;
+        @include button-hollow-style;
+
+        @each $name, $color in $foundation-palette {
+          &.#{$name} {
+            @include button-hollow-style($color);
+          }
+        }
+      }
+    }
+
+    // Disabled style
+    &.disabled,
+    &[disabled] {
+      @include button-disabled;
+    }
+
+    // Dropdown arrow
+    &.dropdown {
+      @include button-dropdown;
+
+      @if $button-fill == hollow {
+        &::after {
+          border-top-color: $button-background;
+        }
+      }
+    }
+
+    // Button with dropdown arrow only
+    &.arrow-only::after {
+      margin-#{$global-left}: 0;
+      float: none;
+      top: -0.1em;
+    }
+  }
+}
+
+
+@mixin foundation-button-group {
+  .button-group {
+    @include button-group;
+
+    // Sizes
+    @each $size, $value in map-remove($button-sizes, default) {
+      &.#{$size} #{$buttongroup-child-selector} {
+        font-size: $value;
+      }
+    }
+
+    // Line Heights
+    @each $line, $value in map-remove($button-line-heights, default) {
+      &.#{$line} {
+        line-height: $value;
+      }
+    }
+
+    // Even-width Group
+    &.expanded { @include button-group-expand; }
+
+    // Colors
+    @each $name, $color in $foundation-palette {
+      @if $button-fill != hollow {
+        &.#{$name} #{$buttongroup-child-selector} {
+          @include button-style($color, auto, auto);
+        }
+      }
+      @else {
+        &.#{$name} #{$buttongroup-child-selector} {
+          @include button-hollow;
+          @include button-hollow-style($color);
+        }
+      }
+    }
+
+    &.stacked,
+    &.stacked-for-small,
+    &.stacked-for-medium {
+      @include button-group-stack;
+    }
+
+    &.stacked-for-small {
+      @include breakpoint(medium) {
+        @include button-group-unstack;
+      }
+    }
+
+    &.stacked-for-medium {
+      @include breakpoint(large) {
+        @include button-group-unstack;
+      }
+    }
+
+    // scss-lint:disable MergeableSelector
+    &.stacked-for-small.expanded {
+      @include breakpoint(small only) {
+        display: block;
+
+        #{$buttongroup-child-selector} {
+          display: block;
+          margin-#{$global-right}: 0;
+        }
+      }
+    }
+  }
+}
