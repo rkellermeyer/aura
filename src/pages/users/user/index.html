@@ -1,0 +1,13 @@
+<template>
+  <page-view>
+    <tab-bar>
+      <a href="#/users/${context.user.id}">Profile</a>
+      <a href="#/users/${context.user.id}/projects">Projects</a>
+      <a href="#/users/${context.user.id}/update">Update</a>
+    </tab-bar>
+
+    <tab-content>
+      <router-view></router-view>
+    </tab-content>
+  </page-view>
+</template>

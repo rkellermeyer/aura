@@ -1,0 +1,62 @@
+$tab-height: 48px;
+$tab-margin: 0;
+$tab-background: $white;
+$tab-background-active: $light-gray;
+$tab-item-font-size: rem-calc(12);
+$tab-item-background-hover: $white;
+$tab-item-padding: 0 1rem;
+$tab-expand-max: 6;
+$tab-content-background: $white;
+$tab-content-border: $light-gray;
+$tab-content-color: foreground($tab-background, $primary-color);
+$tab-content-padding: 1rem;
+
+tab-bar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+
+  position: absolute;
+       top: 0;
+      left: 0;
+     right: 0;
+
+  background-color: $tab-background;
+  min-height: $tab-height;
+
+  @include shadow-2dp;
+
+  a {
+    line-height: $tab-height;
+    font-size: $tab-item-font-size;
+    padding: $tab-item-padding;
+    background-color: $tab-background;
+
+    &:hover {
+      background-color: $tab-item-background-hover;
+    }
+
+    &:active {
+      background-color: $tab-background-active;
+    }
+  }
+}
+
+
+tab-content {
+  margin-top: $tab-height;
+  display: flex;
+  flex-direction: row;
+  flex: 1 0 auto;
+  min-width: 100%;
+  min-height: 100%;
+  background-color: $tab-content-background;
+  padding: $tab-content-padding;
+  color: $tab-content-color;
+
+  router-view {
+    display: flex;
+    flex: 1 0 auto;
+  }
+}

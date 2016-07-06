@@ -2,25 +2,23 @@ import passport from 'passport';
 import {Strategy as LocalStrategy} from 'passport-local';
 
 function localAuthenticate(User, email, password, done) {
-  User.findOne({
-    email: email.toLowerCase()
-  }).exec()
-    .then(user => {
-      if (!user) {
-        return done(null, false, {
-          message: 'This email is not registered.'
+  User.findByEmail(email.toLowerCase())
+      .then(user => {
+        if (!user) {
+          return done(null, false, {
+            message: 'This email is not registered.'
+          });
+        }
+        user.authenticate(password, function(authError, authenticated) {
+          if (authError) {
+            return done(authError);
+          }
+          if (!authenticated) {
+            return done(null, false, { message: 'This password is not correct.' });
+          } else {
+            return done(null, user);
+          }
         });
-      }
-      user.authenticate(password, function(authError, authenticated) {
-        if (authError) {
-          return done(authError);
-        }
-        if (!authenticated) {
-          return done(null, false, { message: 'This password is not correct.' });
-        } else {
-          return done(null, user);
-        }
-      });
     })
     .catch(err => done(err));
 }

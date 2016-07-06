@@ -1,3 +1,8 @@
+router-view {
+  display: flex;
+  flex: 1;
+}
+
 
 body {
   margin-top: $topbar-height;

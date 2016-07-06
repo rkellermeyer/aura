@@ -11,6 +11,7 @@ router.delete('/:id', controller.destroy);
 router.get('/me', controller.me);
 router.put('/:id/password', controller.changePassword);
 router.get('/:id', controller.show);
+router.post('/login', controller.login);
 router.post('/', controller.create);
 
 // router.get('/', auth.hasRole('admin'), controller.index);

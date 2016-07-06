@@ -1,5 +1,6 @@
 import {Container, inject} from 'aurelia-framework';
-import {Project} from 'services/project';
+import {Project} from 'request/idyuh-project';
+
 
 export class ShowDown {
 
@@ -7,9 +8,8 @@ export class ShowDown {
   denied   = [];
 
   activate() {
-    Project.idyuh.get().then(res => {
-      this.projects = res.project_profiles.map(p => (p.title = p.title || p.teaser.replace(/([a-zA-Z]+).+/, '$1')) && p);
-      console.log(this.projects)
+    Project.instance.get().then(projects => {
+      this.projects = projects.map(p => (p.title = p.title || p.teaser.replace(/([a-zA-Z]+).+/, '$1')) && p);
     });
   }
 

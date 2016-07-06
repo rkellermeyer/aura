@@ -1,24 +1,31 @@
-import {inject} from 'aurelia-framework';
-import {HttpClient} from 'aurelia-fetch-client';
+//import {Container, inject} from 'aurelia-dependency-injection';
 
-@inject(HttpClient)
 export class Users {
-  heading = 'Github Users';
-  users = [];
+  router:Router = null;
 
-  constructor(http) {
-    http.configure(config => {
-      config
-        .useStandardConfiguration()
-        .withBaseUrl('https://api.github.com/');
-    });
+  configureRouter(config, router){
 
-    this.http = http;
-  }
+    config.map([
+      {
+          route: ['', 'list']
+        , moduleId: './list'
+        , title: 'Users'
+        , name: 'users'
+        , settings: {}
+      },
+      {
+          route: ':id'
+        , moduleId: './user/index'
+        , title: 'User'
+        , name: 'user'
+        , settings: {}
+      }
+    ])
 
-  activate() {
-    return this.http.fetch('users')
-      .then(response => response.json())
-      .then(users => this.users = users);
+    config.mapUnknownRoutes(()=> {
+      return 'views/404';
+    })
+
+    this.router = router;
   }
 }

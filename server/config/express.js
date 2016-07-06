@@ -43,6 +43,12 @@ export default function(app) {
   app.use(cookieParser());
   app.use(passport.initialize());
 
+  app.use(session({
+    secret: 'abc',
+    resave: true,
+    saveUninitialized: true
+  }));
+
   /**
    * Lusca - express server security
    * https://github.com/krakenjs/lusca

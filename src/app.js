@@ -1,5 +1,14 @@
+import {Idyuh} from 'request/idyuh-client';
+import {Project} from 'request/idyuh-project';
 
 export class App {
+
+  constructor() {
+    console.log(Project.instance)
+    Project.instance.get().then(res => {
+      console.log(res)
+    })
+  }
   configureRouter(config, router) {
     config.title = 'Aura';
     config.map([
@@ -37,12 +46,6 @@ export class App {
         moduleId: 'pages/show-down/index',
         nav: true,
         title: 'Show Down'
-      },
-      {
-        route: 'user-profile/:id',
-        name: 'user-profile',
-        moduleId: 'pages/users/profile',
-        nav: false
       },
       {
         route: 'child-router',

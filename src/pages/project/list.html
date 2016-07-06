@@ -1,0 +1,14 @@
+<template>
+  <ul>
+    <li repeat.for="project of projects">
+      <blockquote>
+        <h2>Overview</h2>
+        <small>${project.overview}</small>
+      </blockquote>
+      <blockquote>
+        <h4>Teaser</h4>
+        <small>${project.teaser}</small>
+      </blockquote>
+    </li>
+  </ul>
+</template>

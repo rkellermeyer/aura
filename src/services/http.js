@@ -1,6 +1,6 @@
 import {Container, inject} from 'aurelia-framework';
 import {FetchEndpoint} from './endpoint';
-import {HttpClient} from 'aurelia-fetch-client';
+import {HttpClient} from 'aurelia-http-client';
 
 const base  = '/api/'
 const idyuh = 'http://api.idyuh.com/';
@@ -13,9 +13,7 @@ export class BaseEndpoint {
   constructor(http, endpoint) {
     this._endpoint = endpoint || base;
     http.configure(config => {
-      config
-          .useStandardConfiguration()
-          .withBaseUrl(this._endpoint);
+      config.withBaseUrl(this._endpoint);
     });
     this.http = http;
   }

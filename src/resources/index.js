@@ -9,5 +9,6 @@ export function configure(config) {
     './dialog/dialog-step',
     './dialog/login-dialog',
     './elements/icon',
+    './tab-bar/element',
   ]);
 }

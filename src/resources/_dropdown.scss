@@ -44,6 +44,8 @@
       color: $dark-gray;
       fill: $dark-gray;
 
+      @include shadow-4dp;
+
       list-style: none;
       > ul { margin: 0; }
 

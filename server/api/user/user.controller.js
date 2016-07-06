@@ -24,11 +24,22 @@ function handleError(res, statusCode) {
  * restriction: 'admin'
  */
 export function index(req, res) {
-  return User.find()
+  return User.index()
     .then(users => {
+      console.log(users)
       res.status(200).json(users);
     })
     .catch(handleError(res));
+}
+
+export function login(req, res) {
+  let email    = req.body.email;
+  let password = req.body.password;
+
+  User.findByEmail(email).then(user => {
+    res.send({data:user});
+  })
+  .catch(validationError(res))
 }
 
 /**

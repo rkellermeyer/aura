@@ -10,7 +10,7 @@ class UserModel {
 
   index() {
     return Database.loadAPI('users').then(res => {
-      resolve(res.data.user_profiles);
+      return res.data.users
     })
   }
 
@@ -26,7 +26,23 @@ class UserModel {
   findById(id) {
     return this.find(id);
   }
+
+  findByEmail(email) {
+    return new Promise(resolve => {
+      request(Database.baseUrl + 'user_profiles/'+id, (err, resp, body)=> {
+        if (!err) return resolve(resp.body.users.find(user => user.email === email))
+        return reject(err);
+      })
+    })
+  }
 }
 
 
 export default new UserModel();
+
+
+export class User {
+  constructor(data) {
+    this.data = data;
+  }
+}
