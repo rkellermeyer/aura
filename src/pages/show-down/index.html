@@ -1,6 +1,7 @@
 <template>
   <page-view id="show-down">
     <project-card-list class="float" swipe-left.bind="deniedProject" swipe-right.bind="acceptedProject">
+
       <project-card repeat.for="project of projects" model.bind="project">
         <card-front>
           <header>

@@ -1,0 +1,12 @@
+<template>
+  <slot></slot>
+
+  <footer class="button-group expanded small">
+    <button light tint="alert" click.trigger="back()">
+      <icon type="close"></icon>
+    </button>
+    <button light tint="success" click.trigger="next()">
+      <icon type="checkmark"></icon>
+    </button>
+  </footer>
+</template>

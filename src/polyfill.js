@@ -1,3 +1,6 @@
+Function.isFunction = (f)=> typeof f === 'function';
+Function.noop = ()=> {return null}
+
 (function() {
     var lastTime = 0;
     var vendors = ['ms', 'moz', 'webkit', 'o'];

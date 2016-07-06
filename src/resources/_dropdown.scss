@@ -1,0 +1,86 @@
+/*
+  $dropdown-padding: 1rem;
+  $dropdown-border: 1px solid $medium-gray;
+  $dropdown-font-size: 1rem;
+  $dropdown-width: 300px;
+  $dropdown-radius: $global-radius;
+  $dropdown-sizes: (
+    tiny: 100px,
+    small: 200px,
+    large: 400px,
+  );
+
+  // 17. Dropdown Menu
+  // -----------------
+
+  $dropdownmenu-arrows: true;
+  $dropdownmenu-arrow-color: $anchor-color;
+  $dropdownmenu-min-width: 200px;
+  $dropdownmenu-background: $white;
+  $dropdownmenu-border: 1px solid $medium-gray; */
+
+
+.dropdown {
+  position: relative;
+
+  dropdown-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+
+    .dropdown-container {
+      display: flex;
+      flex-direction: column;
+      border-radius: $dropdown-radius;
+      font-size: $dropdown-font-size;
+      padding: $dropdown-padding;
+      background-color: white;
+      color: $dark-gray;
+      fill: $dark-gray;
+
+      list-style: none;
+      > ul { margin: 0; }
+
+      &.menu {
+        padding: 0;
+
+        a, li {
+          line-height: $dropdown-line-height;
+          max-height: $dropdown-line-height;
+          position: relative;
+          min-width: 100%;
+          padding-left: $dropdown-padding;
+          padding-right: $dropdown-padding;
+
+          cursor: pointer;
+
+          -webkit-user-select: none;
+             -moz-user-select: none;
+                  user-select: none;
+
+          &:first-child {
+            margin-top: $dropdown-padding;
+          }
+
+          &:last-child {
+            margin-bottom: $dropdown-padding;
+          }
+
+          &:hover {
+            background-color: rgba(0,0,0,0.02);
+          }
+          &:active {
+            background-color: rgba(0,0,0,0.08);
+          }
+        }
+      }
+    }
+  }
+}
+

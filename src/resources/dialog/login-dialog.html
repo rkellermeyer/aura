@@ -1,0 +1,26 @@
+<template class="step-dialog">
+  <dialog steps="2" complete.trigger="complete()" view-model.ref="dialog">
+    <dialog-step step=1>
+      <header>Choose your role!</header>
+      <section>
+        <select value.bind="newUser.role">
+          <option value="dreamer">dreamer</option>
+          <option value="investor">investor</option>
+          <option value="mentor">mentor</option>
+          <option value="attorney">attorney</option>
+          <option value="service_provider">service provider</option>
+          <option value="idyuh_admin">admin</option>
+        </select>
+      </section>
+    </dialog-step>
+    <dialog-step step=2>
+      <label> Email
+        <input type="text" name="user_email" placeholder="Email..." value.two-way="newUser.email">
+      </label>
+
+      <label> Password
+        <input type="password" name="user_password" placeholder="Password" value.two-way="newUser.password">
+      </label>
+    </dialog-step>
+  </dialog>
+</template>

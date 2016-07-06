@@ -11,6 +11,20 @@ export class App {
         title: 'Welcome'
       },
       {
+        route: ['login'],
+        name: 'logout',
+        moduleId: 'pages/auth/login',
+        nav: true,
+        title: 'Login'
+      },
+      {
+        route: ['logout'],
+        name: 'logout',
+        moduleId: 'pages/auth/logout',
+        nav: true,
+        title: 'Logout'
+      },
+      {
         route: 'users',
         name: 'users',
         moduleId: 'pages/users/index',

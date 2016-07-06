@@ -5,6 +5,9 @@ export function configure(config) {
     './page-view/page-view',
     './project-card/project-card',
     './project-card/project-card-list',
+    './dialog/dialog',
+    './dialog/dialog-step',
+    './dialog/login-dialog',
     './elements/icon',
   ]);
 }

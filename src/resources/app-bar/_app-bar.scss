@@ -3,6 +3,41 @@ app-bar {
   min-height: inherit;
   line-height: inherit;
   margin: 0 $global-margin;
+  color: white;
+  fill: white;
+
+  user-profile {
+    display: flex;
+    flex: 0 0 auto;
+    margin: 0 0 0 auto;
+    padding: 8px 0 8px 8px;
+    color: inherit;
+    fill: inherit;
+
+    h2 {
+      font-size: 1rem;
+      color: inherit;
+      fill: inherit;
+      flex: 0 0 auto;
+      margin: auto 0;
+      cursor: pointer;
+      -webkit-user-select: none;
+         -moz-user-select: none;
+              user-select: none;
+    }
+
+    icon {
+      color: inherit;
+      fill: inherit;
+      margin-right: -12px;
+      cursor: pointer;
+
+      svg {
+        fill: inherit;
+      }
+
+    }
+  }
 }
 
 .menu {

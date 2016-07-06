@@ -1,9 +1,11 @@
 import {inject} from 'aurelia-dependency-injection';
 import {customElement, bindable, ElementEvents} from 'aurelia-templating';
+import {EventAggregator} from 'aurelia-event-aggregator';
 import {DOM} from 'aurelia-pal';
+import {Auth} from 'services/auth';
 
 @customElement('app-bar')
-@inject(DOM.Element, ElementEvents)
+@inject(DOM.Element, ElementEvents, EventAggregator)
 export class AppBar {
 
   @bindable router:Router = null;
@@ -19,10 +21,25 @@ export class AppBar {
    */
   _element:HTMLElement;
 
-  constructor(element, events) {
+  constructor(element, events, eventAggregator) {
     this._element = element;
     this._events = events;
+    this.eventAggregator = eventAggregator;
+    this.auth = Auth;
   }
 
   attached(){}
+
+  atcivateLogin() {
+
+    this.eventAggregator.publish('show-login-dialog', {
+      onComplete: ()=> {
+        console.log('dialog closed')
+      }
+    });
+  }
+
+  logout() {
+    Auth.user = null;
+  }
 }

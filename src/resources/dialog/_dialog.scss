@@ -1,0 +1,140 @@
+$dialog-margin-top:                  12px !default;
+$dialog-margin-right:                12px !default;
+$dialog-margin-bottom:               12px !default;
+$dialog-margin-left:                 12px !default;
+
+$dialog-padding-top:                 13px !default;
+$dialog-padding-right:               16px !default;
+$dialog-padding-bottom:              14px !default;
+$dialog-padding-left:                16px !default;
+
+$dialog-padding-media-top:           10px !default;
+$dialog-padding-media-bottom:        9px !default;
+
+$dialog-background-color:            white !default;
+$dialog-box-shadow-color:            rgba(0, 0, 0, .3) !default;
+$dialog-box-shadow:                  0 1px 2px $dialog-box-shadow-color !default;
+$dialog-border-radius:               2px !default;
+$dialog-font-size:                   1.4rem !default;
+
+$dialog-text-color:                  #666 !default;
+$dialog-title-font-size:             1.8rem !default;
+$dialog-title-padding:               8px 0 8px 0 !default;
+$dialog-title-margin:                2px 0 2px !default;
+$dialog-title-text-color:            #222 !default;
+
+$dialog-header-font-size:            1.6rem !default;
+$dialog-header-font-weight:          500 !default;
+$dialog-header-padding:              16px !default;
+$dialog-header-color:                #333 !default;
+
+
+dialog-window {
+  pointer-events: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  z-index: 12;
+  position: fixed;
+       top: 0;
+      left: 0;
+     right: 0;
+    bottom: 0;
+
+  dialog {
+    display: flex;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    min-height: 238px;
+    min-width: 400px;
+    position: relative;
+    pointer-events: auto;
+    transform: scale(0);
+    opacity: 0;
+    overflow: hidden;
+
+    dialog-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: no-wrap;
+      position: absolute;
+           top: 0;
+          left: 0;
+        bottom: 0;
+      min-width: 200%;
+
+      dialog-step {
+        display: flex;
+        flex: 1 0 auto;
+        max-width: 400px;
+        min-height: 100%;
+        flex-direction: column;
+        pointer-events: auto;
+        margin: 0 8px;
+      }
+    }
+  }
+}
+
+dialog {
+  /* HEADER */
+  header {
+    padding: 1rem;
+
+    &, figure {
+      h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+      }
+
+      h1, h2, h3 {
+        font-weight: 200;
+      }
+
+      h1 {font-size: 200%};
+      h2 {font-size: 160%};
+      h3 {font-size: 130%};
+      h4 {font-size: 120%};
+      h5 {font-size: 110%};
+      h6 {font-size: 90%};
+
+      summary {
+        font-weight: 500;
+        font-size: 80%;
+        opacity: 0.7;
+      }
+    }
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    padding: 1rem;
+
+    icon {
+      order: -1;
+      margin-right: $dialog-padding-left;
+      margin-left: 0;
+    }
+  }
+
+  section,
+  article {
+    padding: 1rem;
+  }
+
+  footer {
+    flex: 1 0 auto;
+    flex-direction: row;
+    padding-top: $dialog-padding-top / 2;
+    margin-bottom: $dialog-margin-bottom;
+
+    &.button-group {
+      margin-bottom: $dialog-margin-bottom / 2;
+      margin-left: $dialog-margin-bottom / 2;
+      margin-right: $dialog-margin-bottom / 2;
+    }
+  }
+}

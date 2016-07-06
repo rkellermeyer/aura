@@ -2,6 +2,7 @@ import 'whatwg-fetch';
 import environment from './environment';
 import 'dom';
 import 'polyfill';
+import 'core/element';
 import 'services/index';
 
 //Configure Bluebird Promises.

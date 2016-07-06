@@ -7,6 +7,9 @@ import {Cache} from 'services/cache';
 const default_paths = {
   checkmark: 'checkmark.svg',
   close: 'close.svg',
+  person: 'person.svg',
+  more: 'more-vert.svg',
+  'more-vert': 'more-vert.svg',
 }
 
 @customElement('icon')
