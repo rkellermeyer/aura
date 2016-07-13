@@ -1,11 +1,8 @@
 <template>
   <page-view>
     <tab-bar>
-      <a href="#/users/${context.user.id}">Profile</a>
-      <a href="#/users/${context.user.id}/projects">Projects</a>
-      <a href="#/users/${context.user.id}/update">Update</a>
+      <a repeat.for="row of router.navigation" href.bind="row.href" class="${row.isActive ? 'active' : ''}">${row.title}</a>
     </tab-bar>
-
     <tab-content>
       <router-view></router-view>
     </tab-content>

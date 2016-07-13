@@ -49,4 +49,10 @@ export class Endpoint {
       })
       .catch(handleError('Find'))
   }
+
+  post(url, data) {
+    url = url ? normalize(this.url, url) : this.url;
+    return this.http.post(url, data)
+      .catch(handleError('Post'))
+  }
 }

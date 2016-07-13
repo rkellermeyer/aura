@@ -29,6 +29,23 @@ export class ProjectCardList {
   }
 
   bind(context) {
+
+    let ontouch = (event)=> {
+      if (event.target.nodeName === 'BUTTON') {return};
+
+      let target = event.target;
+      while(target.nodeName !== 'PROJECT-CARD' && target.nodeName !== 'PROJECT-CARD-LIST') {
+        target = target.parentNode;
+      }
+
+      if (target.nodeName === 'PROJECT-CARD' && 'cardMotion' in target) {
+        target.cardMotion.onTouchStart(event);
+      }
+    }
+
+    this._events.subscribe('touchstart', ontouch, true);
+    this._events.subscribe('mousedown',  ontouch, true);
+
     this._events.subscribe('swipe-left-end', (event)=> {
       if (this.swipeLeft) {
         this.swipeLeft.call(context, event.detail.model);

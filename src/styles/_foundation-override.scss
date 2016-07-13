@@ -1,5 +1,7 @@
 @mixin foundation-override {
   button {
+    display: flex;
+    justify-content: center;
     @if node $button-outlines {
       &,
       &:hover,

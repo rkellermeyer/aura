@@ -1,6 +1,15 @@
 router-view {
   display: flex;
   flex: 1;
+
+  > .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  > .row:first-child {
+    margin-top: 1rem;
+  }
 }
 
 

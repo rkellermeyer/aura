@@ -1,0 +1,15 @@
+
+
+card {
+  background-color: white;
+  flex-direction: column;
+  display: flex;
+  flex: 1;
+  padding: 1rem;
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
+  @include shadow-1dp;
+
+  &:hover {
+    @include shadow-8dp;
+  }
+}

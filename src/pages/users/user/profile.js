@@ -11,7 +11,6 @@ export class UserProfile {
       .then(user => {
         this.user = user
         this.profile = this.user.model.user_profile
-        console.log(this.user)
       });
   }
 }

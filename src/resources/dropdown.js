@@ -1,4 +1,7 @@
+import {Container, inject} from 'aurelia-dependency-injection';
 import {translate3d} from 'core/animate';
+import {EventAggregator} from 'aurelia-event-aggregator';
+
 export class Dropdown {
 
   _containerSelector = '[data-dropdown]';
@@ -8,7 +11,7 @@ export class Dropdown {
     this.setElement(element);
     this.setContainer(options.container);
     this.setHandle(options.handle);
-
+    this.eventAggegator = Container.instance.get(EventAggregator);
     this.isMenu = `menu` in options ? options.menu : this.isMenu;
   }
 
@@ -47,20 +50,28 @@ export class Dropdown {
       this.toggle(true);
     })
 
-    this.docListener = document.body.events.subscribe('click', (e)=> {
-      if (!this.element.contains(e.target)) {
-        this.toggle(false);
-      }
-    })
   }
 
   unbind() {
     this.clickListener.dispose();
+    if (this.docListener) {
+      this.docListener.dispose();
+    }
   }
 
   toggle(open) {
     this.isOpen = (typeof open === 'boolean') ? open : !this.isOpen;
     this.container.style.display = this.isOpen ? '' : 'none';
+    if (this.isOpen) {
+      this.docListener = document.events.subscribe('click', (e)=> {
+        this.toggle(false);
+      })
+    }
+    else {
+      if (this.docListener) {
+        this.docListener.dispose();
+      }
+    }
   }
 
   open() {

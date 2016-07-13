@@ -23,13 +23,7 @@ export class UserPage {
       moduleId: './profile',
       name: 'profile',
       title: 'Profile',
-      settings: {scope, context}
-    })
-    config.mapRoute({
-      route: ['update'],
-      moduleId: './update',
-      name: 'update',
-      title: 'Update',
+      nav: true,
       settings: {scope, context}
     })
     config.mapRoute({
@@ -37,6 +31,23 @@ export class UserPage {
       moduleId: 'pages/project/list',
       name: 'projects',
       title: 'Projects',
+      nav: true,
+      settings: {scope, context}
+    })
+    config.mapRoute({
+      route: ['settings'],
+      moduleId: './settings',
+      name: 'settings',
+      title: 'Settings',
+      nav: true,
+      settings: {scope, context}
+    })
+    config.mapRoute({
+      route: 'projects/create',
+      moduleId: 'pages/project/create',
+      name: 'project-create',
+      title: 'Create Projects',
+      nav: false,
       settings: {scope, context}
     })
     config.mapRoute({
@@ -44,12 +55,14 @@ export class UserPage {
       moduleId: 'pages/project/overview',
       name: 'project',
       title: 'Project',
+      nav: false,
       settings: {scope, context}
     })
+
+    this.router = router;
   }
 
   activate(params) {
-    console.dir(Users)
     Users.select(params.id).then((user)=> {
       this.context.user = user;
     })

@@ -6,6 +6,9 @@ import {Util} from './util';
 
 @inject(HttpClient)
 export class Auth {
+
+  _endpoint = 'http://api.idyuh.com/';
+
   constructor(http) {
     http.configure((config)=> {
       config
@@ -35,12 +38,12 @@ export class Auth {
     }
   }
 
-  login(body) {
-    return this.http.fetch('api/users/1')
+  login() {
+    return this.http.fetch('users/1')
     .then(res => res.json())
     .then(resp => {
-      this.loggedInUser = resp;
-      Auth.user = this.loggedInUser
+      this.loggedInUser = resp.user;
+      Auth.user = this.loggedInUser.user_profile;
       localStorage.setItem('uid', Auth.user.id);
       return Auth.user;
     })

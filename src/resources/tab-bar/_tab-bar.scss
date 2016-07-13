@@ -40,6 +40,12 @@ tab-bar {
     &:active {
       background-color: $tab-background-active;
     }
+
+    &.active {
+      color: white;
+      fill: white;
+      background-color: $color-success;
+    }
   }
 }
 
@@ -48,15 +54,19 @@ tab-content {
   margin-top: $tab-height;
   display: flex;
   flex-direction: row;
-  flex: 1 0 auto;
+  flex: 1;
   min-width: 100%;
   min-height: 100%;
-  background-color: $tab-content-background;
-  padding: $tab-content-padding;
   color: $tab-content-color;
 
+  &.pads {
+    padding: $tab-content-padding;
+  }
   router-view {
+    position: relative;
+    flex-direction: column;
+    // align-items: center;
     display: flex;
-    flex: 1 0 auto;
+    flex: 1;
   }
 }

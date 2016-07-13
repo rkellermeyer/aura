@@ -8,7 +8,10 @@ export function configure(config) {
     './dialog/dialog',
     './dialog/dialog-step',
     './dialog/login-dialog',
-    './elements/icon',
     './tab-bar/element',
+    './select/element',
+    './elements/icon',
+    './elements/action',
+    './elements/page-title',
   ]);
 }

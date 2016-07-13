@@ -1,0 +1,36 @@
+<template>
+  <div class="columns small-12 medium-8 medium-offset-2">
+    <card>
+      <form submit.trigger="submit()">
+        <label>
+          <blockquote>
+            <h5>Overview</h5>
+          </blockquote>
+          <textarea value.two-way="overview" placeholder="Overview" name="overview" id="project-overview"></textarea>
+        </label>
+
+        <label>
+          <blockquote>
+            <h5>Teaser</h5>
+          </blockquote>
+          <textarea value.two-way="teaser" placeholder="Overview" name="teaser" id="project-teaser"></textarea>
+        </label>
+
+        <label>
+          <blockquote>
+            <h5>Category</h5>
+            <small>${selectedCategory.description}</small>
+          </blockquote>
+          <select value.two-way="category">
+            <option repeat.for="category of categories" model.bind="category">${category.name}</option>
+          </select>
+        </label>
+
+        <label class="button-group">
+          <button class="button-small success" type="submit">Submit</button>
+          <button class="button-small alert" click.trigger="router.navigateBack()">Cancel</button>
+        </label>
+      </form>
+    </card>
+  </div>
+</template>

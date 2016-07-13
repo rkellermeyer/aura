@@ -84,7 +84,12 @@ export default function CardMotion(viewModel:ViewModel) {
   let _events  = viewModel._events;
   let _element = viewModel._element;
 
-  let moveEvent;
+  Object.defineProperty(_element, 'cardMotion', {
+    get:()=> this
+  })
+
+  let touchMoveEvent;
+  let mouseMoveEvent;
   let nextpoint       = {};
   let nextX           = {};
   let currentX        = 0;
@@ -96,10 +101,12 @@ export default function CardMotion(viewModel:ViewModel) {
   let currentSide     = 'FRONT';
   let nextRotate      = 0;
   let currentRotate   = 0;
+  let calculate;
 
   let onend = (event)=> {
     event.preventDefault();
     if (!moved) {
+      console.log(event)
       return flipCard(_element, currentSide).then(()=> {
         currentSide = currentSide === 'FRONT' ? 'BACK' : 'FRONT';
       })
@@ -109,7 +116,8 @@ export default function CardMotion(viewModel:ViewModel) {
     _element.currentAnim = null;
 
     moved = false;
-    moveEvent && moveEvent.dispose();
+    touchMoveEvent && touchMoveEvent.dispose();
+    mouseMoveEvent && mouseMoveEvent.dispose();
     currentX = nextX
     currentRotate = nextRotate;
     let test = currentX < 0 ? currentX * -1 : currentX;
@@ -140,11 +148,36 @@ export default function CardMotion(viewModel:ViewModel) {
     })
   }
 
-  _events.subscribe('touchstart', (e)=> {
+  let onmove = (event)=> {
+    event.preventDefault();
+
+    if (moved === false) {
+      moved = true;
+      _element.style.transition = 'initial';
+      _element.classList.add('active');
+      return initialPosition = getPoint(event);
+    }
+
+    nextpoint = getPoint(event);
+    calculate(event);
+
+    window.requestAnimationFrame(()=> {
+      _element.style.transition = 'initial';
+      nextX = currentX - (initialPosition.x - nextpoint.x);
+      let r = (nextX / 45);
+
+      nextRotate = nextX < 0 ? (nextRotate - 1) : (nextRotate + 1);
+      _element.style.transform = `translate3d(${nextX}px, 0, 0) rotate(${r}deg)`;
+    })
+  }
+
+  this.onTouchStart = (e)=> {
     canceled = false;
     moved    = false;
 
-    let calculate = makeVelocityCalculator(e, v => {
+    e.preventDefault();
+
+    calculate = makeVelocityCalculator(e, v => {
       velocity = lastVelocity || v;
       lastVelocity = v;
     })
@@ -153,34 +186,24 @@ export default function CardMotion(viewModel:ViewModel) {
       onend(event);
     })
 
+    DOM.events.subscribeOnce('mouseup', (event)=> {
+      onend(event);
+    })
+
     DOM.events.subscribeOnce('touchcancel', (event)=> {
       onend(event)
     });
 
-    moveEvent = DOM.events.subscribe('touchmove', (event)=> {
-
-      event.preventDefault();
-
-      if (moved === false) {
-        moved = true;
-        _element.style.transition = 'initial';
-        _element.classList.add('active');
-        return initialPosition = getPoint(event);
-      }
-
-      nextpoint = getPoint(event);
-      calculate(event);
-
-      window.requestAnimationFrame(()=> {
-        _element.style.transition = 'initial';
-        nextX = currentX - (initialPosition.x - nextpoint.x);
-        let r = (nextX / 45);
-
-        nextRotate = nextX < 0 ? (nextRotate - 1) : (nextRotate + 1);
-        _element.style.transform = `translate3d(${nextX}px, 0, 0) rotate(${r}deg)`;
-      })
+    touchMoveEvent = DOM.events.subscribe('touchmove', (event)=> {
+      onmove(event);
     });
-  })
+
+    mouseMoveEvent = DOM.events.subscribe('mousemove', (event)=> {
+      if (document.documentElement.classList.contains('platform-ios') || document.documentElement.classList.contains('platform-md')) {
+        onmove(event);
+      }
+    });
+  }
 
   this.dispose = ()=> {
     _element.events.disposeAll();

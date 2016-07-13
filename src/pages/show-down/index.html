@@ -2,11 +2,10 @@
   <page-view id="show-down">
     <project-card-list class="float" swipe-left.bind="deniedProject" swipe-right.bind="acceptedProject">
 
-      <project-card repeat.for="project of projects" model.bind="project">
+      <project-card repeat.for="project of projects" model.bind="project" flip=true>
         <card-front>
           <header>
-            <icon type.bind="project.icon"></icon>
-            ${project.title}
+            <h3>${project.overview}</h3>
           </header>
           <article>
             <p>${project.teaser}</p>
@@ -21,7 +20,6 @@
           </footer>
         </card-front>
         <card-back>
-
         </card-back>
       </project-card>
     </project-card-list>

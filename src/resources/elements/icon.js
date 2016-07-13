@@ -5,11 +5,13 @@ import {Loader} from 'aurelia-loader';
 import {Cache} from 'services/cache';
 
 const default_paths = {
-  checkmark: 'checkmark.svg',
-  close: 'close.svg',
-  person: 'person.svg',
-  more: 'more-vert.svg',
+  'checkmark': 'checkmark.svg',
+  'close': 'close.svg',
+  'person': 'person.svg',
+  'more': 'more-vert.svg',
   'more-vert': 'more-vert.svg',
+  'add-box':'add-box.svg',
+  'fiber':'fiber.svg'
 }
 
 @customElement('icon')

@@ -7,16 +7,21 @@ export class ProjectList {
    *   description
    */
   projects:Array = [];
+  statusTypes:Array = Project.instance.statusTypes;
 
-  activate(params, config) {
-    Project.instance.get()
+  canActivate(params, config) {
+    return Project.instance.get()
       .then(projects => {
         if ('scope' in config.settings && 'projects' in config.settings.scope) {
+          this.context = config.settings.context;
           return config.settings.scope.projects(projects);
         }
         return projects;
       })
       .then(projects => this.projects = projects);
+  }
 
+  setStatus(event, project) {
+    let value = event.target.value;
   }
 }

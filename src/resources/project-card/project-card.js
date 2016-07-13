@@ -10,7 +10,8 @@ import CardMotion from './motion';
 @inject(DOM.Element, ElementEvents)
 export class ProjectCard {
 
-  @bindable model;
+  @bindable model:Object = null;
+  @bindable flip:Boolean = false;
   /**
    *   Container's Element event instance
    */
@@ -31,13 +32,21 @@ export class ProjectCard {
     this._element.events.publish(`swipe-${position}-end`, this);
   }
 
+  attached() {
+    this._events.subscribe('mouseover', ()=> {
+      console.log('over')
+    })
+  }
+
   detached() {
     if (this.cardMotion) {
       this.cardMotion.dispose();
     }
   }
 
-  attached(){
-    this.cardMotion = new CardMotion(this);
+  flipChanged(value) {
+    if (value && !this.cardMotion) {
+      this.cardMotion = new CardMotion(this);
+    }
   }
 }

@@ -1,14 +1,31 @@
 <template>
-  <ul>
-    <li repeat.for="project of projects">
-      <blockquote>
-        <h2>Overview</h2>
-        <small>${project.overview}</small>
-      </blockquote>
-      <blockquote>
-        <h4>Teaser</h4>
-        <small>${project.teaser}</small>
-      </blockquote>
-    </li>
-  </ul>
+  <page-title>Projects</page-title>
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="row">
+        <div class="columns">
+          <action tint="primary" show.bind="context.user" href="#/users/${context.user.id}/projects/create" icon="add-box" class="align-right"></action>
+        </div>
+      </div>
+    </div>
+    <project-card-table class="columns">
+      <project-card repeat.for="project of projects">
+        <aside>
+          <icon type="fiber"></icon>
+        </aside>
+        <header>
+          <h2>${project.overview}</h2>
+          <summary> ${project.teaser}; </summary>
+          <label>
+              <ui-select show.bind="context.user"
+                         options.bind="statusTypes"
+                         value.bind="project.statuses"
+                         multiple="multiple"
+                         placeholder="Status">
+              </ui-select>
+          </label>
+        </header>
+      </project-card>
+    </project-card-table>
+  </div>
 </template>

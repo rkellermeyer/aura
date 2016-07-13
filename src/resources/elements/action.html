@@ -1,0 +1,6 @@
+<template>
+  <a href.bind="href || 'javascript:;'">
+    <icon if.bind="icon" type.bind="icon"></icon>
+    <span class="text"><slot></slot></span>
+  </a>
+</template>

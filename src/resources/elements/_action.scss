@@ -1,0 +1,22 @@
+action {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  pointer-events: auto;
+  cursor: pointer;
+  flex: 0 0 auto;
+  max-width: 120px;
+  min-width: 48px;
+
+  icon {
+    padding: 8px;
+    width: auto;
+    height: auto;
+  }
+
+  &.align-right {
+    margin-left: auto;
+  }
+}
