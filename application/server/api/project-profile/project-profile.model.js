@@ -1,6 +1,6 @@
 'use strict';
 
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 function SchemaRef(refname) {
   return {type: mongoose.Schema.Types.ObjectId, ref: refname};
@@ -25,4 +25,4 @@ var ProjectProfileSchema = new mongoose.Schema({
   project: SchemaRef('Project')
 });
 
-export default mongoose.model('ProjectProfile', ProjectProfileSchema);
+module.exports = mongoose.model('ProjectProfile', ProjectProfileSchema);

@@ -1,9 +1,11 @@
 'use strict';
 
-import User from './user.model';
-import passport from 'passport';
-import config from '../../config/environment';
-import jwt from 'jsonwebtoken';
+const User = require('./user.model');
+const passport = require('passport');
+const config = require('../../config/environment');
+const jwt = require('jsonwebtoken');
+
+module.exports = {index, create, show, destroy, changePassword, me, authCallback};
 
 function validationError(res, statusCode) {
   statusCode = statusCode || 422;
@@ -19,143 +21,138 @@ function handleError(res, statusCode) {
   };
 }
 
-export default class Controller {
-
   /**
    * Get list of users
    * restriction: 'admin'
    */
-  index(req, res) {
-    return User.find({}, '-salt -password').populate('projects user_profile')
-      .exec()
-      .then((users)=> onfind(users))
-      .catch(handleError(res));
+function index(req, res) {
+  return User.find({}, '-salt -password').populate('projects user_profile')
+    .exec()
+    .then((users)=> onfind(users))
+    .catch(handleError(res));
 
-    /////////////////////
-    function onfind(users) {
-      res.status(200).json(users);
-    }
+  /////////////////////
+  function onfind(users) {
+    res.status(200).json(users);
   }
+}
 
   /**
    * Creates a new user
    */
-  create(req, res, next) {
-    let newUser;
+function  create(req, res, next) {
+  let newUser;
 
-    newUser = new User(req.body);
-    newUser.provider = 'local';
-    newUser.role = 'user';
-    newUser.save()
-      .then((user)=> onsave(user))
-      .catch(validationError(res));
+  newUser = new User(req.body);
+  newUser.provider = 'local';
+  newUser.role = 'user';
+  newUser.save()
+    .then((user)=> onsave(user))
+    .catch(validationError(res));
 
-    /////////////////////
-    function onsave(user) {
-      let token = jwt.sign({ _id: user._id }, config.secrets.session, {
-        expiresIn: 60 * 60 * 5
-      });
-      res.json({ token });
-    }
+  /////////////////////
+  function onsave(user) {
+    let token = jwt.sign({ _id: user._id }, config.secrets.session, {
+      expiresIn: 60 * 60 * 5
+    });
+    res.json({ token });
   }
+}
 
   /**
    * Get a single user
    */
-  show(req, res, next) {
-    var userId = req.params.id;
+function  show(req, res, next) {
+  var userId = req.params.id;
 
-    return User.findById(userId)
-      .populate('user_profile projects')
-      .exec()
-      .then(user => onfind(user))
-      .catch(err => next(err));
+  return User.findById(userId)
+    .populate('user_profile projects')
+    .exec()
+    .then(user => onfind(user))
+    .catch(err => next(err));
 
-    /////////////////////
-    function onfind(user) {
-      if (!user) {
-        return res.status(404).end();
-      }
-      res.json(user.profile);
+  /////////////////////
+  function onfind(user) {
+    if (!user) {
+      return res.status(404).end();
     }
+    res.json(user.profile);
   }
+}
 
   /**
    * Deletes a user
    * restriction: 'admin'
    */
-  destroy(req, res) {
-    return User.findByIdAndRemove(req.params.id)
-      .exec()
-      .then(ondestroy)
-      .catch(handleError(res));
+function  destroy(req, res) {
+  return User.findByIdAndRemove(req.params.id)
+    .exec()
+    .then(ondestroy)
+    .catch(handleError(res));
 
-    ///////////////////
-    function ondestroy() {
-      res.status(204).end();
-    }
+  ///////////////////
+  function ondestroy() {
+    res.status(204).end();
   }
+}
 
   /**
    * Change a users password
    */
-  changePassword(req, res, next) {
-    var userId = req.user._id;
-    var oldPass = String(req.body.oldPassword);
-    var newPass = String(req.body.newPassword);
+function changePassword(req, res, next) {
+  var userId = req.user._id;
+  var oldPass = String(req.body.oldPassword);
+  var newPass = String(req.body.newPassword);
 
-    return User.findById(userId)
-      .exec()
-      .then(setNewPassword)
-      .catch(handleError(res))
+  return User.findById(userId)
+    .exec()
+    .then(setNewPassword)
+    .catch(handleError(res))
 
-    /////////////////////////////
-    function setNewPassword(user) {
-      if (!user.authenticate(oldPass)) return onfail();
+  /////////////////////////////
+  function setNewPassword(user) {
+    if (!user.authenticate(oldPass)) return onfail();
 
-      user.password = newPass;
-      return user.save()
-        .then(()=> onsave())
-        .catch(validationError(res));
-    }
-
-    function onfail() {
-      res.status(403).end();
-    }
-
-    function onsave() {
-      res.status(204).end();
-    }
+    user.password = newPass;
+    return user.save()
+      .then(()=> onsave())
+      .catch(validationError(res));
   }
+
+  function onfail() {
+    res.status(403).end();
+  }
+
+  function onsave() {
+    res.status(204).end();
+  }
+}
 
   /**
    * Get my info
    */
-  me(req, res, next) {
-    let userId = req.user._id;
-    let query  = { _id: userId };
+function  me(req, res, next) {
+  let userId = req.user._id;
+  let query  = { _id: userId };
 
-    return User.findOne(query, '-salt -password')
-      .populate('projects user_profile')
-      .exec()
-      .then(user => onfind(user))
-      .catch(err => next(err));
+  return User.findOne(query, '-salt -password')
+    .populate('projects user_profile')
+    .exec()
+    .then(user => onfind(user))
+    .catch(err => next(err));
 
-    ////////////////////
-    function onfind(user) { // don't ever give out the password or salt
-      if (!user) {
-        return res.status(401).end();
-      }
-      res.json(user);
+  ////////////////////
+  function onfind(user) { // don't ever give out the password or salt
+    if (!user) {
+      return res.status(401).end();
     }
+    res.json(user);
   }
+}
 
   /**
    * Authentication callback
    */
-  authCallback(req, res, next) {
-    res.redirect('/');
-  }
+function authCallback(req, res, next) {
+  res.redirect('/');
 }
-
-

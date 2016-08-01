@@ -48,18 +48,18 @@ export default server;
 
 
 function httpGet(...args) {
-  return Container.get(Http).get(...args);
+  return Container.get(Http).getHttp().get(...args);
 }
 
 function httpPost(...args) {
-  return Container.get(Http).post(...args);
+  return Container.get(Http).getHttp().post(...args);
 }
 
 function httpPut(...args) {
-  return Container.get(Http).put(...args);
+  return Container.get(Http).getHttp().put(...args);
 }
 
 function httpPatch(...args) {
-  return Container.get(Http).patch(...args);
+  return Container.get(Http).getHttp().patch(...args);
 }
 

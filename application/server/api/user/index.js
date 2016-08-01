@@ -2,12 +2,11 @@
 
 'use strict';
 
-import {Router} from 'express';
-import Controller from './user.controller';
-import * as auth from '../../auth/auth.service';
+const express = require('express');
+const controller = require('./user.controller');
+const auth = require('../../auth/auth.service');
 
-var controller = new Controller();
-var router = new Router();
+var router = express.Router();
 
 router.get('/', controller.index);
 router.delete('/:id', controller.destroy);

@@ -9,8 +9,10 @@
 
 'use strict';
 
-import _ from 'lodash';
-import Project from './project.model';
+const _ = require('lodash');
+const Project = require('./project.model');
+
+module.exports = {index, show, create, update, destroy};
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -60,14 +62,14 @@ function handleError(res, statusCode) {
 }
 
 // Gets a list of Projects
-export function index(req, res) {
+function index(req, res) {
   return Project.find().exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
 // Gets a single Project from the DB
-export function show(req, res) {
+function show(req, res) {
   return Project.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
@@ -75,14 +77,14 @@ export function show(req, res) {
 }
 
 // Creates a new Project in the DB
-export function create(req, res) {
+function create(req, res) {
   return Project.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
 }
 
 // Updates an existing Project in the DB
-export function update(req, res) {
+function update(req, res) {
   if (req.body._id) {
     delete req.body._id;
   }
@@ -94,7 +96,7 @@ export function update(req, res) {
 }
 
 // Deletes a Project from the DB
-export function destroy(req, res) {
+function destroy(req, res) {
   return Project.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))

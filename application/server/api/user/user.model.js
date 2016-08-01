@@ -1,13 +1,10 @@
 'use strict';
 
-import crypto from 'crypto';
-import mongoose from 'mongoose';
-import bluebird from 'bluebird';
-mongoose.Promise = bluebird
-import {Schema} from 'mongoose';
-import {ErrorMessage} from './assert';
+const mongoose = require('mongoose');
+const crypto = require('crypto');
+const ErrorMessage = require('./assert');
 
-var UserSchema = new Schema({
+const UserSchema = new mongoose.Schema({
   provider: String,
   salt: String,
 
@@ -242,5 +239,5 @@ UserSchema.methods = {
   }
 };
 
-export default mongoose.model('User', UserSchema);
+module.exports = mongoose.model('User', UserSchema);
 // export {ProjectSchema}

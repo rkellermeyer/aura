@@ -9,7 +9,7 @@ const path   = require('path');
 
 const router = module.exports = function(app) {
   // Insert routes below
-  app.use('/api/things', require('./api/thing'));
+  // app.use('/api/things', require('./api/thing'));
 
   app.use('/api/project_profiles', require('./api/project-profile'));
   app.use('/api/user_profiles', require('./api/user-profile'));

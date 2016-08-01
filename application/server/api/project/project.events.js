@@ -4,9 +4,10 @@
 
 'use strict';
 
-import {EventEmitter} from 'events';
-import Project from './project.model';
-var ProjectEvents = new EventEmitter();
+const EventEmitter = require('events');
+const Project = require('./project.model');
+const ProjectEvents = new EventEmitter();
+
 
 // Set max event listeners (0 == unlimited)
 ProjectEvents.setMaxListeners(0);
@@ -30,4 +31,4 @@ function emitEvent(event) {
   }
 }
 
-export default ProjectEvents;
+module.exports = ProjectEvents;

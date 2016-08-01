@@ -1,12 +1,16 @@
+'use strict';
+
 // import users from './users';
 const projects       = require('./projects');
 const Category       = require('../../api/category/category.model');
-const PROJECT_STATUS = require('../../api/status/status.model').PROJECT_STATUS;
+const Status         = require('../../api/status/status.model');
 const User           = require('../../api/user/user.model');
 const UserProfile    = require('../../api/user-profile/user-profile.model');
 const Project        = require('../../api/project/project.model');
 const ProjectProfile = require('../../api/project-profile/project-profile.model');
 const request        = require('request');
+
+const PROJECT_STATUS = Status.PROJECT_STATUS;
 
 Promise.resolve()
   .then(seedCategories)
@@ -51,6 +55,7 @@ function seedStatuses() {
         })
         model.save();
       })
+
       resolve();
     })
   })
@@ -131,7 +136,6 @@ function seedProjects() {
     })
   })
 }
-
 
 function defaultUser() {
   return {

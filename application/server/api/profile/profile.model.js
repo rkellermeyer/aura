@@ -1,6 +1,6 @@
 'use strict';
 
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 var ProfileSchema = new mongoose.Schema({
   name: String,
@@ -8,4 +8,4 @@ var ProfileSchema = new mongoose.Schema({
   active: Boolean
 });
 
-export default mongoose.model('Profile', ProfileSchema);
+module.exports = mongoose.model('Profile', ProfileSchema);

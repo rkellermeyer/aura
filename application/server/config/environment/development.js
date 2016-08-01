@@ -6,7 +6,7 @@ module.exports = {
 
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/testgenerator-dev'
+    uri: 'mongodb://localhost/idyuh'
   },
 
   // Seed database on startup

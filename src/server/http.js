@@ -27,7 +27,6 @@ export class Http {
     })
 
     this.http = http;
-
     this.getHttp = ()=> http;
   }
 }

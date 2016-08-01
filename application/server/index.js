@@ -8,13 +8,13 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 const express    = require('express');
 const mongoose   = require('mongoose');
+const bluebird   = require('bluebird');
+mongoose.Promise = bluebird;
 const config     = require('./config/environment');
-const Promise    = require('bluebird');
 const http       = require('http');
 
 
 // Connect to MongoDB
-mongoose.Promise = Promise;
 mongoose.connect(config.mongo.uri, config.mongo.options);
 mongoose.connection.on('error', function(err) {
   console.error('MongoDB connection error: ' + err);
@@ -24,6 +24,7 @@ mongoose.connection.on('error', function(err) {
 
 // Populate databases with sample data
 if (process.argv[2] === '--seed') {
+  console.log('seeding')
    config.seedDB = true;
    require('./config/seed');
 }

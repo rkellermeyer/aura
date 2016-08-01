@@ -4,9 +4,9 @@
 
 'use strict';
 
-import {EventEmitter} from 'events';
-import Category from './category.model';
-var CategoryEvents = new EventEmitter();
+const EventEmitter = require('events');
+const Category = require('./category.model');
+const CategoryEvents = new EventEmitter();
 
 // Set max event listeners (0 == unlimited)
 CategoryEvents.setMaxListeners(0);
@@ -30,4 +30,4 @@ function emitEvent(event) {
   }
 }
 
-export default CategoryEvents;
+module.exports = CategoryEvents;

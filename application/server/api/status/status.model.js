@@ -1,17 +1,15 @@
 'use strict';
 
-import mongoose from 'mongoose';
-
-
+const mongoose = require('mongoose');
 
 var StatusSchema = new mongoose.Schema({
   name: String,
   key: String,
 });
 
-export default mongoose.model('Status', StatusSchema);
+module.exports = mongoose.model('Status', StatusSchema);
 
-export const PROJECT_STATUS = {
+module.exports.PROJECT_STATUS = {
     'evaluated':                    'project_evaluated',
     'accepted':                     'project_accepted',
     'pending':                      'project_pending',

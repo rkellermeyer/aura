@@ -4,9 +4,9 @@
 
 'use strict';
 
-import {EventEmitter} from 'events';
-import Profile from './profile.model';
-var ProfileEvents = new EventEmitter();
+const EventEmitter = require('events');
+const Profile = require('./profile.model');
+const ProfileEvents = new EventEmitter();
 
 // Set max event listeners (0 == unlimited)
 ProfileEvents.setMaxListeners(0);
@@ -30,4 +30,4 @@ function emitEvent(event) {
   }
 }
 
-export default ProfileEvents;
+module.exports = ProfileEvents;

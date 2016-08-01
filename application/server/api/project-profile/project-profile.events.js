@@ -4,9 +4,9 @@
 
 'use strict';
 
-import {EventEmitter} from 'events';
-import ProjectProfile from './project-profile.model';
-var ProjectProfileEvents = new EventEmitter();
+const EventEmitter = require('events');
+const ProjectProfile = require('./project-profile.model');
+const ProjectProfileEvents = new EventEmitter();
 
 // Set max event listeners (0 == unlimited)
 ProjectProfileEvents.setMaxListeners(0);
@@ -30,4 +30,4 @@ function emitEvent(event) {
   }
 }
 
-export default ProjectProfileEvents;
+module.exports = ProjectProfileEvents;

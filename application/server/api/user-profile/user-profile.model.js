@@ -1,6 +1,6 @@
 'use strict';
 
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 var UserProfileSchema = new mongoose.Schema({
   id: Number,
@@ -26,4 +26,4 @@ var UserProfileSchema = new mongoose.Schema({
   }
 });
 
-export default mongoose.model('UserProfile', UserProfileSchema);
+module.exports = mongoose.model('UserProfile', UserProfileSchema);

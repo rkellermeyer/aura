@@ -21,7 +21,7 @@ function onConnect(socket) {
   require('./api/category/category.socket').register(socket);
   require('./api/project/project.socket').register(socket);
   require('./api/profile/profile.socket').register(socket);
-  require('./api/thing/thing.socket').register(socket);
+  // require('./api/thing/thing.socket').register(socket);
 }
 
 function webSockets(socketio) {

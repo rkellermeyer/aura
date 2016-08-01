@@ -43,7 +43,6 @@ export class Users {
   }
 }
 
-
 function buildRoute(name, options) {
   let route    = name;
   let title    = _.capitalize(name);

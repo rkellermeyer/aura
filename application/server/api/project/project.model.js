@@ -1,7 +1,6 @@
 'use strict';
 
-import mongoose from 'mongoose';
-// import {ProjectSchema} from '../user/user.model';
+const mongoose = require('mongoose');
 
 var ProjectSchema = new mongoose.Schema({
   id: Number,
@@ -11,4 +10,4 @@ var ProjectSchema = new mongoose.Schema({
 });
 
 
-export default mongoose.model('Project', ProjectSchema);
+module.exports = mongoose.model('Project', ProjectSchema);

@@ -4,9 +4,10 @@
 
 'use strict';
 
-import {EventEmitter} from 'events';
-import Status from './status.model';
-var StatusEvents = new EventEmitter();
+const EventEmitter = require('events');
+const Status = require('./status.model');
+const StatusEvents = new EventEmitter();
+
 
 // Set max event listeners (0 == unlimited)
 StatusEvents.setMaxListeners(0);
@@ -30,4 +31,4 @@ function emitEvent(event) {
   }
 }
 
-export default StatusEvents;
+module.exports = StatusEvents;

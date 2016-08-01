@@ -1,6 +1,6 @@
 'use strict';
 
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 var CategorySchema = new mongoose.Schema({
   name: String,
@@ -12,4 +12,4 @@ var CategorySchema = new mongoose.Schema({
   updated_at: { type: Date, default: Date.now },
 });
 
-export default mongoose.model('Category', CategorySchema);
+module.exports = mongoose.model('Category', CategorySchema);

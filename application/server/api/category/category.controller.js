@@ -9,8 +9,10 @@
 
 'use strict';
 
-import _ from 'lodash';
-import Category from './category.model';
+const _ = require('lodash');
+const Category = require('./category.model');
+
+module.exports = {index, show, create, update, destroy};
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -60,14 +62,14 @@ function handleError(res, statusCode) {
 }
 
 // Gets a list of Categorys
-export function index(req, res) {
+function index(req, res) {
   return Category.find().exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
 // Gets a single Category from the DB
-export function show(req, res) {
+function show(req, res) {
   return Category.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
@@ -75,14 +77,14 @@ export function show(req, res) {
 }
 
 // Creates a new Category in the DB
-export function create(req, res) {
+function create(req, res) {
   return Category.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
 }
 
 // Updates an existing Category in the DB
-export function update(req, res) {
+function update(req, res) {
   if (req.body._id) {
     delete req.body._id;
   }
@@ -94,7 +96,7 @@ export function update(req, res) {
 }
 
 // Deletes a Category from the DB
-export function destroy(req, res) {
+function destroy(req, res) {
   return Category.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))

@@ -6,17 +6,12 @@ export class UpdateUser {
    *   description
    */
   activate(params, config) {
-    this.subscription = state.configurePortal({
-      title: 'Settings'
-    })
-
     state.authorize( authorized => {
       this.authorized = state.authorized
     });
   }
 
   deactivate() {
-    this.subscription.dispose();
   }
 
   enablePersonalTitle(config) {

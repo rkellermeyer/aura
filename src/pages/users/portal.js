@@ -35,6 +35,16 @@ export class UserPortal {
         nav: true,
         icon: 'apps'
       }),
+      buildRoute('groups', {
+        moduleId: './user/groups',
+        nav: true,
+        icon: 'group'
+      }),
+      buildRoute('reviews', {
+        moduleId: './user/reviews',
+        nav: true,
+        icon: 'rate_review'
+      }),
       buildRoute('project-overview', {
         moduleId: './project/overview',
         route: 'project/overview/:id',
