@@ -8,7 +8,7 @@
     "url": "http://github.com/rkellermeyer/aura"
   },
   "scripts": {
-    "mongo": "mongod --journal --dbpath ./data",
+    "mongo": "mongod --journal --dbpath ./application/data/mongo-database/data",
     "setup": "node ./application/scripts/install-server.js && node ./application/scripts/install-build.js",
     "start": "au run --watch"
   },
