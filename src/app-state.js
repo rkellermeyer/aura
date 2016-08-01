@@ -1,47 +1,71 @@
+import {Cache} from 'services/cache';
+import {Container} from 'aurelia-dependency-injection';
+import channel from 'core/channel';
+import {Authorize} from 'core/actions';
 
+class State {
 
+  ui:UI  = null;
 
+  app:App = null;
 
-export class User {
-  constructor(parent) {
-    this.parent = parent;
-  }
+  portal:Portal = null;
 
-  updateName(name) {
-    this.parent.current.name = name;
-  }
-
-  get() {}
-  put() {}
-  delete() {}
-}
-
-
-export class Users {
-  index = [
-    {name: 'bob', age: 22},
-    {name: 'bob', age: 22},
-    {name: 'bob', age: 22},
-    {name: 'bob', age: 22},
-  ];
-
-  current = null;
+  authorized:Authorized = null;
 
   constructor() {
-    this.model = new User(this);
-    this.current = this.index[0];
+    channel.subscribe(Authorize, (payload)=> {
+      this.authorized = payload.instruction;
+    });
   }
 
-  get() {}
-  put() {}
-}
+  authorize(callback) {
+    let resolveCallback = (a)=> {
+      return callback ? callback(a) : Promise.resolve(a);
+    }
+
+    if (this.authorized) {
+      return resolveCallback(this.authorized);
+    }
+
+    return new Promise(resolve => {
+      channel.subscribeOnce(Authorize, (payload)=> {
+        resolve(resolveCallback(payload.instruction));
+      })
+    })
+  }
+
+  register(key, Class, EventType) {
+
+    Class.instance = Container.get(Class);
+    Container.register(Class, Class.instance);
+
+    Object.defineProperty(this, key, {
+      get() {
+        return Class.instance;
+      }
+    })
+
+    return Class.instance;
+  }
 
 
-export class State {
+  containerGet(key) {
+    return Container.get(key);
+  }
 
-  users = new Users();
+  __cacheSetItem(key, value) {
+    return Container.get(Cache).setItem(key, value);
+  }
 
-  constructor() {
+  __cacheGetItem(key) {
+    return Container.get(Cache).getItem(key);
   }
 }
+
+const state = new State();
+
+export default state;
+
+window.state = state;
 

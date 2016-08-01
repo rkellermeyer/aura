@@ -1,22 +1,25 @@
 <template>
-  <require from="./user-profile"></require>
+  <particle name=backdrop></particle>
+
   <nav class="menu">
     <h1 class="name"><i class="fi-widget"></i>Idyuh</a></h1>
     <ul class="inline-list">
-      <li class="active"><a href="home.html">Home</a></li>
+      <li class="active"><a href="#/">Home</a></li>
       <li><a href="#">Blog</a></li>
       <li><a href="#">Pricing</a></li>
     </ul>
-    <ul class="inline-list hide-for-small-only account-action" show.bind="!auth.user">
-      <li><a href="javascript:;" click.trigger="atcivateLogin()">Login</a></li>
-      <li class=""><a class="signup" href="#">Signup</a></li>
+
+    <ul class="inline-list hide-for-small-only account-action" show.bind="!state.authorized">
+      <li><a href="#/login">Login</a></li>
+      <li><a href="#/signup" click.trigger="activateSignup()">Signup</a></li>
     </ul>
+
     <!-- <ul class="inline-list hide-for-small-only account-action" show.bind="auth.user">
       <li><a href="javascript:;" click.trigger="logout()">Logout</a></li>
     </ul> -->
-    <a class="account hide-for-medium-up" href="login-signup.html"></a>
+    <a class="account hide-for-medium-up" href="login-signup"></a>
 
-
-    <user-profile show.bind="auth.user"></user-profile>
+    <!-- <icon align=right md=more_vert click.trigger="gotologin()"></icon> -->
   </nav>
+  <auth-nav show.bind="state.authorized"></auth-nav>
 </template>

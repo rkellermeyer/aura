@@ -1,0 +1,366 @@
+@import 'bourbon';
+@import 'neat';
+
+
+$aside-fill:  $grey-300;
+$main-fill:   rgba(225, 225, 235, 0);
+$header-fill: rgba(225, 225, 235, 0);
+
+
+$aside-size: 0;
+$nav-size: 5rem;
+$header-size: 12rem;
+
+html {
+  // background-color: $indigo;
+  // background: -webkit-radial-gradient(#add8e6, #90ee90);
+  // background: radial-gradient(#add8e6, #90ee90);
+  font-family: -apple-system-font, "Helvetica Neue", Helvetica, arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: 'liga', 'kern';
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+body {
+  // background-color: $indigo;
+  // background: -webkit-radial-gradient(#add8e6, #90ee90);
+  // background: radial-gradient(#add8e6, #90ee90);
+  height: auto;
+  font-family: -apple-system-font, "Helvetica Neue", Helvetica, arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: 'liga', 'kern';
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  background: transparent;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+
+  > app-background {
+    display: block;
+    min-height: 100vh;
+    min-width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    &:after,
+    &:before {
+      content: " ";
+      display: block;
+      min-width: inherit;
+      min-height: inherit;
+      position: fixed;
+      filter: blur(10px);
+    }
+
+    &:before {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: url("resources/index.jpg");
+      background-position: center;
+    }
+
+    &:after {
+      z-index: 1;
+      background-color: rgba(255,255,255,0.5);
+    }
+  }
+
+  > host {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    min-height: 100vh;
+    min-width: 100vw;
+  }
+
+  > container {
+    pointer-events: none;
+    display: flex;
+    flex-direction: row;
+    min-height: 0;
+    max-height: 0;
+    min-width: 100vw;
+    max-width: 100vw;
+  }
+
+  > host > aside,
+  > container > aside {
+    display: flex;
+    flex: 1 0 auto;
+    position: relative;
+    max-width: $aside-size;
+    z-index: 1;
+  }
+
+
+  > host > main,
+  > container > main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+
+  > host > main > header,
+  > container > aside > header,
+  > container > main > header {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    max-height: $header-size;
+    min-height: $header-size;
+  }
+
+  > container > main > header > app-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 100;
+  }
+
+  > host > main > router-view,
+  > container > aside > section,
+  > container > main > section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  > container > main > header > nav {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: row;
+    max-height: $nav-size;
+    margin-left: auto;
+    margin-top: auto;
+    list-style: none;
+    max-height: 48px;
+
+    li {
+      color: white;
+      margin: 0 1rem;
+      line-height: 48px;
+    }
+  }
+
+  > host {
+    pointer-events: none;
+
+    > main > router-view {
+      min-height: calc(100% - #{$header-size});
+      background-color: $main-fill;
+    }
+
+    > main > router-view > section {
+      pointer-events: auto;
+    }
+  }
+
+  > container > aside > header {
+    background-color: $header-fill;
+    // box-shadow: inset 0px 0 0 $indigo-600, inset 0 -1px 0 $indigo-400;
+  }
+
+  > container > main > header {
+    background-color: $header-fill;
+    // box-shadow: inset 0px 0 0 $indigo-400, inset 0 -1px 0 $indigo-400;
+  }
+
+  > container > aside > section {
+    // box-shadow: inset 0px 0 0 $grey-300, inset 0 3px 2px $grey-300;
+    background-color: $main-fill;
+  }
+  > container > main > section {
+    // box-shadow: inset 0px 0 0 $white, inset 0 3px 2px $grey-300;
+    background-color: $main-fill;
+  }
+}
+
+
+
+body {
+  > container > aside > section {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: relative;
+
+      li {
+        position: relative;
+        line-height: 44px;
+        min-width: 100%;
+
+        a {
+          padding-left: 1rem;
+          display: block;
+          position: relative;
+          line-height: inherit;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          max-width: 100%;
+          min-width: 100%;
+        }
+
+
+        &:hover {
+          background-color: $grey-100;
+        }
+
+        &:active {
+
+        }
+
+        &.active {
+          background-color: $grey-200;
+        }
+      }
+    }
+  }
+
+  > container > main > header > button {
+    display: none;
+    margin: 1rem;
+    position: relative;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+
+    -webkit-appearance: none;
+    border: none;
+    outline: none;
+    background-color: transparent;
+
+    > ai-icon.icon {
+      margin: 0;
+      position: absolute;
+      width: inherit;
+      height: inherit;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
+      fill: white;
+
+      &.close {
+        opacity: 0;
+        transform: rotate(180deg);
+      }
+
+      &.menu {
+        opacity: 1;
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+
+    > container > main {
+      animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+      animation-duration: 0.2s;
+      animation-direction: alternate;
+      animation-fill-mode: forwards;
+      will-change: transform;
+      animation-name: close-aside;
+      box-shadow: -10px 0 20px -2px rgba(0,0,0,0.3);
+
+      > header {
+        box-shadow: inset 0 -1px 0 $indigo-400;
+      }
+
+      > header > button {
+        display: block;
+      }
+    }
+
+    > host > aside,
+    > container > aside {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      min-width: 80vw;
+
+      -webkit-backface-visibility: hidden;
+              backface-visibility: hidden;
+
+      &:focus ~ main {
+        animation-name: open-aside;
+
+        > header {
+          > button ai-icon.icon {
+            transform: rotate(0deg);
+
+            &.close {
+              opacity: 1;
+            }
+            &.menu {
+              opacity: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+router-view {
+  page-view {
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    margin: 0 auto;
+    transform: translateY(-100px);
+
+    > section {
+      flex: 0 0 auto;
+      padding: 1rem;
+
+      > article {
+        margin-bottom: 2rem;
+
+        > h4  {
+          margin-bottom: 1rem;
+          color: $grey-700;
+        }
+      }
+    }
+
+    > section.page__content {
+      background: white;
+      box-shadow: 0 13px 20px -9px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+@include keyframes(close-aside) {
+  from {
+    transform: translateX(79vw);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@include keyframes(open-aside) {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(79vw);
+  }
+}
+
+

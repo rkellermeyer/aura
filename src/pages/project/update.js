@@ -1,4 +1,6 @@
-import {Project} from 'request/idyuh-project';
+import {PortalState} from 'core/actions';
+import channel from 'core/channel';
+
 
 export class ProjectUpdate {
   /**
@@ -7,8 +9,8 @@ export class ProjectUpdate {
   project:ProjectModel = null;
 
   activate(params) {
-    Project.instance.current(params.id).then((project)=> {
-      this.project = project;
-    })
+    channel.push(new PortalState({
+      title: 'Update Project'
+    }))
   }
 }

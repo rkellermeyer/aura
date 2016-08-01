@@ -1,57 +1,6 @@
 <template>
-  <page-view id="welcome" flex-dir="row-wrap">
-    <welcome-card css="background-image:url(${card.background});"
-                  flex-dir=column
-                  repeat.for="card of cards">
-      <picture>
-        <img src.bind="card.image">
-      </picture>
-      <header>
-        <h2>${card.title}</h2>
-        <p>${card.text}</p>
-      </header>
-    </welcome-card>
+  <!-- <require from="./welcome-card"></require> -->
+  <page-view flex-dir="row-wrap">
+    <h1>Welcome</h1>
   </page-view>
 </template>
-  <!-- <div class="row expanded collapse">
-    <div class="large-6 columns welcome-box">
-      <div class="box bg-dreamer">
-        <img src="resources/images/dreamer.png" alt="">
-        <div class="info">
-          <h2 class="text-center">dreamer</h2>
-          <p>Are you an idea maker, looking for a team to help jump start your project?</p>
-        </div>
-      </div>
-    </div>
-    <div class="large-6 columns">
-      <div class="box bg-mentor">
-        <img src="resources/images/mentor.png" alt="">
-        <div class="info">
-          <h2 class="text-center">mentor</h2>
-          <p>Are you an experienced leader who can give direction to a creative team?</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row expanded collapse">
-    <div class="large-6 columns welcome-box">
-      <div class="box bg-investor">
-        <img src="resources/images/investor.png" alt="">
-        <div class="info">
-          <h2 class="text-center">investor</h2>
-          <p>Are you a venture capitalist or hobby investor looking to fund the next great idea?</p>
-        </div>
-      </div>
-    </div>
-    <div class="large-6 columns">
-      <div class="box bg-provider">
-        <img src="resources/images/developer.png" alt="">
-        <div class="info">
-          <h2 class="text-center">service provider</h2>
-          <p>Are you looking to help create the next big idea or add value to a project with your specialized skills?</p>
-        </div>
-      </div>
-    </div>
-  </div>
- -->

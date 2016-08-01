@@ -1,13 +1,23 @@
-import {Auth} from 'services/auth';
-import {Users} from 'services/user';
+import {Users} from 'server/users';
+import {inject} from 'aurelia-dependency-injection';
+import portal from 'app-portal';
 
+@inject(Users)
 export class UserPage {
-
-  auth = Auth;
   context = {};
 
-  constructor() {
-    this.context.auth = this.auth;
+  constructor(users) {
+    this.users = users;
+
+    portal.configureNav(navigation => {
+      navigation.map([
+        {
+          route: 'settings',
+          icon: 'settings',
+          title: 'Settings'
+        }
+      ])
+    })
   }
 
   configureRouter(config, router) {
@@ -63,8 +73,8 @@ export class UserPage {
   }
 
   activate(params) {
-    Users.select(params.id).then((user)=> {
-      this.context.user = user;
-    })
+    if (this.users.current) {
+      this.context.user = this.users.current;
+    }
   }
 }

@@ -192,7 +192,7 @@ card-back {
     > row,
     > section,
     > article {
-      margin-right: auto;
+      // margin-right: auto;
     }
 
     > footer {
@@ -262,6 +262,7 @@ project-card-list {
   max-width: 100%;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
+
 }
 
 project-card-table {
@@ -376,6 +377,64 @@ project-card-table {
     max-width: calc(50% - #{($card-margin-right + $card-margin-left)});
     min-width: calc(50% - #{($card-margin-right + $card-margin-left)});
     min-height: 238px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  project-card-list {
+    &.portal-card-list {
+      flex-wrap: nowrap;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      min-height: 340px;
+      max-height: 340px;
+      // justify-content: center;
+      align-items: flex-start;
+
+      background-color: $black-3;
+      box-shadow: inset 0 -4px 10px -5px $black-2;
+      @include scroll-element(x);
+      @include scrollbar {
+        display: none;
+      }
+
+      project-card {
+        margin: ($card-margin-right * 3);
+        max-width: 100%;
+        min-width: auto;
+        flex-basis: 50%;
+        align-self: flex-start;
+        user-select: none;
+        transform-origin: center center;
+
+        backdrop {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: $white;
+          transform-origin: center center;
+          @include shadow-8dp;
+        }
+
+        backdrop-circle {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          max-height: 340px;
+          max-width: 340px;
+          background-color: $color-primary-300;
+          border-radius: 100%;
+          transform-origin: center center;
+          transform: scale(0);
+        }
+      }
+    }
   }
 }
 

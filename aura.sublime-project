@@ -1,0 +1,17 @@
+{
+	"folders":
+	[
+		{
+      "name":"IDYUH",
+			"path": "."
+		},
+    {
+      "name":"SRC",
+      "path": "src"
+    },
+    {
+      "name":"SERVER",
+      "path": "application"
+    }
+	]
+}

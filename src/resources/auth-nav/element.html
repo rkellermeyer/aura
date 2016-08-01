@@ -1,0 +1,14 @@
+<template>
+
+  <picture class="profile__picture" show.bind="authorized">
+    <img src.bind="authorized.image">
+  </picture>
+  <!-- <icon type=more></icon> -->
+
+  <!-- <h2>${authorized.prefix} ${authorized.last_name}</h2> -->
+  <container ref="container">
+    <a href="#/portal">Portal</a>
+    <a href="#/show-down">show down</a>
+    <a href="#/logout">Logout</a>
+  </container>
+</template>

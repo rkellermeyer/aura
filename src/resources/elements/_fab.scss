@@ -1,0 +1,35 @@
+fab {
+
+
+  &.float {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 0;
+    bottom: 0;
+    margin: 2rem;
+    user-select: none;
+    border-radius: 100%;
+    min-height: 60px;
+    min-width: 60px;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease-out 0s;
+    color: white;
+
+    @include shadow-4dp;
+
+    &:hover {
+      @include shadow-8dp;
+    }
+
+    &:active {
+      @include shadow-2dp;
+    }
+  }
+
+
+  > * {
+    pointer-events:none;
+  }
+}

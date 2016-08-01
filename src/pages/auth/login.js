@@ -1,17 +1,20 @@
 import {inject} from 'aurelia-dependency-injection';
-import {Auth} from 'services/auth';
+import {Authentication} from 'server/auth';
 import {Router} from 'aurelia-router';
 
-@inject(Auth, Router)
+@inject(Authentication, Router)
 export class Login {
-  auth = Auth;
+  auth = Authentication;
+  user = {};
   constructor(auth, router) {
     this.authService = auth;
     this.router = router;
   }
 
-  login() {
-    this.authService.login();
-    this.router.navigate('#/');
+  submit() {
+    this.authService.login(this.user).then((user)=> {
+      console.log(user)
+      this.router.navigate(`#/portal`);
+    })
   }
 }

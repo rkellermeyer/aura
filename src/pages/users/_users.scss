@@ -2,3 +2,25 @@
 #user-profile {
   padding: 1rem;
 }
+
+form#project-form,
+form#user-settings {
+  padding: 0 8px;
+
+  footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  label.control {
+    border-bottom: 1px solid $black-4 !important;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  form#project-form,
+  form#user-settings {
+    padding: 0 2rem;
+  }
+}

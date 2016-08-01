@@ -1,0 +1,19 @@
+<template>
+
+  <project-card-list class="portal-card-list">
+    <project-card repeat.for="row of projects">
+      <header>
+        ${row.model.overview}
+      </header>
+      <section>
+        <p>${row.model.teaser}</p>
+      </section>
+    </project-card>
+  </project-card-list>
+
+
+
+  <fab class="float" click.trigger="createProject()">
+    <icon md="add"></icon>
+  </fab>
+</template>

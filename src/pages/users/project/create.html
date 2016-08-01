@@ -1,0 +1,28 @@
+<template>
+
+
+  <form id="project-form" submit.trigger="submit()">
+
+    <label>
+      Title
+      <input type="text" id="title" name="title" value.bind="project.title">
+    </label>
+
+    <label>
+      Teaser
+      <input type="text" id="teaser" name="teaser" value.bind="project.teaser">
+    </label>
+
+    <label>
+      Overview
+      <input type="text" id="overview" name="overview" value.bind="project.overview">
+    </label>
+
+    <footer>
+      <button type="submit" class="success">Submit</button>
+      <a class="button alert" href="#/portal/projects">Cancel</a>
+    </footer>
+
+  </form>
+
+</template>

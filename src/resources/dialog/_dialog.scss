@@ -28,6 +28,9 @@ $dialog-header-font-weight:          500 !default;
 $dialog-header-padding:              16px !default;
 $dialog-header-color:                #333 !default;
 
+login-dialog {
+  display: none;
+}
 
 dialog-window {
   pointer-events: none;

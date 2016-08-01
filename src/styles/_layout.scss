@@ -1,52 +1,52 @@
-router-view {
-  display: flex;
-  flex: 1;
+// router-view {
+//   display: flex;
+//   flex: 1;
 
-  > .row {
-    margin-left: 0;
-    margin-right: 0;
-  }
+//   > .row {
+//     margin-left: 0;
+//     margin-right: 0;
+//   }
 
-  > .row:first-child {
-    margin-top: 1rem;
-  }
-}
+//   > .row:first-child {
+//     margin-top: 1rem;
+//   }
+// }
 
 
-body {
-  margin-top: $topbar-height;
+// body {
+//   margin-top: $topbar-height;
 
-  > header {
-    min-height: $topbar-height;
-    line-height: $topbar-height;
-    position: fixed;
-         top: 0;
-        left: 0;
-       right: 0;
-       z-index: 2;
-  }
+//   > header {
+//     min-height: $topbar-height;
+//     line-height: $topbar-height;
+//     position: fixed;
+//          top: 0;
+//         left: 0;
+//        right: 0;
+//        z-index: 2;
+//   }
 
-  > main {
-    display: flex;
-    flex-direction: column;
-    min-width: 100%;
-    max-width: 100vw;
-    min-height: 100vh;
-    height: auto;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
+//   > main {
+//     display: flex;
+//     flex-direction: column;
+//     min-width: 100%;
+//     max-width: 100vw;
+//     min-height: 100vh;
+//     height: auto;
+//     position: relative;
+//     overflow: hidden;
+//     z-index: 1;
 
-    > router-view {
-      display: flex;
-      min-height: calc(100vh - #{$topbar-height});
-    }
+//     > router-view {
+//       display: flex;
+//       min-height: calc(100vh - #{$topbar-height});
+//     }
 
-    > footer {
-      flex: 0 0 auto;
-      align-self: flex-end;
-      min-width: 100%;
-    }
-  }
-}
+//     > footer {
+//       flex: 0 0 auto;
+//       align-self: flex-end;
+//       min-width: 100%;
+//     }
+//   }
+// }
 

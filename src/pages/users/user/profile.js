@@ -1,16 +1,21 @@
 import {inject} from 'aurelia-framework';
-import {Users} from 'services/user';
-import {HttpClient} from 'aurelia-fetch-client';
+import state from 'app-state';
 
 export class UserProfile {
   heading = 'User Profile';
-  users = [];
 
-  activate(params) {
-    return Users.select(params.id)
-      .then(user => {
-        this.user = user
-        this.profile = this.user.model.user_profile
-      });
+  activate(params, config) {
+    this.subscription = state.configurePortal({
+      title: 'Profile'
+    })
+
+    state.authorize(authorized => {
+      this.user    = authorized;
+      this.profile = authorized.user_profile;
+    })
+  }
+
+  deactivate() {
+    this.subscription.dispose();
   }
 }

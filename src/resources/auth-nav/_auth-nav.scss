@@ -1,0 +1,21 @@
+auth-nav {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex: 0 0 auto;
+  height: inherit;
+  line-height: inherit;
+  margin-left: auto;
+
+  picture.profile__picture {
+    height: 48px;
+    width: 48px;
+    margin: 0 0 0 auto;
+
+    img {
+      vertical-align: top;
+      border-radius: 50%;
+      @include shadow-1dp;
+    }
+  }
+}

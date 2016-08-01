@@ -1,11 +1,11 @@
 import {inject} from 'aurelia-dependency-injection';
 import {customElement, bindable, ElementEvents} from 'aurelia-templating';
 import {DOM} from 'aurelia-pal';
-import {Auth} from 'services/auth';
+import {Authentication} from 'server/auth';
 import {EventAggregator} from 'aurelia-event-aggregator';
 
 @customElement('login-dialog')
-@inject(DOM.Element, ElementEvents, Auth, EventAggregator)
+@inject(DOM.Element, ElementEvents, Authentication, EventAggregator)
 export class LoginDialog {
   @bindable value = null;
 
@@ -34,6 +34,13 @@ export class LoginDialog {
         payload.onComplete();
       })
     })
+
+    this.subscription = this.eventAggregator.subscribe('show-signup-dialog', (payload)=> {
+      this.isSignup = true;
+      this.dialog.activateDialog().then(()=> {
+        payload.onComplete();
+      })
+    })
   }
 
   detached() {
@@ -43,8 +50,14 @@ export class LoginDialog {
   complete() {
     let body = {
       email: this.newUser.email,
-      password: this.newUser.password,
-      roles: [this.newUser.roles]
+      password: this.newUser.password
+    }
+
+    if (this.isSignup) {
+      this.isSignup = false;
+      return this._auth.create(body).then(res => {
+        this.dialog.deactivateDialog();
+      })
     }
 
     this._auth.login(body).then(res => {

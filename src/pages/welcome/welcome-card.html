@@ -1,0 +1,16 @@
+<template>
+  <card-content>
+    <card-background>
+      <div class="main-background" css="background-image: url(${context.background})"></div>
+      <div class="blur-background" css="background-image: url(${context.background})"></div>
+      <div class="shine"></div>
+      <div class="layer-1"></div>
+      <div data-offset="-5" class="content layer-2">
+        <slot></slot>
+      </div>
+      <!-- <div data-offset="-10" class="layer-3"></div> -->
+      <!-- <div data-offset="-10" class="layer-4"></div> -->
+      <!-- <div data-offset="-5" class="layer-5"></div> -->
+    </card-background>
+  </card-content>
+</template>

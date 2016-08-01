@@ -17,7 +17,7 @@ export class Dropdown {
 
   setElement(element:HTMLElement) {
     if (element instanceof Element) {
-      element.class('+=dropdown');
+      element.classList.add('dropdown');
       return this.element = element;
     }
     throw new Error('Downdown args[0] must be of type element');
@@ -27,7 +27,7 @@ export class Dropdown {
 
     let container = selector instanceof Element ? selector : this.element.find(selector || this._containerSelector);
     if (container instanceof Element) {
-      container.class('+=dropdown-container', '+=menu');
+      container.classList.add('dropdown-container', 'menu');
 
       container.parentNode.insertBefore(this.container, container);
       this.container.appendChild(container);
@@ -39,7 +39,7 @@ export class Dropdown {
   setHandle(selector = '') {
     let handle = selector instanceof Element ? selector : this.element.find(selector || this._handleSelector);
     if (handle instanceof Element) {
-      handle.class('+=dropdown-handle');
+      handle.classList.add('dropdown-handle');
       return this.handle = handle;
     }
     throw new Error('Downdown options.handle must be of type element, or child selector');

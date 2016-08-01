@@ -1,16 +1,25 @@
 <template>
   <require from="styles/base.css"></require>
   <require from="styles/app.css"></require>
-
-  <login-dialog></login-dialog>
-
-  <header>
-    <app-bar router.bind="router" route-config.bind="router.currentInstruction.config"></app-bar>
-  </header>
-  <main>
-    <router-view></router-view>
-    <footer>
-      <app-footer router.bind="router"></app-footer>
-    </footer>
-  </main>
+  <app-background></app-background>
+  <container>
+    <aside></aside>
+    <main>
+      <header>
+        <app-bar id="appBar" router.bind="router" route-config.bind="router.currentInstruction.config"></app-bar>
+      </header>
+      <section></section>
+    </main>
+  </container>
+  <host>
+    <aside></aside>
+    <main>
+      <header></header>
+      <router-view></router-view>
+    </main>
+  </host>
 </template>
+
+<!-- <footer>
+  <app-footer router.bind="router"></app-footer>
+</footer> -->

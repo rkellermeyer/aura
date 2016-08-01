@@ -1,0 +1,20 @@
+<template>
+  <aside>
+    <header>
+
+    </header>
+    <nav>
+      <slot name=nav></slot>
+    </nav>
+  </aside>
+  <section class="portal__content">
+    <header>
+      <h2>
+        <strong>${portal.authorized.user_profile.first_name} ${portal.authorized.user_profile.last_name}</strong>
+        <icon md="arrow_forward"></icon>
+        <span>${routerConfig.title}</span>
+      </h2>
+    </header>
+    <slot></slot>
+  </section>
+</template>

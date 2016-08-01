@@ -1,6 +1,6 @@
 import {Container, inject} from 'aurelia-framework';
-import {Project} from 'request/idyuh-project';
-
+// import {Project} from 'request/idyuh-project';
+import projects from 'server/project';
 
 export class ShowDown {
 
@@ -8,9 +8,9 @@ export class ShowDown {
   denied   = [];
 
   activate() {
-    Project.instance.get().then(projects => {
-      this.projects = projects.map(p => (p.title = p.title || p.teaser.replace(/([a-zA-Z]+).+/, '$1')) && p);
-    });
+    projects.all().then(prs => {
+      this.projects = prs;
+    })
   }
 
   acceptedProject(project) {

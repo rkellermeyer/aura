@@ -51,11 +51,19 @@ $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 
-$color-primary: #93618c;
+//$color-primary: #93618c;
+//$color-secondary: #777;
+//$color-success: #9bae5a;
+//$color-warning: #ffae00;
+//$color-alert: #ec5840;
+
+
+$color-primary: set-primary-color(deep-purple);
+$color-accent: set-accent-color(light-green);
 $color-secondary: #777;
-$color-success: #9bae5a;
-$color-warning: #ffae00;
-$color-alert: #ec5840;
+$color-success: $light-green;
+$color-warning: $amber;
+$color-alert: $red;
 
 $foundation-palette: (
   primary: $color-primary,

@@ -43,8 +43,8 @@ export class ProjectCardList {
       }
     }
 
-    this._events.subscribe('touchstart', ontouch, true);
-    this._events.subscribe('mousedown',  ontouch, true);
+    // this._events.subscribe('touchstart', ontouch, true);
+    // this._events.subscribe('mousedown',  ontouch, true);
 
     this._events.subscribe('swipe-left-end', (event)=> {
       if (this.swipeLeft) {

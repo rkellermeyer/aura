@@ -1,8 +1,8 @@
 import {Container, inject} from 'aurelia-dependency-injection';
-import {Auth} from 'services/auth';
 import {Router} from 'aurelia-router';
-import {Category} from 'request/idyuh-category';
-import {Project} from 'request/idyuh-project';
+import {PortalState} from 'core/actions';
+import channel from 'core/channel';
+
 
 @inject(Router)
 export class ProjectCreate {
@@ -22,19 +22,15 @@ export class ProjectCreate {
   }
 
   activate() {
-    Category.instance.get().then(categories => {
-      this.categories = categories;
-    })
+    channel.push(new PortalState({
+      title: 'New Project'
+    }))
   }
 
   submit() {
     let category_id = this.category.id;
     let overview    = this.overview;
     let teaser      = this.teaser;
-    let user_id     = Auth.user.id;
-
-   Project.instance.create({category_id, overview, teaser, user_id}).then(responce => {
-     console.log(responce);
-   })
+    // let user_id     = Auth.user.id;
   }
 }

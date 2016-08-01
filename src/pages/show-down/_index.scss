@@ -1,0 +1,149 @@
+
+
+
+project-card {
+
+  card-footer {
+    z-index: 1;
+  }
+
+  card-icon {
+    z-index: 2;
+  }
+
+  card-header,
+  card-section,
+  card-article {
+    z-index: 3;
+  }
+
+  card-section {
+    pointer-events: none;
+    position: relative;
+    flex: 1;
+
+
+    section {
+      display: flex;
+      flex: 1;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      position: relative;
+    }
+  }
+
+  fab.card-toggle-flip {
+    display: flex;
+    user-select: none;
+    position: absolute;
+    flex-direction: row;
+    justify-content: center;
+    right: 0;
+    align-items: center;
+    min-height: 80px;
+    max-height: 80px;
+    min-width: 80px;
+    max-width: 80px;
+    margin-right: 80px;
+    pointer-events: auto;
+
+   > * {
+     pointer-events: none;
+   }
+
+    .fab__text {
+      color: $color-primary;
+    }
+
+    &:before {
+      content: " ";
+      display: block;
+      border: 1px solid $color-primary;
+      border-radius: 100%;
+      position: absolute; top:0; left:0; right:0; bottom:0;
+      min-height: inherit;
+      max-height: inherit;
+      min-width: inherit;
+      max-width: inherit;
+    }
+
+    &:after {
+      content: " ";
+      display: block;
+      border: 1px solid $color-primary;
+      border-radius: 100%;
+      position: absolute; top:0; left:0; right:0; bottom:0;
+      min-height: 200%;
+      max-height: 200%;
+      min-width: 200%;
+      max-width: 200%;
+      opacity: 0.3;
+      transform: translate3d(-25%, -25%, 0);
+    }
+
+    &:active {
+
+      .fab__text {
+        color: $color-success;
+      }
+
+      &:before,
+      &:after {
+        border-color: $color-success;
+      }
+    }
+  }
+
+  icon.card__backdrop {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: block;
+
+    svg {
+      height: 200%;
+      width: 200%;
+      fill: rgba(230, 230, 230, 0.7);
+      transform: translate3d(-45%,-22%, 0);
+    }
+  }
+
+  card-back icon.card__backdrop svg {
+    transform: translate3d(-6%,-22%, 0);
+  }
+}
+
+
+project-card {
+  card-backdrop {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  project-card {
+    card-backdrop {
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      background-color: $color-primary;
+      transform: scale(0);
+    }
+
+    fab.card-toggle-flip {
+      &:after {
+        display: none;
+      }
+    }
+  }
+}

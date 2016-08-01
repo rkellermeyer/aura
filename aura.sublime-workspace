@@ -1,0 +1,1176 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"httpP",
+				"httpPost"
+			],
+			[
+				"http",
+				"httpPatch"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"backg",
+				"background-repeat"
+			],
+			[
+				"paen",
+				"parent"
+			],
+			[
+				"is",
+				"isExpanded"
+			],
+			[
+				"prot",
+				"portal-fab-fill"
+			],
+			[
+				"portal",
+				"portal-height"
+			],
+			[
+				"doc",
+				"documentOverflow"
+			],
+			[
+				"pro",
+				"projects"
+			],
+			[
+				"pop",
+				"populate"
+			],
+			[
+				"seed",
+				"seedUsers"
+			],
+			[
+				"cat",
+				"category_id"
+			],
+			[
+				"user",
+				"user_id"
+			],
+			[
+				"Pro",
+				"ProjectProfile"
+			],
+			[
+				"categr",
+				"category"
+			],
+			[
+				"Sch",
+				"SchemaRef"
+			],
+			[
+				"proje",
+				"project"
+			],
+			[
+				"save",
+				"saveProject"
+			],
+			[
+				"fle",
+				"flex-box	flex-box"
+			],
+			[
+				"Mo",
+				"ProjectProfileModel"
+			],
+			[
+				"Proje",
+				"ProjectProfileModel"
+			],
+			[
+				"in",
+				"input	Tag"
+			],
+			[
+				"trans",
+				"transition	transition"
+			],
+			[
+				"Project",
+				"ProjectSchema"
+			],
+			[
+				"authe",
+				"authorized"
+			],
+			[
+				"authr",
+				"authorized"
+			],
+			[
+				"__",
+				"__cacheGetItem"
+			],
+			[
+				"font-",
+				"font-weight"
+			],
+			[
+				"defa",
+				"defaultTitle"
+			],
+			[
+				"def",
+				"defaultTitle"
+			],
+			[
+				"authoe",
+				"authorized"
+			],
+			[
+				"auth",
+				"authorized"
+			],
+			[
+				"publi",
+				"publish"
+			],
+			[
+				"config",
+				"configureKey"
+			],
+			[
+				"conf",
+				"configureKey"
+			],
+			[
+				"Por",
+				"PortalState"
+			],
+			[
+				"au-",
+				"au-container	au-container"
+			],
+			[
+				"ins",
+				"instruction"
+			],
+			[
+				"inst",
+				"instance"
+			],
+			[
+				"min-",
+				"min-width"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"max-",
+				"max-height"
+			],
+			[
+				"porta",
+				"portal-aside-fill"
+			],
+			[
+				"port",
+				"portal-header-height"
+			],
+			[
+				"protal",
+				"portal-aside-width"
+			],
+			[
+				"Even",
+				"EventChannel"
+			],
+			[
+				"insta",
+				"instance"
+			],
+			[
+				"event",
+				"eventAggregator"
+			],
+			[
+				"confi",
+				"configure"
+			],
+			[
+				"next",
+				"nextConfig"
+			],
+			[
+				"Auth",
+				"Authorize"
+			],
+			[
+				"suc",
+				"success-color"
+			],
+			[
+				"tran",
+				"transparent"
+			],
+			[
+				"auto",
+				"autofocus	Attr"
+			],
+			[
+				"tras",
+				"transition	transition"
+			],
+			[
+				"text-",
+				"text-transform"
+			],
+			[
+				"font-s",
+				"font-size"
+			],
+			[
+				"min",
+				"min-height"
+			],
+			[
+				"border-",
+				"border-radius"
+			],
+			[
+				"margn",
+				"margin-bottom"
+			],
+			[
+				"app",
+				"appbar_"
+			],
+			[
+				"tra",
+				"transparent"
+			],
+			[
+				"al",
+				"align	align"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"sha",
+				"shadow"
+			],
+			[
+				"shao",
+				"shadowColor"
+			],
+			[
+				"shadow",
+				"shadowY"
+			],
+			[
+				"center",
+				"centerX"
+			],
+			[
+				"rotate",
+				"rotateY"
+			],
+			[
+				"tr",
+				"translateX"
+			],
+			[
+				"rad",
+				"radialX"
+			],
+			[
+				"max",
+				"maxRotation"
+			],
+			[
+				"page",
+				"pageY"
+			],
+			[
+				"off",
+				"offsetX"
+			],
+			[
+				"curr",
+				"currentOffset"
+			],
+			[
+				"avai",
+				"availWidth"
+			],
+			[
+				"win",
+				"winWidth"
+			],
+			[
+				"xP",
+				"xPercentage"
+			],
+			[
+				"content",
+				"contentNode"
+			],
+			[
+				"clie",
+				"clientHeight"
+			],
+			[
+				"client",
+				"clientWidth"
+			],
+			[
+				"the",
+				"thetaY"
+			],
+			[
+				"cente",
+				"centerX"
+			],
+			[
+				"clien",
+				"clientHeight"
+			],
+			[
+				"_",
+				"_events"
+			],
+			[
+				"mouse",
+				"mousemove"
+			],
+			[
+				"card",
+				"welcome-card-width"
+			],
+			[
+				"const",
+				"constructor	constructor"
+			],
+			[
+				"User",
+				"UserModel"
+			],
+			[
+				"current",
+				"currentUser"
+			],
+			[
+				"Us",
+				"UserModel"
+			],
+			[
+				"Http",
+				"HttpClient"
+			],
+			[
+				"inte",
+				"interceptRequest"
+			],
+			[
+				"HEAD",
+				"HTTP_HEADERS"
+			],
+			[
+				"au",
+				"au-event-aggregator	au-event-aggregator"
+			],
+			[
+				"inter",
+				"interceptor"
+			],
+			[
+				"for",
+				"foreignKey"
+			],
+			[
+				"pla",
+				"platform"
+			],
+			[
+				"slot",
+				"slotFragment"
+			],
+			[
+				"get",
+				"getPlatform"
+			],
+			[
+				"plat",
+				"platform"
+			],
+			[
+				"dev",
+				"device_"
+			],
+			[
+				"test",
+				"testUA"
+			],
+			[
+				"con",
+				"config"
+			],
+			[
+				"view",
+				"viewportContent_"
+			],
+			[
+				"cla",
+				"className"
+			],
+			[
+				"set",
+				"setPlatform"
+			],
+			[
+				"anim",
+				"anim-name	anim-name"
+			],
+			[
+				"backgr",
+				"background-color"
+			],
+			[
+				"no",
+				"nowrap"
+			],
+			[
+				"box",
+				"box-shadow"
+			],
+			[
+				"imp",
+				"import"
+			],
+			[
+				"pr",
+				"processAppFont"
+			],
+			[
+				"proc",
+				"processLibMarkup"
+			],
+			[
+				"procc",
+				"processLibCSS"
+			],
+			[
+				"c",
+				"cnames"
+			],
+			[
+				"aurelia",
+				"aurelia-interface"
+			],
+			[
+				"Co",
+				"Color"
+			],
+			[
+				"Col",
+				"ColorNames"
+			],
+			[
+				"C",
+				"ColorNames"
+			],
+			[
+				"watc",
+				"watchLib"
+			],
+			[
+				"run",
+				"runLib"
+			],
+			[
+				"buid",
+				"buildAMD"
+			],
+			[
+				"bui",
+				"buildJavaScript"
+			],
+			[
+				"dis",
+				"disconnect"
+			],
+			[
+				"on",
+				"onChange"
+			],
+			[
+				"sl",
+				"slotName"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "html",
+		"selected_items":
+		[
+			[
+				"html",
+				"HTMLPrettify"
+			],
+			[
+				"prett",
+				"HTMLPrettify"
+			],
+			[
+				"pretty",
+				"Pretty JSON: Validate"
+			],
+			[
+				"brow",
+				"Preferences: Browse Packages"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"pack",
+				"Package Control: Satisfy Dependencies"
+			],
+			[
+				"bro",
+				"Preferences: Browse Packages"
+			],
+			[
+				"edit",
+				"Color Scheme Editor: Edit current color scheme"
+			],
+			[
+				"edi",
+				"Color Scheme Editor: Edit current color scheme"
+			],
+			[
+				"scope",
+				"Toggle ScopeAlways"
+			],
+			[
+				"inde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"scop",
+				"Toggle ScopeAlways"
+			],
+			[
+				"edi	",
+				"Color Scheme Editor: Edit current color scheme"
+			],
+			[
+				"fold",
+				"Code Folding: Fold Tag Attributes"
+			],
+			[
+				"inde	",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"EDIT",
+				"Color Scheme Editor: Edit current color scheme"
+			],
+			[
+				"brow	",
+				"Preferences: Browse Packages"
+			],
+			[
+				"color ed",
+				"Color Scheme Editor: Edit current color scheme"
+			],
+			[
+				"color p",
+				"Color Picker"
+			],
+			[
+				"ed",
+				"Color Scheme Editor: Edit current color scheme"
+			],
+			[
+				"color",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"co",
+				"ColorSchemeSelector: Select Color Scheme"
+			],
+			[
+				"ind",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"lint",
+				"SublimeLinter: Toggle Linter"
+			],
+			[
+				"",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"insl",
+				"Package Control: Install Package"
+			],
+			[
+				"ins	",
+				"Package Control: Install Package"
+			],
+			[
+				"colo",
+				"ColorSchemeSelector: Select Color Scheme"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"b",
+				"Babel Transform"
+			],
+			[
+				"INSTAL",
+				"Package Control: Install Package"
+			],
+			[
+				"pa",
+				"Preferences: Browse Packages"
+			],
+			[
+				"js",
+				"Project: Refresh Folders"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 575.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"cd ",
+			"CD ",
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": true,
+		"side_bar_visible": true,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/joelcox1/Jobs/aura/aura/src",
+		"/Users/joelcox1/Jobs/aura/aura/src/core",
+		"/Users/joelcox1/Jobs/aura/aura/src/styles"
+	],
+	"file_history":
+	[
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/welcome/_card-index.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/welcome/_card-index.html",
+		"/Users/joelcox1/Jobs/aura/aura/src/server/auth.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/welcome/index.html",
+		"/Users/joelcox1/Jobs/aura/aura/src/app-state.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/styles/_custom.scss",
+		"/Users/joelcox1/Jobs/aura/aura/src/server/http.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/server/users.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/server/store.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/server.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/app-portal.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/app-router.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/sockets.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/core/action-events.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/services.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/core/animate.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/app.html",
+		"/Users/joelcox1/Jobs/aura/aura/src/services/index.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/main.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/app.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/core/authorization.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/core/polyfill.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/core/channel.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/app-core.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/core/window.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/config.js",
+		"/Users/joelcox1/Jobs/aura/aura/aura.sublime-project",
+		"/Users/joelcox1/Jobs/aura/aura/src/server/models/project.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/users/project/list.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/users/project/list.html",
+		"/Users/joelcox1/Jobs/aura/aura/src/resources/elements/_fab.scss",
+		"/Users/joelcox1/Jobs/aura/aura/src/styles/app.scss",
+		"/Users/joelcox1/Jobs/aura/aura/src/server/index.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/core/actions.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/resources/project-card/project-card.html",
+		"/Users/joelcox1/Jobs/aura/aura/src/resources/project-card/_project-card.scss",
+		"/Users/joelcox1/Jobs/aura/aura/src/resources/portal/_portal.scss",
+		"/Users/joelcox1/Jobs/aura/aura/notes.md",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/auth/logout.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/users/project/create.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/users/user/home.html",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/users/user/home.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/resources/app-bar/app-bar.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/resources/app-bar/app-bar.html",
+		"/Users/joelcox1/Jobs/aura/aura/application/server/api/user/user.controller.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/resources/project-card/project-card.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/resources/portal/element.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/server/project.js",
+		"/Users/joelcox1/Jobs/aura/aura/images/mentor.png",
+		"/Users/joelcox1/Jobs/aura/aura/application/server/api/project/project.model.js",
+		"/Users/joelcox1/Jobs/aura/aura/application/server/api/project-profile/project-profile.model.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/styles/_layout.scss",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/show-down/_index.scss",
+		"/Users/joelcox1/Jobs/aura/aura/src/styles/_elementals.scss",
+		"/Users/joelcox1/Jobs/aura/aura/src/resources/switch/element.js",
+		"/Users/joelcox1/Jobs/aura/aura/application/server/api/user/user.model.js",
+		"/Users/joelcox1/Jobs/aura/aura/application/server/index.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/show-down/index.html",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/show-down/index.js",
+		"/Users/joelcox1/Jobs/aura/aura/application/server/config/seed/index.js",
+		"/Users/joelcox1/Jobs/aura/aura/application/server/config/seed/users.js",
+		"/Users/joelcox1/Jobs/aura/aura/aurelia_project/aurelia.json",
+		"/Users/joelcox1/Jobs/aura/aura/src/resources/page-view/_page-view.scss",
+		"/Users/joelcox1/Jobs/aura/aura/src/resources/elements/label.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/request/idyuh-project.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/project/index.js",
+		"/Users/joelcox1/Jobs/aura/aura/application/server/api/status/status.model.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/project/update.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/appRouterConfig.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/project/list.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/services/cache.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/users/user/index.html",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/users/user/profile.html",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/users/project/update.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/users/project/overview.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/users/project/overview.html",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/users/project/update.html",
+		"/Users/joelcox1/Jobs/aura/aura/src/resources/switch/_switch.scss",
+		"/Users/joelcox1/Jobs/aura/aura/src/resources/switch/compile.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/users/project/create.html",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/users/user/profile.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/users/user/index.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/users/portal.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/users/portal.html",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/users/user/settings.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/users/user/settings.html",
+		"/Users/joelcox1/Jobs/aura/aura/src/app-ui.js",
+		"/Users/joelcox1/Jobs/aura/aura/application/server/api/project/project.socket.js",
+		"/Users/joelcox1/Jobs/aura/aura/application/server/api/category/category.model.js",
+		"/Users/joelcox1/Jobs/aura/aura/application/server/routes.js",
+		"/Users/joelcox1/Jobs/aura/aura/application/server/api/user-profile/user-profile.model.js",
+		"/Users/joelcox1/Jobs/aura/aura/application/server/config/seed/projects.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/users/index.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/users/_users.scss",
+		"/Users/joelcox1/Jobs/aura/aura/src/resources/portal/element.html",
+		"/Users/joelcox1/Jobs/aura/aura/src/core/aurelia-container.js",
+		"/Users/joelcox1/Jobs/aura/aura/node_modules/acorn/src/state.js",
+		"/Users/joelcox1/Jobs/aura/aura/node_modules/lodash/index.js",
+		"/Users/joelcox1/Jobs/aura/aura/node_modules/lodash/lodash.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/resources/index.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/resources/switch/element.html",
+		"/Users/joelcox1/Jobs/aura/aura/src/resources/auth-nav/element.html",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/auth/login.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/server/interceptor.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/project/overview.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/project/create.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/users/list.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/users/profile.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/resources/portal/index.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/users/index.html",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/users/user/projects.html",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/users/user/projects.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/resources/page-view/page-view.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/resources/app-bar/_app-bar.scss",
+		"/Users/joelcox1/Jobs/aura/aura/src/authorization.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/resources/auth-nav/_auth-nav.scss",
+		"/Users/joelcox1/Jobs/aura/aura/src/resources/auth-nav/element.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/resources/app-bar/user-profile.js",
+		"/Users/joelcox1/Jobs/aura/aura/src/resources/app-bar/user-profile.html",
+		"/Users/joelcox1/Jobs/aura/aura/src/resources/tab-bar/_tab-bar.scss",
+		"/Users/joelcox1/Jobs/aura/aura/src/resources/page-view/container/element.html",
+		"/Users/joelcox1/Jobs/aura/aura/src/pages/welcome/_welcome.scss",
+		"/Users/joelcox1/Jobs/aura/aura/.gitignore",
+		"/Users/joelcox1/Jobs/aura/aura/application/server/config/express.js",
+		"/Users/joelcox1/Jobs/aura/aura/application/__server/auth/auth.service.js",
+		"/Users/joelcox1/Jobs/aura/aura/application/__server/__auth/local/index.js",
+		"/Users/joelcox1/Jobs/aura/aura/application/__server/__auth/auth.service.js",
+		"/Users/joelcox1/Jobs/aura/aura/application/__server/__auth/index.js"
+	],
+	"find":
+	{
+		"height": 70.0
+	},
+	"find_in_files":
+	{
+		"height": 158.0,
+		"where_history":
+		[
+			"/Users/joelcox1/Jobs/aura/aura/src",
+			"/Users/joelcox1/Aurelia/project/skeleton/stylesheets",
+			"/Users/joelcox1/Jobs/aura/aura/src",
+			"/Users/joelcox1/Aurelia/Interface/development/interface/src",
+			"/Users/joelcox1/WK/development/Workflow/WoltersKluwer.Workflow.Web/Client/src",
+			"/Users/joelcox1/WK/development/Workflow/WoltersKluwer.Workflow.Web/Client/test/unit/app",
+			"/Users/joelcox1/WK/development/Workflow/WoltersKluwer.Workflow.Web/Client/test/unit",
+			"/Users/joelcox1/WK/development/Workflow/WoltersKluwer.Workflow.Web/Client/test",
+			"/Users/joelcox1/WK/development/Workflow/WoltersKluwer.Workflow.Web/Client/src",
+			"/Users/joelcox1/Aurelia/Interface/development/interface/src",
+			"/Users/joelcox1/Aurelia/Interface/development/interface/stylesheets",
+			"/Users/joelcox1/Aurelia/Interface/development/interface/src",
+			"/Users/joelcox1/Aurelia/Interface/development/skeleton-interface/src",
+			"/Users/joelcox1/Aurelia/Interface/development/skeleton-interface",
+			"/Users/joelcox1/Aurelia/Interface/development/app-documentation/src",
+			"/Users/joelcox1/Aurelia/Interface/development/interface/stylesheets",
+			"/Users/joelcox1/Aurelia/Interface/development/skeleton-interface",
+			"/Users/joelcox1/Aurelia/Interface/development/skeleton-interface/plugins",
+			"/Users/joelcox1/Aurelia/Interface/development/aurelia-interface-cli/templates/base",
+			"/Users/joelcox1/Aurelia/Interface/development/app-documentation/src",
+			"/Users/joelcox1/Aurelia/Interface/development/interface/src"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"this.server",
+			"UIState",
+			"AppState",
+			"PortalState",
+			"Authorize",
+			"key",
+			"Util",
+			"AppRouterConfig",
+			"0",
+			"authorized",
+			"easeIn",
+			"$portal-height",
+			"$portal-width",
+			"$portal",
+			"75",
+			"75vw",
+			"2",
+			"li",
+			"documentScroll",
+			"$color-primary",
+			"project.",
+			"overview",
+			"user_profiles",
+			"console.log",
+			"category",
+			"categoryId",
+			"userId",
+			"users",
+			"project",
+			"categories",
+			"Object",
+			"this.repo",
+			"this.model",
+			"repos",
+			"title",
+			"80px",
+			"things",
+			"/user/",
+			"pages/project/",
+			"pages/",
+			"enable",
+			"key",
+			"import _ from 'lodash';",
+			"capitalize",
+			"authenticated",
+			"PortalConfig",
+			"portalState",
+			"portal",
+			"PortalTitle",
+			"config",
+			"#/user/",
+			"$portal-aside-width",
+			"user-profile",
+			"auth.user",
+			"_element",
+			"200px",
+			"unknownRoutes",
+			"handleUnknownRoutes",
+			"setTokenCookie",
+			"config.secrets",
+			"configurePassport",
+			"alert-color",
+			"success-color",
+			"success",
+			"32px",
+			"class=\"control\"",
+			":focus",
+			"],",
+			"div",
+			"this._events",
+			"this._element",
+			"config",
+			"24",
+			"12",
+			"getValue",
+			"percentage",
+			"yPercentage",
+			"xPercentage",
+			"e.target",
+			".poster",
+			",",
+			"$poster",
+			"$layer",
+			"$shine",
+			"picture",
+			"class",
+			"('+=",
+			"class(",
+			"element.class",
+			"class",
+			"scale(",
+			"scale",
+			"welcome-card",
+			"0.5rem",
+			"1rem",
+			"page-view",
+			"5%",
+			"10%",
+			"image",
+			"secondary",
+			"$primary-color",
+			"primary",
+			"100",
+			"50",
+			"$ai-colors-",
+			"$indigo",
+			"$welcome-card-size",
+			"$welcome-card-min",
+			"current",
+			"$indigo",
+			"DialogCompiler",
+			"_loadIcon",
+			"_getCached",
+			"liveReloadIgnore",
+			"scripts/",
+			"authTypes",
+			"export function ",
+			"export function",
+			"async",
+			"crypto",
+			"nodemailer",
+			"config",
+			"config.secrets.session",
+			"config",
+			"userRoles",
+			"config",
+			"methodOverride",
+			"PROFILE_SCHEMA"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			"PortalState",
+			"@import 'node_modules/sassdash/scss/sassdash'",
+			"@import 'node_modules/sassdash/scss/_sassdash.scss'",
+			"@import 'sassdash'",
+			"import {HttpClient} from 'aurelia-fetch-client';",
+			"wk-view",
+			"test-id id=\"",
+			"this.context.manager",
+			"breakpoint",
+			"[ai-root]",
+			"AI.ElementEvents",
+			"/view-composer",
+			"view-slot",
+			"./view-controller",
+			"../view-controller",
+			"ViewController",
+			"ai-navbar",
+			";\\n ",
+			"\\n",
+			"@include dom-content",
+			"@include dom-and-navbar",
+			"@include dom-navbar-slot",
+			"@include dom-navbar",
+			"aurelia.skeleton",
+			"@useView('./content.html')"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 66.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "aura.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"state",
+				"src/app-state.js"
+			],
+			[
+				"lodash",
+				"node_modules/lodash/lodash.js"
+			],
+			[
+				"passportau",
+				"node_modules/passport/lib/authenticator.js"
+			],
+			[
+				"socket.",
+				"node_modules/engine.io/lib/socket.js"
+			],
+			[
+				"aurelia-coo",
+				"node_modules/aurelia-cookie/dist/aurelia-cookie.js"
+			],
+			[
+				"app.js",
+				"server/app.js"
+			],
+			[
+				"content-",
+				"COMPONENTS/content-process.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 296.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

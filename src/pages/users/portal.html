@@ -1,0 +1,13 @@
+<template>
+  <app-portal router.bind="router" router-config.bind="router.currentInstruction.config">
+
+    <a slot=nav
+       repeat.for="nav of router.navigation"
+       href.bind="nav.href"
+       class="${nav.isActive ? 'is-selected' : ''}">
+      <icon md.bind="nav.config.icon"></icon>
+    </a>
+
+    <router-view></router-view>
+  </app-portal>
+</template>

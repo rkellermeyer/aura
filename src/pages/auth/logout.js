@@ -1,17 +1,13 @@
 import {inject} from 'aurelia-dependency-injection';
-import {Auth} from 'services/auth';
 import {Router, Redirect} from 'aurelia-router';
+import {Cookie} from 'aurelia-cookie';
+import state from 'app-state';
 
-@inject(Auth, Router)
-export class Login {
-  auth = Auth;
-  constructor(auth, router) {
-    this.authService = auth;
-    this.router = router;
-  }
-
+// @inject(Auth, Router)
+export class Logout {
   canActivate() {
-    this.authService.logout();
-    return new Redirect('#/')
+    state.authorized = null;
+    Cookie.delete('token')
+    return new Redirect('#/welcome')
   }
 }

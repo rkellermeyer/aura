@@ -1,16 +1,26 @@
-import {Container, inject} from 'aurelia-dependency-injection';
-import {Users} from 'services/user';
-
-
-//import {Container, inject} from 'aurelia-dependency-injection';
-
+import state from 'app-state';
 
 export class UpdateUser {
+  state = state;
   /**
    *   description
    */
-  activate(params) {
-    return Users.select(params.id)
-      .then(user => this.user = user);
+  activate(params, config) {
+    this.subscription = state.configurePortal({
+      title: 'Settings'
+    })
+
+    state.authorize( authorized => {
+      this.authorized = state.authorized
+    });
+  }
+
+  deactivate() {
+    this.subscription.dispose();
+  }
+
+  enablePersonalTitle(config) {
+    // console.log(config)
+    // state.portal.setConfig('enablePersonalTitle', !config.enablePersonalTitle);
   }
 }

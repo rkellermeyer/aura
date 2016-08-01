@@ -2,36 +2,49 @@ import {inject} from 'aurelia-dependency-injection';
 import {customElement, bindable, ElementEvents} from 'aurelia-templating';
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {DOM} from 'aurelia-pal';
-import {Auth} from 'services/auth';
+import {Authorize} from 'core/actions';
+import state from 'app-state';
+import channel from 'core/channel';
 
 @customElement('app-bar')
-@inject(DOM.Element, ElementEvents, EventAggregator)
+@inject(Element, ElementEvents)
+@bindable({
+  name: 'router'
+})
+@bindable({
+  name: 'routerConfig'
+})
 export class AppBar {
+  state = state;
+  constructor(element, events) {
+    this.element = element;
+    this.events = events;
 
-  @bindable router:Router = null;
-  @bindable routeConfig:NavModel = null;
-
-  /**
-   *   Container's Element event instance
-   */
-  _events:ElementEvents;
-
-  /**
-   *   The viewModel's HTML Element
-   */
-  _element:HTMLElement;
-
-  constructor(element, events, eventAggregator) {
-    this._element = element;
-    this._events = events;
-    this.eventAggregator = eventAggregator;
-    this.auth = Auth;
+    element.__proto__.float = (e)=> this.float(e);
   }
 
-  attached(){}
+  float(value=true) {
+    this.backdrop = this.backdrop = this.backdrop || this.element.querySelector('[name="backdrop"]');
+
+
+    if (!this.backdrop) return;
+    if (typeof value !== 'boolean') return;
+
+    if (value !== this.isFloat) {
+      this.isFloat = value;
+      return this.backdrop.css({opacity: value ? 1 : 0})
+    }
+  }
+
+  activateSignup() {
+    this.eventAggregator.publish('show-signup-dialog', {
+      onComplete: ()=> {
+        console.log('dialog closed')
+      }
+    });
+  }
 
   atcivateLogin() {
-
     this.eventAggregator.publish('show-login-dialog', {
       onComplete: ()=> {
         console.log('dialog closed')
@@ -40,6 +53,5 @@ export class AppBar {
   }
 
   logout() {
-    Auth.user = null;
   }
 }

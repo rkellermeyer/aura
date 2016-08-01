@@ -1,15 +1,11 @@
 import {inject} from 'aurelia-dependency-injection';
 import {customElement, bindable, ElementEvents} from 'aurelia-templating';
 import {DOM} from 'aurelia-pal';
-import {Auth} from 'services/auth';
-import {Dropdown} from 'resources/dropdown';
 
 @customElement('user-profile')
 @inject(DOM.Element, ElementEvents)
 export class UserProfile {
   @bindable value = null;
-
-  auth = Auth;
   /**
    *   Container's Element event instance
    */

@@ -1,7 +1,5 @@
-//import {Container, inject} from 'aurelia-dependency-injection';
-
 export class Users {
-  router:Router = null;
+  router = null;
 
   configureRouter(config, router){
 
@@ -13,12 +11,27 @@ export class Users {
         , name: 'users'
         , settings: {}
       },
+      buildRoute('profile', {
+        nav: true,
+      }),
+      buildRoute('settings', {
+        nav: true
+      }),
+      buildRoute('projects', {
+        moduleId: 'pages/projects/list',
+        nav: true,
+      }),
+      buildRoute('projects', {
+        moduleId: 'pages/projects/overview',
+        route: 'projects/overview'
+      }),
       {
-          route: ':id'
-        , moduleId: './user/index'
-        , title: 'User'
-        , name: 'user'
-        , settings: {}
+        route: 'profile',
+        moduleId: './user/profile',
+        title: 'Profile',
+        name: 'profile',
+        auth: true,
+        nav: true,
       }
     ])
 
@@ -28,4 +41,16 @@ export class Users {
 
     this.router = router;
   }
+}
+
+
+function buildRoute(name, options) {
+  let route    = name;
+  let title    = _.capitalize(name);
+  let nav      = false;
+  let auth     = false;
+  let settings = {};
+  let moduleId = `./user/${name}`
+  let config = {route, name, title, nav, auth, settings, moduleId};
+  return Object.assign(config, options);
 }

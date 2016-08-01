@@ -1,4 +1,4 @@
-export default {
+const Util = {
   normalize(url, join) {
     if (url.charAt(0) === '/') url = url.substr(1);
     if (join.charAt(0) === '/') join = join.substr(1);
@@ -61,3 +61,5 @@ export default {
     return origins.length >= 1;
   }
 };
+
+export default Util

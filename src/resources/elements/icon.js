@@ -15,10 +15,11 @@ const default_paths = {
 }
 
 @customElement('icon')
-@noView()
 @inject(DOM.Element, ElementEvents, Loader, Cache)
 export class IconElement {
+
   @bindable type = null;
+  @bindable md = null;
 
   /**
    *   Container's Element event instance
@@ -37,32 +38,52 @@ export class IconElement {
     this._cache = cache;
   }
 
-  _getCached(icon) {
-    return
-  }
-
   _loadIcon(icon) {
+    // console.log('icon')
     if (!icon) return Promise.resolve('');
     if (icon in default_paths) {
       icon = default_paths[icon];
+    }
+    else {
+      icon = icon + '.svg';
     }
     let found
     if (found = this._cache.getItem(`icon.${icon}`)) {
       return Promise.resolve(found);
     }
 
+    // console.log('loading icon')
     return this._loader.loadText(`resources/icons/${icon}`).then(text => {
+      // console.log('text')
       this._cache.setItem(`icon.${icon}`, text);
       return text;
     })
   }
 
+  mdChanged(value) {
+    if (value) {
+      value = value.replace(/\s+|\-/, '_');
+      this._element.innerHTML = `<i class="material-icons">${value}</i>`;
+      this.mdicon = this._element.querySelector('.material-icons');
+    }
+    else if (this.mdicon) {
+      this._element.removeChild(this.mdicon);
+      this.mdicon = null;
+    }
+  }
+
   typeChanged(value) {
+    // console.log(icon)
     this._loadIcon(value).then(text => {
       this._element.innerHTML = text;
       this.svg = this._element.querySelector('svg');
     })
   }
 
-  attached(){}
+  attached(){
+    this.md = this.md || this._element.getAttribute('md') || false;
+    if (this.md) {
+      this.mdChanged(this.md);
+    }
+  }
 }

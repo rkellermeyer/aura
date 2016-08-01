@@ -2,7 +2,7 @@ export function configure(config) {
   config.globalResources([
     './app-bar/app-bar',
     './app-footer/app-footer',
-    './page-view/page-view',
+    // './page-view/page-view',
     './project-card/project-card',
     './project-card/project-card-list',
     './dialog/dialog',
@@ -11,7 +11,13 @@ export function configure(config) {
     './tab-bar/element',
     './select/element',
     './elements/icon',
+    './elements/fab',
     './elements/action',
     './elements/page-title',
+    './elements/label',
+    './auth-nav/element',
+    './portal/element',
+    './switch/element',
+    '../pages/welcome/welcome-card'
   ]);
 }

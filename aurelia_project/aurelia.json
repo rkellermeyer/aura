@@ -83,6 +83,7 @@
         "name": "vendor-bundle.js",
         "prepend": [
           "node_modules/bluebird/js/browser/bluebird.core.js",
+          "node_modules/lodash/lodash.js",
           "scripts/require.js"
         ],
         "dependencies": [
@@ -110,6 +111,7 @@
           "aurelia-templating",
           "aurelia-templating-binding",
           "whatwg-fetch",
+          "gsap",
           {
             "name": "text",
             "path": "../scripts/text"
@@ -129,6 +131,31 @@
             "path": "../node_modules/aurelia-testing/dist/amd",
             "main": "aurelia-testing",
             "env": "dev"
+          },
+          {
+            "name":"extend",
+            "path":"../node_modules/extend",
+            "main":"index"
+          },
+          {
+            "name":"jwt-decode",
+            "path":"../node_modules/jwt-decode/lib",
+            "main":"index"
+          },
+          {
+            "name":"qs",
+            "path":"../node_modules/qs/lib",
+            "main":"index"
+          },
+          {
+            "name":"aurelia-cookie",
+            "path":"../node_modules/aurelia-cookie/dist/amd",
+            "main":"index"
+          },
+          {
+            "name":"socket.io-client",
+            "path":"../node_modules/socket.io-client",
+            "main":"socket.io"
           }
         ]
       }
