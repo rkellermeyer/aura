@@ -20,29 +20,39 @@ export class AppRouter {
           nav: true,
         },
         {
+          route: ['signup'],
+          moduleId: 'pages/auth/signup', name: 'signup', title: 'Signup',
+          nav: true,
+        },
+        {
           route: ['logout'],
           moduleId: 'pages/auth/logout', name: 'logout', title: 'Logout',
           nav: true,
+          auth: true
         },
         {
           route: 'portal',
           moduleId: 'pages/users/portal', name: 'portal', title: 'Portal',
           nav: true,
+          auth: true,
         },
         {
           route: 'show-down',
           moduleId: 'pages/show-down/index', name: 'show-down', title: 'Show Down',
           nav: true,
+          auth: true,
         },
         {
           route: 'child-router',
           moduleId: 'child-router', name: 'child-router', title: 'Child Router',
           nav: true,
+          auth: true,
         },
         {
           route: 'search-results',
           name: 'search-results', moduleId: 'pages/search/results',
-          nav: false
+          nav: false,
+          auth: true,
         }
       ]);
     }

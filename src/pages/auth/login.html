@@ -1,20 +1,35 @@
 <template>
   <page-view id="login-page">
+    <header>
+      <h1>Sign in</h1>
+    </header>
     <form submit.trigger="submit()">
       <label>
-        Email
-        <input type="email" value.bind="user.email" autofocus="true">
+        <input type="email" value.bind="user.email" autofocus="true" placeholder="Email">
       </label>
-
+      <divider></divider>
       <label>
-        Password
-        <input type="password" value.bind="user.password">
+        <input type="password" value.bind="user.password" placeholder="Password">
+        <button type="submit"><icon md=arrow_forward></icon></button>
       </label>
-
-      <footer>
-        <button class="success" type="submit">Submit</button>
-        <a href="#/" class="button alert">Cancel</a>
-      </footer>
     </form>
+
+    <footer>
+      <span class="footer-text">
+        <input type="checkbox" name="remember_me" checked.bind="user.remember">
+        Keep me signed in
+      </span>
+
+      <divider></divider>
+
+      <span class="footer-text" href="#/">
+        Forgot email or password?
+      </span>
+
+      <span class="footer-text">
+        Don't have an account? <a href="#/signup">Create one now.</a>
+      </span>
+
+    </footer>
   </page-view>
 </template>

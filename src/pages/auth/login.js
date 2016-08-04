@@ -11,6 +11,14 @@ export class Login {
     this.router = router;
   }
 
+  activate() {
+    document.documentElement.classList.add('hide-ui');
+  }
+
+  deactivate() {
+    document.documentElement.classList.remove('hide-ui');
+  }
+
   submit() {
     this.authService.login(this.user).then((user)=> {
       console.log(user)

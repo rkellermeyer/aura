@@ -15,7 +15,6 @@ class Sockets {
 
     console.log(this.io)
 
-
     this.io.on('connect', ()=> {
       console.log('connected');
     })
@@ -27,6 +26,10 @@ class Sockets {
 
   subscribe(key, callback) {
     return this.io.on(key, callback);
+  }
+
+  publish(key, data) {
+    this.io.emit(key, data);
   }
 }
 

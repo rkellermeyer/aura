@@ -8,6 +8,6 @@ export class Logout {
   canActivate() {
     state.authorized = null;
     Cookie.delete('token')
-    return new Redirect('#/welcome')
+    return new Redirect('#/login')
   }
 }

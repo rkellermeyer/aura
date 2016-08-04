@@ -22,4 +22,24 @@ export class AuthInterceotor {
     console.log(`Requesting ${request.method} ${request.url}`);
     return request;
   }
+
+  response(message) {
+    console.log('---http:response--')
+    console.log(message)
+    return message;
+  }
+
+  requestError(error) {
+    console.log('---http:requestError--')
+    console.log({errResponse: error.response, statusText: error.statusText, status: error.statusCode});
+    throw error;
+    // throw error;
+  }
+
+  responseError(error) {
+    console.log('---http:responseError--')
+    console.log({errResponse: error.response, statusText: error.statusText, status: error.statusCode});
+    throw error;
+    // throw error;
+  }
 }

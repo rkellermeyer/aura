@@ -37,7 +37,7 @@ export class ProjectCard {
 
   attached() {
     this._events.subscribe('click', ()=> {
-      this.expand()
+      // this.expand()
     })
 
     this._events.subscribe('mouseover', ()=> {

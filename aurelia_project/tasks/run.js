@@ -3,6 +3,16 @@ import browserSync from 'browser-sync';
 import project from '../aurelia.json';
 import build from './build';
 import {CLIOptions} from 'aurelia-cli';
+import path from 'path';
+
+global.fromRoot    = path.join.bind(path, __dirname);
+
+global.requireRoot = () => {
+  var args = Array.prototype.slice.call(arguments);
+  args.unshift(__dirname)
+  return require(path.join.apply(path, args))
+}
+
 
 function onChange(path) {
   console.log(`File Changed: ${path}`);
@@ -13,8 +23,18 @@ function reload(done) {
   done();
 }
 
+function startServer(done) {
+
+  if (CLIOptions.hasFlag('server')) {
+    require('../../application/server');
+  }
+
+  done();
+}
+
 let serve = gulp.series(
   build,
+  startServer,
   done => {
     browserSync({
       online: false,

@@ -8,16 +8,10 @@ export class UserPage {
 
   constructor(users) {
     this.users = users;
+  }
 
-    portal.configureNav(navigation => {
-      navigation.map([
-        {
-          route: 'settings',
-          icon: 'settings',
-          title: 'Settings'
-        }
-      ])
-    })
+  canActivate() {
+    portal.setConfig('portalContext', 'default')
   }
 
   configureRouter(config, router) {

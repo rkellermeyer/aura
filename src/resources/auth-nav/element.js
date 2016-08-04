@@ -2,12 +2,12 @@ import {inject} from 'aurelia-dependency-injection';
 import {customElement, bindable, ElementEvents} from 'aurelia-templating';
 import {Dropdown} from 'resources/dropdown';
 import {DOM} from 'aurelia-pal';
-import {Authorize} from 'core/actions';
+import {User} from 'services/user';
 import channel from 'core/channel';
 
 
 @customElement('auth-nav')
-@inject(DOM.Element, ElementEvents)
+@inject(DOM.Element, ElementEvents, User)
 export class AuthNav {
   @bindable value = null;
 
@@ -21,19 +21,16 @@ export class AuthNav {
    */
   element:HTMLElement;
 
-  constructor(element, events) {
+  constructor(element, events, user) {
     this.element = element;
     this.events = events;
-
-    channel.subscribe(Authorize, (payload)=> {
-      this.authorized = payload.instruction;
-    })
+    this.user = user;
   }
 
   attached(){
     this.dropdown  = new Dropdown(this.element, {
       menu: true,
-      handle: this.element.find('picture'),
+      handle: this.element.find('icon'),
       container: this.element.find('container')
     })
     this.dropdown.close();

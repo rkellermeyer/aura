@@ -1,10 +1,9 @@
 import {inject} from 'aurelia-dependency-injection';
 import state from 'app-state';
-import {Users} from 'server/users';
-import projects from 'server/project';
+import {User} from 'services/user';
+import portal from 'app-portal';
 
-
-@inject(Users)
+@inject(User)
 export class ProjectList {
 
   /**
@@ -12,23 +11,28 @@ export class ProjectList {
    */
   projects:Array = [];
 
-  constructor(users) {
-    this.users = users;
+  portal = portal;
+  state  = state;
+
+  constructor(user) {
+    this.user = user;
+  }
+
+  canActivate() {
+    portal.setConfig('portalContext', 'default')
   }
 
   activate(params, config, navModel) {
     this.router = navModel.router;
+    portal.navAction = {
+      title: 'Add',
+      method: ()=> this.createProject()
+    }
+  }
 
-    projects.all().then(()=> {
-      this.projects = projects.toArray();
-      console.log(this.projects)
-    })
-
-    // state.authorize( authorized => {
-    //   this.authorized = authorized;
-    //   console.log(this.authorized.projects);
-    //   this.projects = this.authorized.projects;
-    // })
+  selectProject(project) {
+    project.select();
+    this.router.navigate('#/portal/project/overview');
   }
 
   setStatus(event, project) {
@@ -37,5 +41,9 @@ export class ProjectList {
 
   createProject() {
     this.router.navigate('#/portal/projects/create')
+  }
+
+  deactivate() {
+    portal.navAction = null;
   }
 }

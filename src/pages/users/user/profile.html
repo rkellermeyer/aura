@@ -1,6 +1,35 @@
 <template>
 
-  <div class="row expanded" id="user-profile">
+  <section id="user-profile">
+
+    <header>
+      <aside>
+        <picture>
+          <img src="images/user@2x.png"></picture>
+        </picture>
+      </aside>
+      <h3>
+        <span class="title">${user.prefix} ${user.firstName} ${user.middle} ${user.lastName} ${user.suffix}</span>
+        <summary>${user.email}</summary>
+      </h3>
+    </header>
+    <article>
+      <label>
+        First Name
+        <input type="text" name="first_name" value.bind="user.firstName">
+      </label>
+      <label>
+        Last Name
+        <input type="text" name="last_name" value.bind="user.lastName">
+      </label>
+      <label>
+        Biography
+        <textarea id="userBio" value.bind="user.bio"></textarea>
+      </label>
+    </article>
+  </section>
+</template>
+  <!-- <div class="row expanded" id="user-profile">
     <div class="small-12 medium-12 column">
       <div class="row">
         <div class="small-12 medium-6 column">
@@ -58,8 +87,7 @@
         </div>
       </div>
     </div>
-  </div>
-</template>
+  </div> -->
 <!--<template>-->
   <!--<div class="row expanded" id="user-profile">-->
     <!--<div class="small-12 medium-6 large-6 columns">-->

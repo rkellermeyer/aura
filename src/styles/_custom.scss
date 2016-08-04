@@ -63,13 +63,13 @@ body {
     &:before {
       background-repeat: no-repeat;
       background-size: cover;
-      background-image: url("resources/index.jpg");
+      background-image: url("resources/Grid-Mac.png");
       background-position: center;
     }
 
     &:after {
       z-index: 1;
-      background-color: rgba(255,255,255,0.5);
+      background-color: rgba(255,255,255,0.6);
     }
   }
 

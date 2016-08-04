@@ -2,39 +2,26 @@ import {computedFrom} from 'aurelia-binding';
 import {StateEvent} from 'core/actions';
 import state from 'app-state';
 
+
 export class Portal {
 
   state = {};
 
   config = {
     enablePersonalTitle: false,
+    asideExpanded: false,
+    portalContext: 'default'
   };
-
-  authorized = null;
-
-  defaultTitle = 'Portal';
 
   constructor() {
     this.defaultState = this.state;
-    this.config = state.__cacheGetItem('portal.config') || {};
-
-    state.authorize(authorized => {
-      this.authorized = authorized;
-      this.state.authorized = this.defaultState.authorized = authorized;
-    });
+    let config = state.__cacheGetItem('portal.config') || {};
+    Object.assign(this.config, config);
+    state.__cacheSetItem('portal.config', this.config);
   }
 
-  @computedFrom('defaultTitle')
-  get title() {
-    console.log(t, this.config.enablePersonalTitle)
-    return
-  }
-
-  getTitle(enabledName, authorized, otherTitle) {
-    if (enabledName && authorized && otherTitle === 'Portal') {
-      return authorized.user_profile.first_name || authorized.user_profile.first_name;
-    }
-    return otherTitle;
+  expandAside() {
+    this.sideExpanded = true;
   }
 
   setState(options) {
@@ -43,14 +30,15 @@ export class Portal {
 
   setConfig(key, value) {
     this.config[key] = value;
-    let cache = state.__cacheGetItem('portal.config');
-    console.log(key, value);
+    let cache = state.__cacheGetItem('portal.config') || this.config
 
     Object.keys(cache).forEach(k => {
       if (cache[k] !== undefined) {
         cache[k] = this.config[k]
       }
     })
+
+    state.__cacheSetItem('portal.config', this.config);
   }
 
   getConfig(key) {

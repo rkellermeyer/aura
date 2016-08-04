@@ -1,0 +1,74 @@
+<template>
+  <section id="project-profile">
+    <header>
+      <h3>${project.title}</h3>
+    </header>
+
+    <article>
+      <label>
+        Title
+        <input type="text" name="project_title" value.bind="project.title" placeholder="Title">
+      </label>
+
+      <label>
+        Teaser
+        <textarea name="project_teaser" value.bind="project.teaser" placeholder="Teaser"></textarea>
+      </label>
+
+      <label>
+        Overview
+        <textarea name="project_overview" value.bind="project.overview" placeholder="Overview"></textarea>
+      </label>
+    </article>
+
+    <h5>Fields</h5>
+
+    <article repeat.for="field of project.fields">
+      <fieldset>
+        <legend>
+          ${field.title || 'New Field'}
+          <button class="remove-field" click.trigger="project.removeField(field)">
+            Archive
+          </button>
+        </legend>
+        <label>
+          Title
+          <input type="text" value.bind="field.title" placeholder="Title" ref="field.titleRef">
+        </label>
+
+        <label show.bind="!field.hasSummary" click.trigger="field.addSummary()" class="field-summary">
+          Summary
+          <div class="new-point">
+            Add summary
+            <icon md="add"></icon>
+          </div>
+        </label>
+
+        <label show.bind="field.hasSummary" class="field-summary">
+          Summary
+          <textarea value.bind="field.summary" placeholder="Summary" ref="field.summaryRef"></textarea>
+        </label>
+
+        <label>
+          points
+          <div class="new-point" click.trigger="field.addPoint()" show.bind="!field.points.length">
+            Add point
+            <icon md="add"></icon>
+          </div>
+        </label>
+
+        <label repeat.for="point of field.points" class="field-point">
+          <icon click.trigger="field.removePoint(point)" md="remove_circle" class="remove"></icon>
+          <textarea value.bind="point.text" ref="point.nodeRef"></textarea>
+        </label>
+
+        <label class="add-point" click.trigger="field.addPoint()" show.bind="field.points.length">
+          points
+          <div class="new-point">
+            Add point <icon md="add"></icon>
+          </div>
+        </label>
+      </fieldset>
+    </article>
+  </section>
+</template>

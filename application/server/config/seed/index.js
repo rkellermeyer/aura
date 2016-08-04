@@ -9,6 +9,7 @@ const UserProfile    = require('../../api/user-profile/user-profile.model');
 const Project        = require('../../api/project/project.model');
 const ProjectProfile = require('../../api/project-profile/project-profile.model');
 const request        = require('request');
+const adminProjects  = require('./projects').projects
 
 const PROJECT_STATUS = Status.PROJECT_STATUS;
 
@@ -18,7 +19,6 @@ Promise.resolve()
   .then(seedUsers)
   .then(seedProjects)
   .then(report)
-
 
 function report() {
     console.log({Category: Category.count()})
@@ -68,10 +68,7 @@ function seedUsers() {
       User.find({}).remove(() => {
         request('http://api.idyuh.com/users', (err, response, body)=> {
           let users = JSON.parse(response.body).users;
-          users.push(defaultUser())
-
           users.forEach(user => {
-
             let profile = new UserProfile(user.user_profile);
 
             user.user_profile = profile._id;
@@ -84,6 +81,27 @@ function seedUsers() {
             profile.save();
             model.save();
           })
+
+
+          let user = defaultUser()
+          let profile = new UserProfile(user.user_profile);
+
+          user.user_profile = profile._id;
+
+          let model = new User(user);
+
+          profile.user_id = model.id;
+          profile.user = model._id;
+
+          adminProjects.forEach(project => {
+            let projectProfile = new ProjectProfile(project);
+            projectProfile.user = model._id;
+            projectProfile.save();
+            model.projects.push(projectProfile._id);
+          })
+
+          profile.save();
+          model.save();
           resolve();
         })
       });
@@ -98,6 +116,7 @@ function seedProjects() {
       Project.find({}).remove(()=> {
         request('http://api.idyuh.com/project_profiles', (err, response, body)=> {
           let projectProfiles = JSON.parse(response.body).project_profiles;
+          projectProfiles = projectProfiles.concat(adminProjects);
           let all = [];
           projectProfiles.forEach(profile => {
             let promises = [];

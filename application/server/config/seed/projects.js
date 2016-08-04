@@ -1,4 +1,135 @@
-module.exports = {
+export const projects = [
+  {
+    title: 'Book A Coffe Club',
+    overview: 'Book A Coffee Club will make its best effort to create a unique place where customers can socialize with each other in a comfortable and relaxing environment while enjoying the best brewed coffee or espresso and pastries in town. We will be in the business of helping our customers to relieve their daily stresses by providing peace of mind through great ambience, convenient location, friendly customer service, and products of consistently high quality. Book A Coffee Club will invest its profits to increase the employee satisfaction while providing stable return to its shareholders.',
+    points: [
+      {
+        title: 'Executive Summary',
+        content: `Book A Coffee Club is determined to become a daily necessity for local coffee addicts, a book lover’s dream where you try to escape the daily stresses of life and just a comfortable space to hang out with friends. With the growing demand for high-quality gourmet coffee and great service, Book a Coffee Club will be located in proximity to corporate area of Brentwood. The goal is to build a core group of repeat customers.Book a Coffee Club is determined to offer its customer the best prepared cofee in the area that will be complemented with books that they can borrow.\nThe company will operate a 2,300 square foot coffee bar within a walking distance from the corporate area of Brentwood. The owners have secured this location through a three-year lease with an option for extending. The have also provided $140,000 of the required $200,000 start-up funds. The company is currently looking for 60,000 investments to cover raw materials and operating costs.\nThe company is expected to grow sales revenue from $584,000 in FY 2001 to $706,000 in year three. As Book A Coffee Club will strive to maintain a 65% gross profit margin and reasonable operating expenses, it will see net profits grow from $100,000 to $125,000 during the same period.\nFollowing image shows sales, gross margin and Net Profit.\n`
+      },
+      {
+        title: 'Objectives',
+        points: [
+          {text: 'Book A Coffee Club’s objectives for the first year of operation’s are'},
+          {text: 'Become selected as the "Best New Coffee Bar in the area" by the local restaurant guide.'},
+          {text: 'Turn in profits from the first month of operations.'},
+          {text: 'Maintain a 65 % gross margin.'}
+        ],
+      },
+      {
+        title: 'Keys to Success',
+        points: [
+          {text: 'Store design that will be both visually attractive to customers, and designed for fast and efficient operations.'},
+          {text: 'Employee training to insure the best coffee preparation techniques.'},
+          {text: 'Marketing strategies aimed to build a solid base of loyal customers, as well as maximizing the sales of high margin products, such as espresso drinks.'}
+        ]
+      },
+      {
+        title: 'Mission',
+        content: 'Book A Coffee Club will make its best effort to create a unique place where customers can socialize with each other in a comfortable and relaxing environment while enjoying the best brewed coffee or espresso and pastries in town. We will be in the business of helping our customers to relieve their daily stresses by providing peace of mind through great ambience, convenient location, friendly customer service, and products of consistently high quality. Book A Coffee Club will invest its profits to increase the employee satisfaction while providing stable return to its shareholders.'
+      }
+    ]
+  },
+  {
+    title: 'Todd’s Creative Centre',
+    overview: 'TCC Creative Center\'s mission is to support and contribute to the community of artists and crafters by offering quality, name brand supplies to accommodate customer needs; by hosting and supporting shows, events, classes and contests; and by promoting the island as an artist\'s oasis and destination.\n We will strive, constantly, to supply what the consumer is asking for; we will continually review what is available in the marketplace. We will provide new products and services to the areas of need.  We will maintain NALB as a place for artists to gather.\n Success will ultimately be measured by our customers choosing us because of their belief in our ability to meet or exceed their expectations of price, service, and selection.',
+    points: [
+      {
+        title: 'Executive Summary',
+        content: 'Todd\'s Creative Center (TCC) is the place where artists meet with a tagline of “No artists left behind”. NCC is a specialty retail store offering a large array of artists\' materials and supplies, crafter\'s\' needs, a gallery, and an education center. TCC will provide a pleasant facility that will inspire and support amateurs, professionals and crafters in the Big Island art community. TCC  will sponsor art shows and competitions, art and craft fairs, scholarships for artists to continue their formal education, and other community events. Todd\'s will facilitate, organize and offer creative workshops and classes in a variety of techniques and media.',
+      },
+      {
+        title: 'The Market',
+        content: 'TCC is at the forefront in an exciting and growing market. The city of Nashville currently has only two stores exclusively offering art and craft supplies. Neither of these stores is able to offer education and hands-on opportunities. Neither currently supports the artists community in active ways. They are also not able to give the high level of customer support that TCC can. TCC is the only art supply store on the island that is owned and operated exclusively by artists. Todd’s Creative Center will tap into the growing number of professional artists in Nashville. We will also fill the needs of the growing market of retirees (100% growth in the last three years) many of whom have settled in Nashville because of the thriving art community that exists here. TCC will actively market to teachers and students in the growing public and private education systems.',
+      },
+      {
+        title: 'The Organization',
+        content: 'TCC is owned and operated by practicing artists. It is founded on the idea that maintaining satisfied customers is essential to the bottom line. With this in mind, TCC Creative Center will be working hard to ensure that all of their customers\' expectations are exceeded in all transactions. To maintain a presence within the art and craft community and close relationships to customers, NCC will be an active member of the local art scene through participation and education. TCC staff will receive training in the most current trends and products. TCC\'s owners will both anticipate and set consumer trends in creative work.'
+      },
+      {
+        title: 'Financials',
+        content: 'TCC will show modest profit from month one. Margins are forecasted to be at 50%, due to the ability to buy wholesale. Sales in the first full year will be slightly over $300,000. We are projecting conservatively a growth rate of 5% the first three years and 20% thereafter, even though existing art supply stores are reporting growth of over 30%. We budget conservatively, but have great vision.'
+      },
+      {
+        title: 'Objectives',
+        points: [
+          {text: 'Customer Satisfaction: To create a shopping environment that caters to the needs of the art and craft community '},
+          {text: 'To earn 80% market share and become the number one art and craft supplier of Nashville City.'},
+          {text: 'To achieve a 50% profit margin within the first year.'},
+          {text: 'To be an active and vocal member in the community and to provide continual re-investment.'},
+          {text: 'To develop, in year two and three, Artist\'s Oasis of Hawaii. In this program we would arrange local accommodations and materials rental for visiting/vacationing artists.'},
+        ]
+      },
+      {
+        title: 'Keys to Success',
+        summary: 'In order for TCC to succeed, we must',
+        points: [
+          {text: 'Provide for the satisfaction of 100% of our customers and vendors.'},
+          {text: 'Advertise and promote in areas where our target customer base will learn about our store.'},
+          {text: 'Continuously review our inventory and sales and adjust our inventory levels accordingly.'},
+          {text: 'Sell products that are of the highest reliability and quality. We must offer as many or more premium products than our competition offers. Offer loss leaders and other promotions that bring customers into the store to buy goods, explore our line of services, and sign up for future events.'},
+          {text: 'Be an active member of the community.'},
+          {text: 'Provide in-store classes, demonstrations, and events.'}
+        ]
+      },
+      {
+        title: 'Mission',
+        content: 'TCC Creative Center\'s mission is to support and contribute to the community of artists and crafters by offering quality, name brand supplies to accommodate customer needs; by hosting and supporting shows, events, classes and contests; and by promoting the island as an artist\'s oasis and destination.\n We will strive, constantly, to supply what the consumer is asking for; we will continually review what is available in the marketplace. We will provide new products and services to the areas of need.  We will maintain NALB as a place for artists to gather.\n Success will ultimately be measured by our customers choosing us because of their belief in our ability to meet or exceed their expectations of price, service, and selection.'
+      }
+    ]
+  },
+  {
+    title: 'Aria The World’s Best Folding Bike',
+    overview: `Aria’s mission is to manufacture world’s best folding bike which will be exceptionally compact,titanium frame, 24 inch wheels and 100 percent made in America.\n Change the way people commute in United States and make “bike to work” a possible thing.`,
+    points: [
+      {
+        title: 'Executive Summary',
+        content: 'Aria is a revolutionary new folding bike that is smaller, lighter, safer and easier to use than any other folding bike in the world. It has big wheels so it looks, rides and feels like a normal bike, but can fold incredibly small.\n You can store it under your desk, take it on the subway, put it in the trunk of your car or pack it in a suitcase — Aria is so compact it can fit almost anywhere.Aria has a titanium frame, high end components and is designed around the latest bicycle technology. It will be made in Toronto, Canada. Aria opens up a world of cycling opportunities. It will change the way you commute, travel and live with your bicycle.'
+      },
+      {
+        title: 'The Market',
+        content: 'Let’s start with metropolitan cities, There are many who commute through metros and buses and they would love to have bike in hand which they could fold and easily carry around. Aria can be folded and stored under desk , your bus seat. Aria is lightweight and that’s why it is easy to carry.\n Many across country are becoming more and more healthconsicous. In recent survey done by cyclingcommunity.com said that they would love to cycle to work but current model of workplace does not have any storage function for bikes and all. After all, it’s a country made for Cars. They also suggested if they have easy mode to carry and store bikes they would prefer cycling to work and even groceries and light shopping.\n Aria has a market in Metropolitan as well as rural areas in United States. We are also targeting European country as Market. Cycling is important mode of commute over there and folding functional bike would change the cycling market.'
+      },
+      {
+        title: 'The Organization',
+        content: `Aria is developed by Aria Labs Inc. Aria is a software developer, machinist, welder, cnc programmer, cyclist and mom...\n She has been working in the IT industry for over 20 years. She has successfully founded condocommunities.com, a web application serving over 37,000 condo residents across Canada and around the world.\n Aria has worked on various folding bike designs over the past 8 years and has worked with manufacturers in Asia to develop these designs. She can be credited for introducing vertical folding of the main triangle to modern folding bikes.\n With extensive knowledge of the bicycle industry and bicycle manufacturing, Aria has the practical knowledge and experience required to execute a project like this.\n Aria is a product of Aria's technical know-how and passion for cycling.\n `
+      },
+      {
+        title: 'Financials',
+        content: `Aria will show modest profit from month one. Margins are forecasted to be at 50%, due to the ability to buy wholesale. Sales in the first full year will be slightly over $300,000. We are projecting conservatively a growth rate of 5% the first three years and 20% thereafter, even though existing bicycle stores are reporting growth of over 30%. We budget conservatively, but have great vision.`,
+        image: ''
+      },
+      {
+        title: 'Objectives',
+        points: [
+          {text: `To create the best folding bike that would change the world of commute and provide better option for people who would like to bike to work`},
+          {text: `To earn 80% market share and become the number one bike not in folding bike industry but in “The Bike Industry”`},
+          {text: `To achieve a 50% profit margin within the first year.`},
+          {text: `To be an active and vocal member in the bike community and to provide continual improvement in the system.`},
+          {text: `To schedule events - Bike to work day etc. Aria’s goal is to make people more and more comfortable so that they could bike to work.`}
+        ]
+      },
+      {
+        title: 'Keys to Success',
+        summary: 'In order for TCC to succeed, we must',
+        points: [
+          {text: `Provide for the satisfaction of 100% of our customers and vendors.`},
+          {text: `Advertise and promote in areas where our target customer base will learn about most exciting folding bike.`},
+          {text: `Continuously keep acting on reviews and feedback provided by customer.`},
+          {text: `Be an active member of the community.`},
+          {text: `Provide in-store/online classes, demonstrations, and events.`}
+        ]
+      },
+      {
+        title: 'Mission',
+        content: `Aria’s mission is to manufacture world’s best folding bike which will be exceptionally compact,titanium frame, 24 inch wheels and 100 percent made in America.\n Change the way people commute in United States and make “bike to work” a possible thing.`
+      }
+    ]
+  }
+]
+
+
+const defaultProjects = {
     project_profiles: [{
         id: 1,
         teaser: "Williamsburg farm-to-table cliche PBR bicycle rights craft beer Wayfarers thundercats.",

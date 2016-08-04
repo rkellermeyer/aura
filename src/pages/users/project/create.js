@@ -1,18 +1,24 @@
 import {Container, inject} from 'aurelia-dependency-injection';
 import {ProjectModel} from 'server/project';
 import projects from 'server/project';
-// import {Project} from 'request/idyuh-project';
+import portal from 'app-portal';
+import {User} from 'services/user';
 
-
+@inject(User)
 export class ProjectCreate {
   project = {};
 
-  canActivate(params, config) {
+  constructor(user) {
+    this.user = user
+  }
+
+  canActivate() {
+    portal.setConfig('portalContext', 'default')
   }
 
   submit() {
     let title = this.project.title;
-    let project = projects.saveProject(this.project)
+    this.user.createProject(this.project);
   }
 
   setStatus(event, project) {

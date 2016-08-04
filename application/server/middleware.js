@@ -55,8 +55,6 @@ module.exports = function middleware(app) {
     })
   }));
   app.use((req, res, next)=> {
-    console.log(req.session)
-    console.log(req.headers)
     next()
   })
   /**

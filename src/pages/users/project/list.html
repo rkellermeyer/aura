@@ -1,19 +1,23 @@
 <template>
-
-  <project-card-list class="portal-card-list">
-    <project-card repeat.for="row of projects">
+  <project-card-list class="user-projects">
+    <project-card repeat.for="row of user.projects">
       <header>
-        ${row.model.overview}
+        <h3>
+          <a href="javascript:;" click.trigger="selectProject(row)">${row.title}</a>
+        </h3>
       </header>
       <section>
-        <p>${row.model.teaser}</p>
+        <template if.bind="row.overview">
+          <h5>Overview</h5>
+          <p>${row.overview}</p>
+        </template>
+        <template if.bind="row.mission">
+          <h5>Mission</h5>
+          <p>${row.mission}</p>
+        </template>
+        <h5>Funding Goal</h5>
+        <p>$650,000</p>
       </section>
     </project-card>
   </project-card-list>
-
-
-
-  <fab class="float" click.trigger="createProject()">
-    <icon md="add"></icon>
-  </fab>
 </template>

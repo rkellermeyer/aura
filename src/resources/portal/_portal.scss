@@ -1,19 +1,26 @@
-$portal-height: 85vh;
+$portal-height: 88vh;
 $portal-width: 95vw;
 
 $portal-width-large: 95vw;
-$portal-height-large: 75vh;
+$portal-height-large: 88vh;
 
-$aside-active-tint: $green-A700;;
+$aside-active-tint: $grey-800;
+$aside-active-fill: rgba(255,255,255,0.1);
 $portal-aside-size: 80px;
-$portal-aside-fill: $grey-800;
-
-$portal-fab-fill: $color-primary;
-
+$portal-aside-fill: rgba(255,255,255,0.01);
+$portal-aside-project-fill: rgba(0,0,0,0.5);
+$portal-fab-fill: $teal-50;
 $portal-header-height: $portal-aside-size;
 
 app-portal {
-  transform: translateY(-100px);
+  animation-timing-function: ease-out;
+  animation-duration: 1s;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  animation-name: fade-in;
+  opacity: 0;
+
+  transform: translateY(-130px);
   display: flex;
   position: relative;
   flex-direction: row;
@@ -34,6 +41,7 @@ app-portal {
   > aside,
   > section {
     > header {
+      position: relative;
       min-width: 100%;
       min-height: $portal-header-height;
     }
@@ -41,9 +49,14 @@ app-portal {
 
   > aside {
     flex: 0 0 $portal-aside-size;
-    max-width: $portal-aside-size;
     min-height: 100%;
     background-color: $portal-aside-fill;
+  }
+
+  &.portal-default {
+    > aside {
+      background-color: $portal-aside-fill;
+    }
   }
 
   > section {
@@ -52,6 +65,10 @@ app-portal {
     flex-grow: 1;
     position: relative;
     flex-direction: column;
+
+    > router-view {
+      background-color: rgba(255,255,255,0.6);
+    }
   }
 }
 
@@ -85,10 +102,30 @@ app-portal > section {
         margin: auto;
       }
     }
+
+    > nav.right-nav {
+      margin-left: auto;
+      margin-right: 0.5rem;
+
+      > button {
+        color: $light-blue-500;
+
+        &:hover {
+          color: $light-blue-300;
+          background-color: transparent;
+        }
+
+        &:active {
+          color: $light-blue-100;
+          background-color: transparent;
+        }
+      }
+    }
   }
 
   fab {
     background-color: $portal-fab-fill;
+    color: $grey-800;
   }
 
   > router-view {
@@ -105,7 +142,108 @@ app-portal aside {
     min-width: $portal-aside-size;
     min-height: $portal-aside-size;
     line-height: $portal-aside-size;
+
+    > nav {
+      position: relative;
+      > a {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        &:active,
+        &:visited,
+        &:focus,
+        &:hover {
+          color: inherit;
+        }
+
+        > icon {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          animation-timing-function: ease-out;
+          animation-duration: 0.2s;
+          animation-direction: alternate;
+          animation-fill-mode: forwards;
+          transform: rotate(180deg);
+        }
+
+        > icon.home {
+          animation-name: homeicon-back-to-home;
+        }
+
+        > icon.back {
+          animation-name: backicon-back-to-home;
+        }
+
+        &.show-back-icon {
+          > icon.back {
+            animation-name: backicon-home-to-back;
+          }
+
+          > icon.home {
+            animation-name: homeicon-home-to-back;
+          }
+        }
+      }
+
+
+
+      @include keyframes(homeicon-back-to-home) {
+        from {
+          opacity: 0;
+          transform: rotate(180deg);
+        }
+
+        to {
+          opacity: 1;
+          transform: rotate(360deg);
+        }
+      }
+
+      @include keyframes(backicon-back-to-home) {
+        from {
+          opacity: 1;
+          transform: rotate(180deg);
+        }
+
+        to {
+          opacity: 0;
+          transform: rotate(360deg);
+        }
+      }
+
+      @include keyframes(homeicon-home-to-back) {
+        from {
+          opacity: 1;
+          transform: rotate(0);
+        }
+
+        to {
+          opacity: 0;
+          transform: rotate(180deg);
+        }
+      }
+
+      @include keyframes(backicon-home-to-back) {
+        from {
+          opacity: 0;
+          transform: rotate(0deg);
+        }
+
+        to {
+          opacity: 1;
+          transform: rotate(180deg);
+        }
+      }
+    }
   }
+
   nav {
     a {
       display: block;
@@ -113,7 +251,7 @@ app-portal aside {
       min-height: $portal-aside-size;
       line-height: $portal-aside-size;
       text-align: center;
-      color: $white-1;
+      color: $aside-active-tint;
 
       icon {
         justify-content: center;
@@ -130,32 +268,44 @@ app-portal aside {
       &:hover,
       &:active,
       &.is-selected {
-        color: $white;
+        color: $aside-active-tint;
       }
 
       &:hover {
-        background-color: rgba(255,255,255,0.1);
+        background-color: rgba(0,0,0,0.01);
+        color: $aside-active-tint;
+        fill: $aside-active-tint;
       }
 
       &:active {
-        background-color: rgba(255,255,255,0.2);
+        background-color: rgba(0,0,0,0.05);
+        color: $aside-active-tint;
+        fill: $aside-active-tint;
       }
 
       &.is-selected {
-        background-color: $aside-active-tint;
-
-        &:hover {
-          background-color: lighten($aside-active-tint, 10%);
-        }
-
-        &:active {
-          background-color: lighten($aside-active-tint, 20%);
-        }
+        background-color: rgba(255,255,255,0.6);
       }
     }
   }
 }
 
+
+app-portal aside.portal-expanded {
+  nav > a {
+    max-height: 48px;
+    line-height: 48px;
+  }
+}
+
+@include keyframes(fade-in) {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
 
 @media screen and (min-width: 1024px) {

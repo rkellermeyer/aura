@@ -26,10 +26,6 @@ export class UserPortal {
         nav: true,
         icon: 'account_circle'
       }),
-      buildRoute('settings', {
-        nav: true,
-        icon: 'settings'
-      }),
       buildRoute('projects', {
         moduleId: './project/list',
         nav: true,
@@ -45,20 +41,39 @@ export class UserPortal {
         nav: true,
         icon: 'rate_review'
       }),
-      buildRoute('project-overview', {
-        moduleId: './project/overview',
-        route: 'project/overview/:id',
-        title: 'Project Overview',
-      }),
       buildRoute('project-create', {
         moduleId: './project/create',
         route: 'projects/create',
         title: 'New Project',
       }),
+      buildRoute('project-overview', {
+        moduleId: './project/overview',
+        route: 'project/overview',
+        title: 'Project Overview',
+        project: true,
+        icon: 'folder',
+      }),
+      buildRoute('project-profile', {
+        moduleId: './project/profile',
+        route: 'project/profile',
+        title: 'Project Profile',
+        project: true,
+        icon: 'folder_special',
+      }),
+
+      buildRoute('project-members', {
+        moduleId: './project/members',
+        route: 'project/members',
+        title: 'Project Members',
+        project: true,
+        icon: 'group',
+      }),
+
       buildRoute('project-update', {
-        moduleId: './projects/update',
+        moduleId: './project/update',
         route: 'project/update/:id',
         title: 'Update Project',
+        project: true,
       })
     ])
 
@@ -69,6 +84,17 @@ export class UserPortal {
     console.log(this)
 
     this.router = router;
+  }
+
+  bind() {
+    this.router.projectNavigation = this.router.routes
+      .filter(route => {
+        return route.project;
+      })
+      .map(route => {
+        route.navModel.href =  '#/portal/' +route.route;
+        return route.navModel
+      })
   }
 }
 

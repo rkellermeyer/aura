@@ -1,19 +1,31 @@
-<template>
-  <aside>
+<template class="portal-${portal.config.portalContext}">
+  <aside ref="portal.aside.element">
     <header>
-
+      <nav id="header-nav">
+        <a href="#/portal" class="">
+          <icon class="home" md="home"></icon>
+          <icon class="back" md="arrow-forward"></icon>
+        </a>
+      </nav>
     </header>
-    <nav>
-      <slot name=nav></slot>
+    <nav show.bind="portal.config.portalContext === 'default'">
+      <slot name=defaultNav></slot>
+    </nav>
+    <nav show.bind="portal.config.portalContext === 'project'">
+      <slot name=projectNav></slot>
     </nav>
   </aside>
+
   <section class="portal__content">
     <header>
-      <h2>
-        <strong>${portal.authorized.user_profile.first_name} ${portal.authorized.user_profile.last_name}</strong>
-        <icon md="arrow_forward"></icon>
+      <h4>
         <span>${routerConfig.title}</span>
-      </h2>
+      </h4>
+      <!-- <status-filter options.bind="filterOptions"></status-filter> -->
+
+      <nav show.bind="portal.navAction" class="right-nav">
+        <button click.trigger="portal.navAction.method($event)">${portal.navAction.title}</button>
+      </nav>
     </header>
     <slot></slot>
   </section>

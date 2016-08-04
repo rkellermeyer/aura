@@ -1,11 +1,14 @@
+import {HttpClient} from 'aurelia-http-client';
 import {inject} from 'aurelia-dependency-injection';
 import {Cookie} from 'aurelia-cookie';
 import {Http} from './http';
 import {Users} from './users';
-import {ProfileNav, Authorize} from 'core/actions';
+import {ProfileNav, Authorize, UserLoggedIn, UserLoggedOut} from 'core/actions';
 import {EventAggregator} from 'aurelia-event-aggregator';
 import channel from 'core/channel';
 import server from 'server';
+
+import {User} from 'services/user';
 
 @inject(Http, Users, EventAggregator)
 export class Authentication {
@@ -14,11 +17,10 @@ export class Authentication {
     this.http  = http.getHttp();
     this.users = users;
 
-    this._userToken = Cookie.get('token');
 
-    if (this._userToken) {
-      this.tryFetchingCurrent();
-    }
+    this.tryFetchingCurrent().catch((a)=> {
+      console.log(a)
+    })
   }
 
   tryFetchingCurrent() {
@@ -26,13 +28,13 @@ export class Authentication {
 
     return server.get('/api/users/me')
       .then(response => {
-        channel.publish(new ProfileNav(response.content));
-        channel.publish(new Authorize(response.content));
-        return this.users.current = response.content;
+        console.log(response)
+        const user = User.authorize(response.content);
+        return user;
       })
       .catch(err => {
         Cookie.delete('token');
-        console.log(err)
+        console.log({errResponse: err.response, statusText: err.statusText, status: err.statusCode});
       })
   }
 
@@ -43,7 +45,7 @@ export class Authentication {
         // console.log(response)
       })
       .catch(err => {
-        console.error(err)
+        console.log(err.response)
       })
   }
 
@@ -61,8 +63,44 @@ export class Authentication {
         return this.tryFetchingCurrent()
       })
       .catch(err => {
-        console.error(err)
+        console.log(err.response)
       })
+  }
+
+  signup(user) {
+    const preAuth = {
+      email: user.email,
+      password: user.password,
+    };
+
+    return authenticate();
+
+    function postUser(content) {
+      return server.post('/api/users', content).then((resp)=> {
+        const token = resp.content.token;
+        Cookie.set('token', token);
+        return this.tryFetchingCurrent();
+      })
+    }
+
+    function authenticate() {
+      const client = new HttpClient();
+      return client.createRequest('http://api.idyuh.com/users')
+        .asPost()
+        .withHeader('Content-Type', 'application/json')
+        .withParams({ user })
+        .send()
+        .then(resp => {
+          if (resp.content) {
+            return postUser(resp.content.user)
+          }
+        })
+        .catch(err => console.log(err.response))
+    }
+  }
+
+  logout() {
+    User.unauthorize()
   }
 
   getUsers() {
@@ -74,7 +112,7 @@ export class Authentication {
         // console.log(response)
       })
       .catch(err => {
-        console.error(err);
+        console.log(err.response)
       })
   }
 }

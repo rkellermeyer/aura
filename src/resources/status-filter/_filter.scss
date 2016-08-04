@@ -1,0 +1,45 @@
+status-filter {
+  display: block;
+  border-radius: 6px;
+  min-height: 29px;
+  max-height: 29px;
+  color: $light-blue;
+  font-size: 15px;
+  text-align: center;
+  line-height: 29px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  max-width: 200px;
+
+  select {
+    border-radius: inherit;
+    border: 1px solid $grey-300;
+    display: block;
+    color: inherit;
+
+    -webkit-appearance: none;
+            appearance: none;
+
+    width: inherit;
+    max-height: inherit;
+    padding: 0;
+    margin: 0;
+    padding-left: 20px;
+    outline: none;
+    background-color: transparent;
+    text-align: center;
+
+    option {
+      text-align: center;
+      color: inherit;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

@@ -8,18 +8,13 @@ import channel from 'core/channel';
 
 @customElement('app-bar')
 @inject(Element, ElementEvents)
-@bindable({
-  name: 'router'
-})
-@bindable({
-  name: 'routerConfig'
-})
+@bindable({name: 'router'})
+@bindable({name: 'routerConfig'})
 export class AppBar {
   state = state;
   constructor(element, events) {
     this.element = element;
     this.events = events;
-
     element.__proto__.float = (e)=> this.float(e);
   }
 
@@ -34,24 +29,5 @@ export class AppBar {
       this.isFloat = value;
       return this.backdrop.css({opacity: value ? 1 : 0})
     }
-  }
-
-  activateSignup() {
-    this.eventAggregator.publish('show-signup-dialog', {
-      onComplete: ()=> {
-        console.log('dialog closed')
-      }
-    });
-  }
-
-  atcivateLogin() {
-    this.eventAggregator.publish('show-login-dialog', {
-      onComplete: ()=> {
-        console.log('dialog closed')
-      }
-    });
-  }
-
-  logout() {
   }
 }

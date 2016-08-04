@@ -211,42 +211,21 @@ card-back {
     button * {
       pointer-events: none !important;
     }
-
-    row {
-      flex-direction: row;
-      display: flex;
-      min-width: 100%;
-      margin-bottom: 1rem;
-      flex: 1;
-
-      column {
-        flex: 1;
-
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
-        align-items: center;
-
-        &:not(:last-child) {
-          margin: 0 0.5rem 0 0;
-        }
-
-        &[center] {
-          justify-content: center;
-        }
-
-        &[shrink] {
-          flex: 0 0 auto;
-        }
-      }
-    }
   }
 }
 
 project-card {
   background-color: white;
-  border-radius: 2px;
-  box-shadow: 0 4px 2px -2px rgba(0,0,0,0.2), 0 3px 2px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  border: 1px solid $grey-300;
+  box-shadow: 0 10px 20px -5px rgba(0,0,0,0.2);
+  // box-shadow: 0 4px 2px -2px rgba(0,0,0,0.2), 0 3px 2px rgba(0,0,0,0.1);
   -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+
+  backdrop {
+    border-radius: inherit;
+  }
 }
 
 project-card-list {
@@ -276,23 +255,23 @@ project-card-table {
   position: relative;
 
   project-card {
-    margin-left: 0;
-    margin-right: 0;
-    flex: 0 0 auto;
-    max-width: 100%;
-    min-height: auto;
-    position: relative;
+    // margin-left: 0;
+    // margin-right: 0;
+    // flex: 0 0 auto;
+    // max-width: 100%;
+    // min-height: auto;
+    // position: relative;
 
-    column {
-      display: flex;
-      flex: 0 0 auto;
-      min-width: 8%;
-      position: relative;
-    }
+    // column {
+    //   display: flex;
+    //   flex: 0 0 auto;
+    //   min-width: 8%;
+    //   position: relative;
+    // }
 
-    header {
-      flex-direction: row;
-    }
+    // header {
+    //   flex-direction: row;
+    // }
   }
 }
 
@@ -338,9 +317,9 @@ project-card-table {
     }
 
     project-card {
-      box-shadow: none;
-      -webkit-transform-style: preserve-3d;
-      -webkit-transition: 0.5s;
+      // box-shadow: none;
+      // -webkit-transform-style: preserve-3d;
+      // -webkit-transition: 0.5s;
 
       &:first-of-type {
         box-shadow: 0 4px 2px -2px rgba(0,0,0,0.2), 0 3px 2px rgba(0,0,0,0.1);
@@ -381,7 +360,54 @@ project-card-table {
 }
 
 @media screen and (min-width: 768px) {
+
   project-card-list {
+
+    &.user-projects {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      @include scroll-element(y);
+
+      @include scrollbar {
+        display: none;
+      }
+
+      project-card {
+        pointer-events: auto;
+        margin: 1rem;
+        max-width: unset;
+        min-width: 90%;
+        flex: 1;
+        overflow: hidden;
+
+        section {
+          flex-direction: column;
+          max-width: 100%;
+
+          h5 {
+            font-size: 12px;
+            color: $grey-600;
+            font-weight: 500;
+            text-transform: uppercase;
+          }
+
+          p {
+            text-overflow: ellipsis;
+            max-height: 50%;
+            max-width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+
     &.portal-card-list {
       flex-wrap: nowrap;
       position: absolute;
@@ -393,8 +419,7 @@ project-card-table {
       // justify-content: center;
       align-items: flex-start;
 
-      background-color: $black-3;
-      box-shadow: inset 0 -4px 10px -5px $black-2;
+      // box-shadow: inset 0 -4px 10px -5px $black-2;
       @include scroll-element(x);
       @include scrollbar {
         display: none;
@@ -408,7 +433,13 @@ project-card-table {
         align-self: flex-start;
         user-select: none;
         transform-origin: center center;
+      }
+    }
 
+    &.user-projects,
+    &.project-card-list {
+
+      project-card {
         backdrop {
           position: absolute;
           top: 0;
@@ -417,7 +448,7 @@ project-card-table {
           bottom: 0;
           background-color: $white;
           transform-origin: center center;
-          @include shadow-8dp;
+          box-shadow: 0 10px 20px -5px rgba(0,0,0,0.1);
         }
 
         backdrop-circle {

@@ -1,13 +1,23 @@
 import {inject} from 'aurelia-framework';
 import state from 'app-state';
+import {computedFrom} from 'aurelia-binding';
+import {User} from 'services/user';
+import portal from 'app-portal';
 
+
+@inject(User)
 export class UserProfile {
   heading = 'User Profile';
 
-  activate(params, config) {
-    state.authorize(authorized => {
-      this.user    = authorized;
-      this.profile = authorized.user_profile;
-    })
+  constructor(user) {
+    this.user = user;
+  }
+
+  canActivate() {
+    portal.setConfig('portalContext', 'default')
+  }
+
+  activate() {
+    console.log(this.user);
   }
 }

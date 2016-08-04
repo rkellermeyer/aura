@@ -13,6 +13,18 @@ export class Authorize {
   }
 }
 
+export class UserLoggedIn {
+  constructor(options) {
+    this.instruction = options;
+  }
+}
+
+export class UserLoggedOut {
+  constructor(options) {
+    this.instruction = options;
+  }
+}
+
 export class DocumentScroll {
   overflow = '';
 

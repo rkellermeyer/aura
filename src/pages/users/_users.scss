@@ -1,20 +1,252 @@
 /* User Profile */
 #user-profile {
+  display: flex;
   padding: 1rem;
+  flex-direction: column;
+
+  > header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    > aside {
+      flex: 1 0 auto;
+      height: 100px;
+      width: 100px;
+      min-height: 100px;
+      min-width: 100px;
+      max-height: 100px;
+      max-width: 100px;
+      margin: 0 1rem 0 0;
+
+      > picture {
+        display: block;
+        border-radius: 100%;
+        overflow: hidden;
+        width: inherit;
+        height: inherit;
+        min-width: inherit;
+        min-height: inherit;
+        box-shadow: 0 10px 20px -5px rgba(0,0,0,0.2);
+      }
+    }
+
+    > h3 {
+      display: flex;
+      flex-direction: column;
+      flex: 0 0 auto;
+
+      summary {
+        margin: 0.2rem;
+        font-size: 16px;
+        font-weight: 500;
+        color: $grey-600;
+      }
+    }
+  }
+}
+
+
+#user-reviews {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+
+  blockquote {
+    color: $grey-700;
+
+    h4 {
+      color: $grey-800;
+
+      summary {
+        font-size: 18px;
+        font-weight: 500;
+        color: $grey-700;
+      }
+    }
+
+    > rating {
+      display: block;
+      margin: 0 0 0.5rem 0;
+      color: $amber;
+
+      > span.value {
+        font-size: 12px;
+        color: $blue-300;
+      }
+    }
+  }
+}
+
+#portal-home {
+  > section {
+    padding-top: 1rem;
+
+    > p {
+      padding-left: 1rem;
+    }
+
+    > ul {
+      margin-left: 2rem;
+      list-style: none;
+
+      > li > a {
+        color: $light-blue-300;
+        font-size: 17px;
+        line-height: 32px;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+#project-overview,
+#project-profile,
+#project-members {
+
+  @include scroll-element(y);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding-top: 1rem;
+
+  > header {
+    margin-bottom: 1rem;
+
+    > h3 {
+      padding-left: 1rem;
+      color: $color-primary;
+    }
+  }
+
+  > h5 {
+    padding-left: 1rem;
+  }
+
+  > article {
+    padding: 0 1rem;
+
+    textarea {
+      height: auto;
+      padding: 2px auto;
+      overflow: hidden;
+      resize: none;
+    }
+  }
+
+  fieldset {
+    > legend {
+      min-width: 100%;
+      margin: 1rem 0;
+      font-weight: 500;
+      color: $color-primary;
+
+      button.remove-field {
+        float: right;
+        font-size: 14px;
+        color: $purple;
+        opacity: 0;
+      }
+    }
+
+    &:hover {
+      > legend > button.remove-field {
+        opacity: 1;
+      }
+    }
+
+    > label {
+      display: flex;
+      flex-direction: row;
+
+      icon {
+        color: inherit;
+        cursor: pointer;
+        transform-origin: center center;
+        transition: all 0.1s ease-out 0s;
+        will-change: transform, opacity;
+
+        &.remove {
+          opacity: 0.3;
+          transform: scale(0.7);
+
+          &:hover {
+            opacity: 1;
+            color: $red;
+            transform: scale(1);
+          }
+        }
+      }
+
+      icon {
+        margin-right: 72px;
+      }
+
+      > textarea {
+        margin-bottom: 0;
+      }
+
+      &.field-point {
+        > textarea {
+          padding-top: 8px;
+        }
+      }
+
+      &.field-summary {
+        > span.text {
+          line-height: 28.8px;
+        }
+      }
+
+      > span.text {
+        flex: 0 0 auto;
+        min-width: 120px;
+      }
+
+      > .new-point {
+        font-size: 14px;
+        color: $color-primary;
+        flex-direction: row;
+        display: flex;
+        padding-left: 8px;
+        cursor: pointer;
+
+        > icon {
+          transform: translateY(-12px);
+        }
+
+        &:hover {
+          color: $color-success;
+        }
+      }
+
+      &.add-point {
+        cursor: pointer;
+        > span.text {
+          opacity: 0;
+        }
+
+        &:hover {
+          color: $color-success;
+        }
+      }
+    }
+  }
 }
 
 form#project-form,
 form#user-settings {
-  padding: 0 8px;
 
   footer {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-  }
-
-  label.control {
-    border-bottom: 1px solid $black-4 !important;
   }
 }
 

@@ -5,6 +5,7 @@ import 'app-state';
 import 'app-portal';
 import 'whatwg-fetch';
 import environment from './environment';
+import {Authentication} from 'server/auth';
 
 // Configure Bluebird Promises.
 // Note: You may want to use environment-specific configuration.
@@ -16,6 +17,9 @@ Promise.config({
 
 
 export function configure(aurelia) {
+
+  aurelia.container.registerInstance(Authentication, aurelia.container.get(Authentication));
+
   aurelia.use
     .defaultBindingLanguage()
     .developmentLogging()

@@ -1,0 +1,41 @@
+<template>
+  <section id="project-members">
+    <header>
+      <h3>${project.title}</h3>
+    </header>
+    <article>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Email</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>${user.lastName}</td>
+            <td>${user.firstName}</td>
+            <td>${user.email}</td>
+            <td>
+              <icon md="edit"></icon>
+            </td>
+          </tr>
+          <tr repeat.for="user of projectUsers">
+            <td>${user.lastName}</td>
+            <td>${user.firstName}</td>
+            <td>${user.email}</td>
+            <td>
+              <icon md="edit"></icon>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+    <footer>
+
+    </footer>
+  </section>
+</template>

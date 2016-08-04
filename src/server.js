@@ -22,6 +22,10 @@ export class Server {
     return httpPatch(...a);
   }
 
+  delete(...a) {
+    return httpDelete(...a);
+  }
+
   socketOn(...a) {
     return window.sio.on(...a)
   }
@@ -61,5 +65,9 @@ function httpPut(...args) {
 
 function httpPatch(...args) {
   return Container.get(Http).getHttp().patch(...args);
+}
+
+function httpDelete(...args) {
+  return Container.get(Http).getHttp().delete(...args);
 }
 

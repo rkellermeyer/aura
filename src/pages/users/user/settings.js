@@ -1,10 +1,11 @@
 import state from 'app-state';
+import portal from 'app-portal';
 
 export class UpdateUser {
   state = state;
-  /**
-   *   description
-   */
+  canActivate() {
+    portal.setConfig('portalContext', 'default')
+  }
   activate(params, config) {
     state.authorize( authorized => {
       this.authorized = state.authorized

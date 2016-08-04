@@ -1,7 +1,8 @@
 import {Cache} from 'services/cache';
 import {Container} from 'aurelia-dependency-injection';
 import channel from 'core/channel';
-import {Authorize} from 'core/actions';
+import {Authorize, UserLoggedIn, UserLoggedOut} from 'core/actions';
+import {User} from 'services/user';
 
 class State {
 
@@ -14,8 +15,15 @@ class State {
   authorized:Authorized = null;
 
   constructor() {
-    channel.subscribe(Authorize, (payload)=> {
+    channel.subscribe(UserLoggedIn, (payload)=> {
       this.authorized = payload.instruction;
+      this.user = payload.instruction;
+      console.log(this.user)
+    });
+
+    channel.subscribe(UserLoggedOut, (payload)=> {
+      this.authorized = payload.instruction;
+      this.user = this.authorized;
     });
   }
 
@@ -49,9 +57,11 @@ class State {
     return Class.instance;
   }
 
-
   containerGet(key) {
     return Container.get(key);
+  }
+
+  selectProject(project) {
   }
 
   __cacheSetItem(key, value) {

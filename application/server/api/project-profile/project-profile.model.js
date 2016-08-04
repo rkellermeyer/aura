@@ -1,6 +1,7 @@
 'use strict';
 
 const mongoose = require('mongoose');
+const PointSchema = require('./point.model').Schema;
 
 function SchemaRef(refname) {
   return {type: mongoose.Schema.Types.ObjectId, ref: refname};
@@ -8,6 +9,7 @@ function SchemaRef(refname) {
 
 var ProjectProfileSchema = new mongoose.Schema({
   id: Number,
+  title: String,
   teaser: String,
   overview: String,
   primary: Boolean,
@@ -17,6 +19,8 @@ var ProjectProfileSchema = new mongoose.Schema({
   category_id: Number,
   category: SchemaRef('Category'),
 
+  points: [PointSchema],
+  archivedPoints: [PointSchema],
 
   user_id: Number,
   user: SchemaRef('User'),

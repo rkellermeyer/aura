@@ -43,7 +43,6 @@ class Projects {
 
   all() {
     return this.server.getProjects().then((projects)=> {
-      console.log(projects)
       return  projects.map(model => {
         let project = this.hasProject(model.id) ? this.getProjectById(model.id) : new Project(model);
         this.setProject(model.id, project);
