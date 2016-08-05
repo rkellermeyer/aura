@@ -43,12 +43,10 @@ class Project {
 
   removeField(field) {
     const url = `/api/project_profiles/${this.model._id}/point/${field.model._id}`;
-    return server.delete(url).then(response => {
 
-      let index = this.fields.indexOf(field);
-      if (~index) {
-        this.fields.splice(index, 1);
-      }
+    let index = this.fields.indexOf(field);
+    if (~index) {
+      this.fields.splice(index, 1);
 
       index = this.model.points.indexOf(field.model);
 
@@ -56,9 +54,11 @@ class Project {
         this.model.points.splice(index, 1);
       }
 
-      const model = response.content;
-      this.model.archivedPoints.push(model);
-    })
+      return server.delete(url).then(response => {
+        this.model.archivedPoints.push(response.content);
+        this.update();
+      })
+    }
   }
 
   titleChanged(value) {

@@ -32,8 +32,8 @@ function startServer(done) {
 }
 
 let serve = gulp.series(
-  build,
   startServer,
+  build,
   done => {
     browserSync({
       online: false,

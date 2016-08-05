@@ -59,20 +59,28 @@ export class User {
     this.email     = null;
   }
 
+  _mapProject(project) {
+    this.projects[project._id] = project;
+    project.isPrivate = true;
+
+    project.select = ()=> {
+      this.projects.selectedProject = project;
+    }
+
+    Object.defineProperty(project, 'isSelected', {
+      get:()=> {
+        return this.projects.selectedProject === project;
+      }
+    })
+    let index = this.projects.indexOf(project);
+    if (index === -1) {
+      this.projects.push(project);
+    }
+  }
+
   mapProjects() {
     this.projects.forEach(project => {
-      this.projects[project._id] = project;
-      project.isPrivate = true;
-
-      project.select = ()=> {
-        this.projects.selectedProject = project;
-      }
-
-      Object.defineProperty(project, 'isSelected', {
-        get:()=> {
-          return this.projects.selectedProject === project;
-        }
-      })
+      this._mapProject(project);
     })
   }
 
@@ -146,7 +154,7 @@ export class User {
 
     return server.post('/api/project_profiles', project)
       .then(resp => {
-        this.projects.push(resp.content);
+        this._mapProject(resp.content)
       })
   }
 

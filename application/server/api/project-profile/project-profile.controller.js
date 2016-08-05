@@ -146,12 +146,11 @@ function archivePoint(req, res) {
       const found = projectProfile.points.id(req.params.pointId);
       const point = Object.assign({}, found);
       delete point._id;
-      projectProfile.archivedPoints.create(point);
+      const result = projectProfile.archivedPoints.create(point);
       projectProfile.save();
       projectProfile.points.id(req.params.pointId).remove();
       projectProfile.save();
 
-      const result = projectProfile.archivedPoints[projectProfile.archivedPoints.length -1]
       console.log('---------point-------')
       console.log(result)
       console.log('---------Archive-------')
