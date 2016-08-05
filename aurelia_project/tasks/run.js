@@ -24,7 +24,6 @@ function reload(done) {
 }
 
 function startServer(done) {
-
   if (CLIOptions.hasFlag('server')) {
     require('../../application/server');
   }

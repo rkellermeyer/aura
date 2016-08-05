@@ -1,4 +1,4 @@
-export const projects = [
+module.exports.projects = [
   {
     title: 'Book A Coffe Club',
     overview: 'Book A Coffee Club will make its best effort to create a unique place where customers can socialize with each other in a comfortable and relaxing environment while enjoying the best brewed coffee or espresso and pastries in town. We will be in the business of helping our customers to relieve their daily stresses by providing peace of mind through great ambience, convenient location, friendly customer service, and products of consistently high quality. Book A Coffee Club will invest its profits to increase the employee satisfaction while providing stable return to its shareholders.',
@@ -129,7 +129,7 @@ export const projects = [
 ]
 
 
-const defaultProjects = {
+module.exports.defaultProjects = {
     project_profiles: [{
         id: 1,
         teaser: "Williamsburg farm-to-table cliche PBR bicycle rights craft beer Wayfarers thundercats.",
