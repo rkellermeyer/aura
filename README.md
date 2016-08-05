@@ -10,6 +10,20 @@ To run the app, follow these steps.
 
   ```shell
   npm install
+
+
+  # set up db
+  npm run setup-db
+
+  # start mongo
+  # create a new terminal tab
+  npm run mongo
+
+  # run and seed the application
+  au run --server --seed
+
+  # run and watch codebase
+  au run --server --watch
   ```
 
 3. Ensure that [aurelia-cli](https://www.npmjs.com/package/aurelia-cli) is installed globally. If you need to install it, use the following command:
