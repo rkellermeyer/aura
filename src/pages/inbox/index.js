@@ -41,6 +41,10 @@ class Inbox {
   toggleEditMode() {
     this.editMode = !this.editMode;
   }
+
+  destroyRoom(room) {
+
+  }
 }
 
 export {Inbox}
