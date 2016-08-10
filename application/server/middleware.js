@@ -25,7 +25,7 @@ module.exports = function middleware(app) {
   const env = app.get('env');
 
   if (env === 'production') {
-    app.use(favicon(path.join(config.root, 'favicon.ico')));
+    // app.use(favicon(path.join(config.root, 'favicon.ico')));
   }
 
   app.set('appPath', path.join(config.root));
