@@ -4,6 +4,7 @@
 'use strict';
 
 const config = require('./config/environment');
+const socketioJwt = require('socketio-jwt');
 
 // When the user disconnects.. perform this
 function onDisconnect(socket) {
@@ -26,7 +27,7 @@ function onConnect(socket) {
   // require('./api/thing/thing.socket').register(socket);
 }
 
-function webSockets(socketio) {
+function webSockets(sio) {
   // socket.io (v1.x.x) is powered by debug.
   // In order to see all the debug output, set DEBUG (in server/config/local.env.js) to including the desired scope.
   //
@@ -37,12 +38,18 @@ function webSockets(socketio) {
   // 1. You will need to send the token in `client/components/socket/socket.service.js`
   //
   // 2. Require authentication here:
-  // socketio.use(require('socketio-jwt').authorize({
-  //   secret: config.secrets.session,
-  //   handshake: true
-  // }));
 
-  socketio.on('connection', function(socket) {
+  sio.set('authorization', socketioJwt.authorize({
+    secret: config.secrets.session,
+    handshake: true
+  }))
+
+  sio.on('connection', function(socket) {
+
+    const decodeToken = JSON.stringify(socket.decoded_token)
+
+    console.log(decodeToken, 'connected');
+
     socket.address = socket.request.connection.remoteAddress +
       ':' + socket.request.connection.remotePort;
 

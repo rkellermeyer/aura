@@ -37,6 +37,18 @@ export class AppRouter {
           auth: true,
         },
         {
+          route: 'dreamer',
+          moduleId: 'pages/users/dreamer', name: 'dreamer', title: 'Portal',
+          nav: true,
+          auth: true,
+        },
+        {
+          route: 'investor',
+          moduleId: 'pages/users/investor', name: 'investor', title: 'Portal',
+          nav: true,
+          auth: true,
+        },
+        {
           route: 'show-down',
           moduleId: 'pages/show-down/index', name: 'show-down', title: 'Show Down',
           nav: true,

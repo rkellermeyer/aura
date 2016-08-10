@@ -72,7 +72,7 @@ function seedUsers() {
             let profile = new UserProfile(user.user_profile);
 
             user.user_profile = profile._id;
-
+            user.role = user.role || 'investor';
             let model = new User(user);
 
             profile.user_id = model.id;
@@ -82,26 +82,29 @@ function seedUsers() {
             model.save();
           })
 
+          function createDefaultUser(user) {
+            let profile = new UserProfile(user.user_profile);
 
-          let user = defaultUser()
-          let profile = new UserProfile(user.user_profile);
+            user.user_profile = profile._id;
 
-          user.user_profile = profile._id;
+            let model = new User(user);
 
-          let model = new User(user);
+            profile.user_id = model.id;
+            profile.user = model._id;
 
-          profile.user_id = model.id;
-          profile.user = model._id;
+            adminProjects.forEach(project => {
+              let projectProfile = new ProjectProfile(project);
+              projectProfile.user = model._id;
+              projectProfile.save();
+              model.projects.push(projectProfile._id);
+            })
 
-          adminProjects.forEach(project => {
-            let projectProfile = new ProjectProfile(project);
-            projectProfile.user = model._id;
-            projectProfile.save();
-            model.projects.push(projectProfile._id);
-          })
+            profile.save();
+            model.save();
+          }
 
-          profile.save();
-          model.save();
+          createDefaultUser(defaultUser())
+          createDefaultUser(defaultInvestor())
           resolve();
         })
       });
@@ -160,7 +163,7 @@ function defaultUser() {
   return {
     id: 100,
     provider: 'local',
-    role: 'admin',
+    role: 'dreamer',
     name: 'Admin',
     email: 'admin@example.com',
     password: 'admin',
@@ -176,5 +179,27 @@ function defaultUser() {
           created_at: "2016-06-03T19:41:17.000Z",
           updated_at: "2016-06-03T19:41:17.000Z"
       }
+  }
+}
+
+function defaultInvestor() {
+  return {
+    id: 102,
+    provider: 'local',
+    role: 'investor',
+    email: 'admin@investor.com',
+    password: 'investor',
+    user_profile: {
+        user_id: 102,
+        id: 10001,
+        first_name: "Brock",
+        middle_initial: "R",
+        last_name: "Doe",
+        prefix: "Mr.",
+        suffix: "",
+        bio: "Professional investor",
+        created_at: "2016-06-03T19:41:17.000Z",
+        updated_at: "2016-06-03T19:41:17.000Z"
+    }
   }
 }

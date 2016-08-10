@@ -21,6 +21,8 @@ module.exports.register = function register(socket) {
     socket.on('disconnect', removeListener(event, listener));
   }
 
+
+
   socket.on('user:update', doc => {
     if (!doc._id) return;
     User.findById(doc._id).then(user => {

@@ -1,9 +1,11 @@
 import {inject} from 'aurelia-dependency-injection';
 import {Authentication} from 'server/auth';
 import {Router} from 'aurelia-router';
+import {roles} from 'services/roles';
 
 const defaultUser = {
   email: '',
+  role: '',
   roles: [],
   firstName: '',
   lastName: '',
@@ -14,7 +16,8 @@ const defaultUser = {
 
 @inject(Authentication, Router)
 export class Signup {
-
+  displayRoleSelection = true;
+  roles = roles;
   user = {};
 
   constructor(authentication, router) {
@@ -30,7 +33,6 @@ export class Signup {
   deactivate() {
     document.documentElement.classList.remove('hide-ui');
   }
-
 
   submit() {
     this.passwordError = (this.user.confirm !== this.user.password)
@@ -48,5 +50,11 @@ export class Signup {
     return this.authentication.signup(this.user).then(()=> {
       this.router.navigate(`#/portal`);
     })
+  }
+
+  submitRole() {
+    if (this.user.role) {
+      this.displayRoleSelection = false;
+    }
   }
 }

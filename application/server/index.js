@@ -35,6 +35,7 @@ const settings = {
   config,
   socketio: {
     serveClient: config.env !== 'production',
+    origins: '*:*',
     path: '/socket.io-client'
   }
 }

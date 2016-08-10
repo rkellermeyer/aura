@@ -1,11 +1,22 @@
+import {inject} from 'aurelia-dependency-injection';
+import {Redirect} from 'aurelia-router';
 import {computedFrom} from 'aurelia-binding';
+import {User} from 'services/user';
 
-
+@inject(User)
 export class UserPortal {
 
   router = null;
 
   _title = 'Portal';
+
+  constructor(user) {
+    this.user = user
+  }
+
+  canActivate() {
+    return new Redirect('#/'+this.user.role);
+  }
 
   @computedFrom('_title')
   get title() {

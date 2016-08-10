@@ -68,20 +68,14 @@ export class Authentication {
   }
 
   signup(user) {
-    const preAuth = {
-      email: user.email,
-      password: user.password,
-    };
 
-    return authenticate();
-
-    function postUser(content) {
-      return server.post('/api/users', content).then((resp)=> {
-        const token = resp.content.token;
+    return server.post('/api/users', user).then((resp)=> {
+      const token = resp.content.token;
+      if (token) {
         Cookie.set('token', token);
-        return this.tryFetchingCurrent();
-      })
-    }
+      }
+      return this.tryFetchingCurrent();
+    })
 
     function authenticate() {
       const client = new HttpClient();

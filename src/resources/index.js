@@ -18,6 +18,7 @@ export function configure(config) {
     './auth-nav/element',
     './portal/element',
     './switch/element',
+    './tag-input/element',
     './status-filter/element',
     '../pages/welcome/welcome-card'
   ]);

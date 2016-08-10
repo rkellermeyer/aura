@@ -1,0 +1,22 @@
+<template>
+  <app-portal router.bind="router" router-config.bind="router.currentInstruction.config">
+
+    <a slot=defaultNav
+       repeat.for="nav of router.navigation"
+       href.bind="nav.href"
+       title.bind="nav.title"
+       class="${nav.isActive ? 'is-selected' : ''}">
+      <icon md.bind="nav.config.icon"></icon>
+    </a>
+
+    <a slot=projectNav
+       repeat.for="nav of router.projectNavigation"
+       href.bind="nav.href"
+       title.bind="nav.title"
+       class="${nav.isActive ? 'is-selected' : ''}">
+      <icon md.bind="nav.config.icon"></icon>
+    </a>
+
+    <router-view></router-view>
+  </app-portal>
+</template>

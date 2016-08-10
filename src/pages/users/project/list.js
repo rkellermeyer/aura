@@ -32,7 +32,7 @@ export class ProjectList {
 
   selectProject(project) {
     project.select();
-    this.router.navigate('#/portal/project/overview');
+    this.router.navigate('#/dreamer/project/overview');
   }
 
   setStatus(event, project) {
@@ -40,7 +40,7 @@ export class ProjectList {
   }
 
   createProject() {
-    this.router.navigate('#/portal/projects/create')
+    this.router.navigate('#/dreamer/projects/create')
   }
 
   deactivate() {

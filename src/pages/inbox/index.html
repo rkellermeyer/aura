@@ -1,0 +1,50 @@
+<template>
+  <section id="inbox-page">
+    <aside id="aside-room-list">
+      <header class="messages-header">
+        <label>
+          <input type="text" value.bind="searchValue" list="userList">
+          <datalist id="userList">
+            <option repeat.for="user of users" value.bind="user.email">
+          </datalist>
+        </label>
+        <action click.trigger="toggleEditMode()">Edit</action>
+      </header>
+
+      <section>
+        <ul id="room-list" class="room-list ${editMode ? 'edit-mode' : '' }">
+          <li repeat.for="room of user.rooms" click.trigger="selectRoom(room)" class="${activeRoom === room ? 'active' : ''}">
+            <span class="remove-icon" click.trigger="destroyRoom(room)">
+              <icon md="remove_circle"></icon>
+            </span>
+            <span class="item__content">
+              <h4>${room.creator.email}</h4>
+              <a>${room.creator.email}</a>
+              <icon class="caret" md=chevron_right></icon>
+            </span>
+          </li>
+        </ul>
+      </section>
+
+    </aside>
+
+    <aside class="message-chat">
+      <header>
+        <tag-input display=email label=To options.bind="users" selected.two-way="activeRoom.users"></tag-input>
+      </header>
+      <ul>
+        <li repeat.for="message of activeRoom.messages">
+          ${message.content}
+        </li>
+      </ul>
+      <footer>
+        <form id="message-form" submit.tigger="activeRoom.postMessage()">
+          <label>
+            <textarea name="message" value.bind="activeRoom.newMessage" placeholder="Message"></textarea>
+          </label>
+          <action click.trigger="activeRoom.postMessage()" icon="send"></action>
+        </form>
+      </footer>
+    </aside>
+  </section>
+</template>

@@ -78,7 +78,7 @@
     "lusca": "^1.4.1",
     "method-override": "^2.3.6",
     "moment": "^2.14.1",
-    "mongoose": "^4.5.4",
+    "mongoose": "^4.5.8",
     "morgan": "^1.7.0",
     "motion-ui": "^1.2.2",
     "multer": "^1.1.0",

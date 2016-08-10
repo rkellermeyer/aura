@@ -3,6 +3,7 @@ import {observable} from 'aurelia-binding';
 import state from 'app-state';
 import channel from 'core/channel';
 import {UserLoggedIn, UserLoggedOut} from 'core/actions';
+import {Room} from './room';
 import server from 'server';
 import sockets from 'sockets';
 
@@ -15,9 +16,12 @@ export class User {
   @observable bio;
   @observable email;
 
+  rooms = [];
+
   static authorize(model) {
     User.instance.authorize(model);
     console.log('User logged in', User.instance)
+    sockets.connect();
     channel.publish(new UserLoggedIn(User.instance))
     return User.instance;
   }
@@ -40,10 +44,11 @@ export class User {
     this.suffix    = this.profile.suffix;
     this.middle    = this.profile.middle_initial;
     this.bio       = this.profile.bio;
+    this.role      = model.role;
     this.email     = model.email;
     this.projects  = model.projects || []
     this.model     = model;
-
+    this.mapRooms(model.rooms);
     this.mapProjects()
   }
 
@@ -57,6 +62,7 @@ export class User {
     this.bioName   = null;
     this.profile   = null;
     this.email     = null;
+    this.rooms     = [];
   }
 
   _mapProject(project) {
@@ -76,6 +82,18 @@ export class User {
     if (index === -1) {
       this.projects.push(project);
     }
+  }
+
+  _mapRoom(room) {
+    room = new Room(room);
+    room.user = this;
+    this.rooms.push(room);
+    this.rooms[room.model._id] = room;
+    return room;
+  }
+
+  mapRooms(rooms) {
+    rooms.forEach(r => this._mapRoom(r));
   }
 
   mapProjects() {
@@ -158,9 +176,17 @@ export class User {
       })
   }
 
+  createRoom() {
+    return server.post('/api/rooms', {user: this.model}).then((room)=> {
+      this.model.rooms.push(room);
+      return this._mapRoom(room);
+    })
+  }
+
   updateSockets() {
     sockets.publish(`user:update`, this.model);
   }
+
 
   save() {
     this.isDirty = false;

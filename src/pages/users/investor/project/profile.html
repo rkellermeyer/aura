@@ -1,0 +1,34 @@
+<template>
+  <section id="public-project-profile">
+
+    <header>
+      <h2>${profile.title}</h2>
+      <button-group>
+        <button>Contact</button>
+        <button>Members</button>
+        <button>Reviews</button>
+      </button-group>
+    </header>
+
+    <article class="overview">
+      <blockquote>
+        <h4>Overview</h4>
+      </blockquote>
+      <p>${profile.overview}</p>
+    </article>
+
+    <article repeat.for="point of profile.points">
+      <blockquote>
+        <h4>${point.title}</h4>
+      </blockquote>
+      <p if.bind="point.content">${point.content}</p>
+
+      <ul if.bind="point.points.length">
+        <li repeat.for="row of point.points">
+          <p>${row.text}</p>
+        </li>
+      </ul>
+    </article>
+
+  </section>
+</template>

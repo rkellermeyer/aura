@@ -3,7 +3,8 @@
     <header>
       <h1>Sign up</h1>
     </header>
-    <form submit.trigger="submit()">
+
+    <form submit.trigger="submit()" hide.bind="displayRoleSelection">
       <label>
         <input type="email" value.bind="user.email" autofocus="true" placeholder="Email">
       </label>
@@ -17,11 +18,19 @@
         <button type="submit"><icon md=arrow_forward></icon></button>
       </label>
     </form>
+    <form show.bind="displayRoleSelection">
+      <label class="select-label" repeat.for="role of roles">
+        ${role.title}
+        <input type="radio" id="user_role" name="user_role" value.bind="role.name" checked.bind="user.role">
+      </label>
+    </form>
     <footer>
-      <span class="footer-text">
+      <span class="footer-text" hide.bind="displayRoleSelection">
         <input type="checkbox" name="remember_me" checked.bind="user.remember">
         Keep me signed in
       </span>
+
+      <button class="submit-button" click.trigger="submitRole()" show.bind="displayRoleSelection">Sign up<icon md=arrow_forward></icon></button>
 
       <divider></divider>
 

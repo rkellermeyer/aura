@@ -1,6 +1,7 @@
 'use strict';
 
 const User = require('./user.model');
+const UserProfile = require('../user-profile/user-profile.model');
 const passport = require('passport');
 const config = require('../../config/environment');
 const jwt = require('jsonwebtoken');
@@ -41,12 +42,16 @@ function index(req, res) {
    * Creates a new user
    */
 function  create(req, res, next) {
-  let newUser;
+  req.body.role = req.body.role || 'dreamer';
 
-  newUser = new User(req.body);
-  newUser.provider = 'local';
-  newUser.role = 'user';
-  newUser.save()
+  const model   = new User(req.body);
+  const profile = new UserProfile(req.body);
+  model.provider = 'local';
+
+  model.user_profile = profile._id;
+  profile.user = model._id;
+  profile.save();
+  model.save()
     .then((user)=> onsave(user))
     .catch(validationError(res));
 
@@ -136,7 +141,7 @@ function  me(req, res, next) {
   let query  = { _id: userId };
 
   return User.findOne(query, '-salt -password')
-    .populate('projects user_profile')
+    .populate('projects user_profile rooms')
     .exec()
     .then(user => onfind(user))
     .catch(err => next(err));

@@ -14,9 +14,22 @@ const UserSchema = new mongoose.Schema({
     required: true
   },
 
+  rooms: [
+    {type: mongoose.Schema.Types.ObjectId, ref: 'Room'}
+  ],
+
+  requests: [
+    {type: mongoose.Schema.Types.ObjectId, ref: 'Request'}
+  ],
+
+  notifications: [
+    {type: mongoose.Schema.Types.ObjectId, ref: 'Notification'}
+  ],
+
   role: {
     type: String,
-    default: 'user'
+    lowercase: true,
+    required: true
   },
 
   password: {

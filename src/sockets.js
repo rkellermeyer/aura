@@ -1,4 +1,5 @@
 import {inject} from 'aurelia-dependency-injection';
+import {Cookie} from 'aurelia-cookie';
 import io from 'socket.io-client';
 import channel from 'app-core';
 
@@ -7,21 +8,25 @@ window.io = io;
 class Sockets {
 
   constructor() {
-    window.sio = this.io = io('', {
-      // Send auth token on connection, you will need to DI the Auth service above
-      // 'query': 'token=' + Auth.getToken()
-      path: '/socket.io-client'
-    })
+    this.connect = ()=> {
+      const token = Cookie.get('token');
+      if (!token) return;
+      window.sio = this.io = io('', {
+        // Send auth token on connection, you will need to DI the Auth service above
+        query: 'token=' + token,
+        path: '/socket.io-client'
+      })
 
-    console.log(this.io)
+      console.log(this.io)
 
-    this.io.on('connect', ()=> {
-      console.log('connected');
-    })
+      this.io.on('connect', ()=> {
+        console.log('connected');
+      })
 
-    this.io.on('project:save', (data)=> {
-      console.log(data)
-    })
+      this.io.on('project:save', (data)=> {
+        console.log(data)
+      })
+    }
   }
 
   subscribe(key, callback) {

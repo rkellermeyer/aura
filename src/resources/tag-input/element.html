@@ -1,0 +1,22 @@
+<template>
+  <ul class="selected-list" ref="list">
+    <li class="tag__label">${label}</li>
+    <li repeat.for="item of selected" ref="item.tagOption.element">
+      <span class="tag">
+        ${item.tagOption.display}
+      </span>
+    </li>
+    <form submit.trigger="selectOption()" class="tag-input-form">
+      <input type="text" name="" list="selectList" ref="control" value.bind="searchValue">
+    </form>
+  </ul>
+  <datalist id="selectList">
+    <option repeat.for="option of options" value.bind="option[display]">
+  </datalist>
+  <!-- <span class="data-list" css="opacity: ${searchValue ? 1 : 0}" ref="list">
+    <label repeat.for="option of options | filterSearch:searchValue:display">
+      ${option[display]}
+      <input type="checkbox" model.bind="option" checked.bind="selected">
+    </label>
+  </span> -->
+</template>

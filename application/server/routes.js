@@ -11,6 +11,9 @@ const router = module.exports = function(app) {
   // Insert routes below
   // app.use('/api/things', require('./api/thing'));
 
+  app.use('/api/notifications', require('./api/notification'));
+  app.use('/api/requests', require('./api/request'));
+  app.use('/api/rooms', require('./api/room'));
   app.use('/api/project_profiles', require('./api/project-profile'));
   app.use('/api/user_profiles', require('./api/user-profile'));
   app.use('/api/categories', require('./api/category'));
