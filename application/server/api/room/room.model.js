@@ -1,7 +1,6 @@
 'use strict';
 
-import mongoose from 'mongoose';
-
+const mongoose = require('mongoose');
 
 const MessageSchema = new mongoose.Schema({
   content: String,
@@ -28,4 +27,4 @@ var RoomSchema = new mongoose.Schema({
   }]
 });
 
-export default mongoose.model('Room', RoomSchema);
+module.exports = mongoose.model('Room', RoomSchema);

@@ -9,8 +9,11 @@
 
 'use strict';
 
-import _ from 'lodash';
-import Room from './room.model';
+const _ = require('lodash');
+const Room = require('./room.model');
+const User = require('../user/user.model');
+
+module.exports = {index, show, create, update, destroy, destroyMessage};
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -60,14 +63,14 @@ function handleError(res, statusCode) {
 }
 
 // Gets a list of Rooms
-export function index(req, res) {
+function index(req, res) {
   return Room.find().exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
 // Gets a single Room from the DB
-export function show(req, res) {
+function show(req, res) {
   return Room.findById(req.params.id).populate('creator users').exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
@@ -75,7 +78,7 @@ export function show(req, res) {
 }
 
 // Creates a new Room in the DB
-export function create(req, res) {
+function create(req, res) {
   return Room.create(req.body)
     .then(attachUser)
     .then(respondWithResult(res, 201))
@@ -92,21 +95,74 @@ export function create(req, res) {
 }
 
 // Updates an existing Room in the DB
-export function update(req, res) {
+function update(req, res) {
   if (req.body._id) {
     delete req.body._id;
   }
+
+  const requsers = req.body.users;
+  delete req.body.users;
+
   return Room.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
+    .then(entity => {
+      const promises = requsers.map(userId => {
+        return User.findById(userId).exec().then((user => {
+          const index = user.rooms.indexOf(entity._id);
+          if (index === -1) {
+            user.rooms.push(entity._id);
+            entity.users.push(user._id);
+            user.save();
+            entity.save()
+          }
+          return Promise.resolve();
+        }))
+      })
+      return Promise.all(promises).then(()=> entity);
+    })
+    .then(entity => {
+      console.log(entity)
+      return entity
+    })
     .then(saveUpdates(req.body))
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
 // Deletes a Room from the DB
-export function destroy(req, res) {
-  return Room.findById(req.params.id).exec()
+function destroy(req, res)
+{
+  return Room.findById(req.params.id).populate('users').exec()
+    .then((entity)=> {
+      let index = req.user.rooms.indexOf(entity._id)
+      if (~index) {
+        req.user.rooms.splice(index, 1);
+        req.user.save();
+      }
+      entity.users.forEach(user => {
+        const index = user.rooms.indexOf(entity._id);
+        if (~index) {
+          user.rooms.splice(index, 1);
+          user.save();
+        }
+      })
+      return entity;
+    })
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))
+    .catch(handleError(res));
+}
+
+function destroyMessage(req, res) {
+  const messageId = req.params.messageId;
+  return Room.findById(req.params.id).populate('users').exec()
+    .then(handleEntityNotFound(res))
+    .then((entity)=> {
+      entity.messages.id(messageId).remove();
+      entity.save();
+      console.log(entity);
+      return entity;
+    })
+    .then(respondWithResult(res))
     .catch(handleError(res));
 }

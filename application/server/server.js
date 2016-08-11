@@ -22,16 +22,19 @@ class Server {
     this.io   = socketio(this.http, settings.socketio);
     this.start = this.start.bind(this, this.app, this.http, config);
 
+
     require('./web-sockets')(this.io);
     require('./middleware')(this.app);
     require('./routes')(this.app);
   }
 
   start(app, http, config) {
-    app.startup = http.listen(config.port, config.ip, ()=> {
+    app.startup = http.listen(config.port, ()=> {
+      console.log(http.address());
       console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
     });
   }
 }
+
 
 module.exports = Server;

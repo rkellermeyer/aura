@@ -12,7 +12,7 @@ const request        = require('request');
 const adminProjects  = require('./projects').projects
 
 const PROJECT_STATUS = Status.PROJECT_STATUS;
-
+const defaultProjects = require('../../seed-projects.js');
 Promise.resolve()
   .then(seedCategories)
   .then(seedStatuses)
@@ -91,7 +91,7 @@ function seedUsers() {
 
             profile.user_id = model.id;
             profile.user = model._id;
-
+            defaultProjects(model);
             adminProjects.forEach(project => {
               let projectProfile = new ProjectProfile(project);
               projectProfile.user = model._id;
@@ -119,9 +119,9 @@ function seedProjects() {
       Project.find({}).remove(()=> {
         request('http://api.idyuh.com/project_profiles', (err, response, body)=> {
           let projectProfiles = JSON.parse(response.body).project_profiles;
-          projectProfiles = projectProfiles.concat(adminProjects);
+
           let all = [];
-          projectProfiles.forEach(profile => {
+          adminProjects.forEach(profile => {
             let promises = [];
 
             let category_id = profile.category_id;

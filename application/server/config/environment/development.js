@@ -11,6 +11,5 @@ module.exports = {
 
   // Seed database on startup
   seedDB: true
-
 };
 // mongo ds050087.mlab.com:50087/clurtch-data -u joelcoxokc -p 091190@Dev

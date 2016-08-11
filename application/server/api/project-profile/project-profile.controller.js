@@ -74,7 +74,7 @@ function handleError(res, statusCode) {
 
 // Gets a list of ProjectProfiles
 function index(req, res) {
-  return ProjectProfile.find().exec()
+  return ProjectProfile.find().populate('user').exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }

@@ -4,8 +4,8 @@
 
 'use strict';
 
-import {EventEmitter} from 'events';
-import Room from './room.model';
+const EventEmitter = require('events').EventEmitter;
+const Room = require('./room.model');
 var RoomEvents = new EventEmitter();
 
 // Set max event listeners (0 == unlimited)
@@ -30,4 +30,4 @@ function emitEvent(event) {
   }
 }
 
-export default RoomEvents;
+module.exports = RoomEvents;

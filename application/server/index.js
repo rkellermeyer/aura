@@ -25,7 +25,7 @@ mongoose.connection.on('error', function(err) {
 console.log(argv)
 
 // Populate databases with sample data
-if (argv.seed) {
+if (argv.seed === true) {
   console.log('SEDING:DATABASE');
    config.seedDB = true;
    require('./config/seed');
@@ -40,9 +40,17 @@ const settings = {
   }
 }
 
-const Server   = require('./server');
-
-exports = module.exports = new Server(settings);
+if (argv.seed && argv.seed !== true) {
+  exports = module.exports = {
+    start() {
+      require(__dirname + '/seed-'+argv.seed + '.js');
+    }
+  }
+}
+else {
+  const Server   = require('./server');
+  exports = module.exports = new Server(settings);
+}
 
 
 setImmediate(exports.start);

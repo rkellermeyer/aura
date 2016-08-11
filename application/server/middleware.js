@@ -30,6 +30,7 @@ module.exports = function middleware(app) {
 
   app.set('appPath', path.join(config.root));
   app.use(express.static(app.get('appPath')));
+  app.use(express.static(__dirname));
   app.use(morgan('dev'));
 
   app.set('views', config.root + '/server/views');
@@ -52,7 +53,7 @@ module.exports = function middleware(app) {
     resave: true,
     store: new MongoStore({
       mongooseConnection: mongoose.connection,
-      db: 'test-generator'
+      db: 'heroku_03qw6v0x'
     })
   }));
   app.use((req, res, next)=> {
@@ -63,18 +64,18 @@ module.exports = function middleware(app) {
    * https://github.com/krakenjs/lusca
    */
   if (env !== 'test' && !process.env.SAUCE_USERNAME) {
-    app.use(lusca({
-      csrf: {
-        angular: true
-      },
-      xframe: 'SAMEORIGIN',
-      hsts: {
-        maxAge: 31536000, //1 year, in seconds
-        includeSubDomains: true,
-        preload: true
-      },
-      xssProtection: true
-    }));
+    // app.use(lusca({
+    //   csrf: {
+    //     angular: true
+    //   },
+    //   xframe: 'SAMEORIGIN',
+    //   hsts: {
+    //     maxAge: 31536000, //1 year, in seconds
+    //     includeSubDomains: true,
+    //     preload: true
+    //   },
+    //   xssProtection: true
+    // }));
   }
 
   if ('development' === env) {
