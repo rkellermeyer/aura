@@ -19,7 +19,7 @@ export class Http {
   constructor(http) {
     http.configure(config => {
     config
-      .withBaseUrl(this._endpoint)
+      .withBaseUrl('//45.56.97.31/')
       .withHeader('Accept', 'application/json, text/plain, */*')
       .withHeader('X-XSRF-TOKEN', Cookie.get('XSRF-TOKEN'))
       .withHeader('Content-Type', 'application/json;charset=utf-8')
